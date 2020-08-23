@@ -1,6 +1,7 @@
 package com.xzm.medicineapp.mapper;
 
 import com.xzm.medicineapp.bean.Food;
+import com.xzm.medicineapp.bean.Prescr;
 import com.xzm.medicineapp.bean.Rumor;
 
 import java.util.List;
@@ -14,5 +15,8 @@ public interface RumorMapper {
 
     public Rumor getRumorById(Integer id);
     public List<Rumor> getRumors();
+    public Integer addRumor(Rumor rumor);
+    public Integer delRumor(Integer id);
+    public Integer updateRumor(Rumor rumor);
 
 }

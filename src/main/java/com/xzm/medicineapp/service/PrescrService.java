@@ -25,4 +25,13 @@ public class PrescrService {
     public List<Prescr> getPrescrs(){
         return prescrDao.getPrescrs();
     }
+    public Integer addPrescr(Prescr prescr){
+        return prescrDao.addPrescr(prescr);
+    }
+    public Integer delPrescr(Integer id){
+        return prescrDao.delPrescr(id);
+    }
+    public Integer updatePrescr(Prescr prescr){
+        return prescrDao.updatePrescr(prescr);
+    }
 }

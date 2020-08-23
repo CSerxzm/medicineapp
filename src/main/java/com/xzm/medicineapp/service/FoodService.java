@@ -25,4 +25,13 @@ public class FoodService {
     public List<Food> getFoods(){
         return foodDao.getFoods();
     }
+    public Integer addFood(Food food){
+        return foodDao.addFood(food);
+    }
+    public Integer delFood(Integer id){
+        return foodDao.delFood(id);
+    }
+    public Integer updateFood(Food food){
+        return foodDao.updateFood(food);
+    }
 }

@@ -13,5 +13,9 @@ public interface UserMapper {
 
     public User getUser(User user);
     public List<User> getUsers();
+    public Integer addUser(User user);
+    public Integer delUser(String name);
+    public Integer updateUser(User user);
+    public User getUserByName(String name);
 
 }

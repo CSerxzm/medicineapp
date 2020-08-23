@@ -19,6 +19,9 @@ public class CommentDao {
     @Resource
     public CommentMapper commentMapper;
 
+    public List<Comment> getComments(){
+        return commentMapper.getComments();
+    }
     //得到评论列表
     public List<Comment> getCommentsByForumId(Integer forum_id){
         return commentMapper.getCommentsByForumId(forum_id);

@@ -10,7 +10,7 @@ public class Forum {
 
     private Integer id;
     private String name;
-    private Date edit_time;
+    private Date editTime;
     private String content;
     private String keyword;
     private Integer views;
@@ -20,10 +20,10 @@ public class Forum {
 
     }
 
-    public Forum(Integer id, String name, Date edit_time, String content, String keyword, Integer views, Integer comments) {
+    public Forum(Integer id, String name, Date editTime, String content, String keyword, Integer views, Integer comments) {
         this.id = id;
         this.name = name;
-        this.edit_time = edit_time;
+        this.editTime = editTime;
         this.content = content;
         this.keyword = keyword;
         this.views = views;
@@ -46,12 +46,12 @@ public class Forum {
         this.name = name;
     }
 
-    public Date getEdit_time() {
-        return edit_time;
+    public Date getEditTime() {
+        return editTime;
     }
 
-    public void setEdit_time(Date edit_time) {
-        this.edit_time = edit_time;
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
     }
 
     public String getContent() {
@@ -91,7 +91,7 @@ public class Forum {
         return "Forum{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", edit_time=" + edit_time +
+                ", editTime=" + editTime +
                 ", content='" + content + '\'' +
                 ", keyword='" + keyword + '\'' +
                 ", views=" + views +

@@ -25,4 +25,20 @@ public class UserDao {
     public List<User> getUsers(){
         return userMapper.getUsers();
     }
+
+    public Integer addUser(User user){
+        return userMapper.addUser(user);
+    }
+
+    public Integer delUser(String name){
+        return userMapper.delUser(name);
+    }
+
+    public Integer updateUser(User user){
+        return userMapper.updateUser(user);
+    }
+
+    public User getUserByName(String name){
+        return userMapper.getUserByName(name);
+    }
 }

@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("login");
     }
 
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
@@ -25,6 +24,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/").setViewName("login");
+                registry.addViewController("/index.html").setViewName("index");
             }
             //注册拦截器
             @Override

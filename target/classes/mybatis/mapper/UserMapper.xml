@@ -11,4 +11,21 @@
         <select id="getUsers" resultType="user">
                 select * from user_tb
         </select>
+        <!--public Integer addUser(User user);-->
+        <insert id="addUser">
+                insert into user_tb(name,password,image,authority) values
+                    (#{name},#{password},#{image},#{authority})
+        </insert>
+        <!--public Integer delUser(String name);-->
+        <delete id="delUser">
+                delete from user_tb where name=#{name}
+        </delete>
+        <!--public Integer updateUser(User user);-->
+        <update id="updateUser">
+                update user_tb set password=#{password},image=#{image},authority=#{authority} where name=#{name}
+        </update>
+        <!--public User getUserByName(String name);-->
+        <select id="getUserByName" resultType="user">
+                select * from user_tb where name=#{name}
+        </select>
 </mapper>

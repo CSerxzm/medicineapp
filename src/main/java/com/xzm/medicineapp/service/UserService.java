@@ -28,4 +28,20 @@ public class UserService {
     public List<User> getUsers(){
         return userDao.getUsers();
     }
+
+    public Integer addUser(User user){
+        return userDao.addUser(user);
+    }
+
+    public Integer delUser(String name){
+        return userDao.delUser(name);
+    }
+
+    public Integer updateUser(User user){
+        return userDao.updateUser(user);
+    }
+
+    public User getUserByName(String name){
+        return userDao.getUserByName(name);
+    }
 }

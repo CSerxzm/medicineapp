@@ -23,4 +23,13 @@ public class RumorService {
     public List<Rumor> getRumors(){
         return rumorDao.getRumors();
     }
+    public Integer addRumor(Rumor rumor){
+        return rumorDao.addRumor(rumor);
+    }
+    public Integer delRumor(Integer id){
+        return rumorDao.delRumor(id);
+    }
+    public Integer updateRumor(Rumor rumor){
+        return rumorDao.updateRumor(rumor);
+    }
 }

@@ -31,4 +31,14 @@ public class HealthService {
     public List<Health> getHealths(){
         return healthDao.getHealths();
     }
+
+    public Integer addHealth(Health health){
+        return healthDao.addHealth(health);
+    }
+    public Integer delHealth(Integer id){
+        return healthDao.delHealth(id);
+    }
+    public Integer updateHealth(Health health){
+        return healthDao.updateHealth(health);
+    }
 }

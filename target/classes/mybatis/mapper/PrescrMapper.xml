@@ -11,4 +11,18 @@
         <select id="getPrescrs" resultType="prescr">
                 select * from prescr_tb
         </select>
+        <!--public Integer addPrescr(Prescr prescr);-->
+        <insert id="addPrescr">
+                insert into prescr_tb(name,compose,funs,source) values
+                     (#{name},#{compose},#{funs},#{source})
+        </insert>
+        <!--public Integer delPrescr(Integer id);-->
+        <delete id="delPrescr">
+                delete from prescr_tb where id=#{id}
+        </delete>
+        <!--public Integer updatePrescr(Prescr prescr);-->
+        <update id="updatePrescr">
+                update prescr_tb set name=#{name},compose=#{compose},funs=#{funs},source=#{source}
+                where id=#{id}
+        </update>
 </mapper>

@@ -20,6 +20,11 @@ public class User implements Serializable{
         this.authority = authority;
     }
 
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     public User() {
         super();
     }

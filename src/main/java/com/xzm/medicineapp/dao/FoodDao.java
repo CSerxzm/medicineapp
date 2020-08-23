@@ -25,4 +25,13 @@ public class FoodDao {
     public List<Food> getFoods(){
         return foodMapper.getFoods();
     }
+    public Integer addFood(Food food){
+        return foodMapper.addFood(food);
+    }
+    public Integer delFood(Integer id){
+        return foodMapper.delFood(id);
+    }
+    public Integer updateFood(Food food){
+        return foodMapper.updateFood(food);
+    }
 }

@@ -23,4 +23,13 @@ public class RumorDao {
     public List<Rumor> getRumors(){
         return rumorMapper.getRumors();
     }
+    public Integer addRumor(Rumor rumor){
+        return rumorMapper.addRumor(rumor);
+    }
+    public Integer delRumor(Integer id){
+        return rumorMapper.delRumor(id);
+    }
+    public Integer updateRumor(Rumor rumor){
+        return rumorMapper.updateRumor(rumor);
+    }
 }

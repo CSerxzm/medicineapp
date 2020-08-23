@@ -11,4 +11,18 @@
         <select id="getMedicines" resultType="medicine">
                 select * from medicine_tb
         </select>
+        <!--public Integer addMedicine(Medicine medicine);-->
+        <insert id="addMedicine">
+                insert into medicine_tb(name,nickname,image,funs,taboos) values
+                (#{name},#{nickname},#{image},#{funs},#{taboos})
+        </insert>
+        <!--public Integer delMedicine(Integer id);-->
+        <delete id="delMedicine">
+                delete from medicine_tb where id=#{id}
+        </delete>
+        <!--public Integer updateMedicine(Medicine medicine);-->
+        <update id="updateMedicine">
+                update medicine_tb set name=#{name},nickname=#{nickname},image=#{image},funs=#{funs},taboos=#{taboos}
+                where id=#{id}
+        </update>
 </mapper>

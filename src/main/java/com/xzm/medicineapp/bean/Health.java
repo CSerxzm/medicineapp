@@ -8,25 +8,25 @@ public class Health {
 
     private Integer id;
     private String title;
-    private String autho;
-    private String edit_time;
+    private String author;
+    private String editTime;
     private String content;
-    private String main_type;
-    private String sub_typ;
+    private String mainType;
+    private String subType;
     Integer views;
 
-    public Health(){
+    public Health() {
 
     }
 
-    public Health(Integer id, String title, String autho, String edit_time, String content, String main_type, String sub_typ, Integer views) {
+    public Health(Integer id, String title, String author, String editTime, String content, String mainType, String subType, Integer views) {
         this.id = id;
         this.title = title;
-        this.autho = autho;
-        this.edit_time = edit_time;
+        this.author = author;
+        this.editTime = editTime;
         this.content = content;
-        this.main_type = main_type;
-        this.sub_typ = sub_typ;
+        this.mainType = mainType;
+        this.subType = subType;
         this.views = views;
     }
 
@@ -46,20 +46,20 @@ public class Health {
         this.title = title;
     }
 
-    public String getAutho() {
-        return autho;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutho(String autho) {
-        this.autho = autho;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getEdit_time() {
-        return edit_time;
+    public String getEditTime() {
+        return editTime;
     }
 
-    public void setEdit_time(String edit_time) {
-        this.edit_time = edit_time;
+    public void setEditTime(String editTime) {
+        this.editTime = editTime;
     }
 
     public String getContent() {
@@ -70,20 +70,20 @@ public class Health {
         this.content = content;
     }
 
-    public String getMain_type() {
-        return main_type;
+    public String getMainType() {
+        return mainType;
     }
 
-    public void setMain_type(String main_type) {
-        this.main_type = main_type;
+    public void setMainType(String mainType) {
+        this.mainType = mainType;
     }
 
-    public String getSub_typ() {
-        return sub_typ;
+    public String getSubType() {
+        return subType;
     }
 
-    public void setSub_typ(String sub_typ) {
-        this.sub_typ = sub_typ;
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 
     public Integer getViews() {
@@ -99,11 +99,11 @@ public class Health {
         return "Health{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", autho='" + autho + '\'' +
-                ", edit_time='" + edit_time + '\'' +
+                ", author='" + author + '\'' +
+                ", editTime='" + editTime + '\'' +
                 ", content='" + content + '\'' +
-                ", main_type='" + main_type + '\'' +
-                ", sub_typ='" + sub_typ + '\'' +
+                ", mainType='" + mainType + '\'' +
+                ", subType='" + subType + '\'' +
                 ", views=" + views +
                 '}';
     }

@@ -19,6 +19,9 @@ public class CommentService {
     @Autowired
     private CommentDao commentDao;
 
+    public List<Comment> getComments(){
+        return commentDao.getComments();
+    }
     public List<Comment> getCommentsByForumId(Integer forum_id){
         return commentDao.getCommentsByForumId(forum_id);
     }

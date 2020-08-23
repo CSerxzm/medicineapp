@@ -7,10 +7,10 @@ import com.xzm.medicineapp.service.FoodService;
 import com.xzm.medicineapp.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,28 +24,41 @@ public class ForumController {
     private ForumService forumService;
 
     @ResponseBody
-    @RequestMapping("/getForums")
+    @RequestMapping("/getforums")
     public String getForums(){
         List<Forum> forumList = forumService.getForums();
         return JSON.toJSONString(forumList);
     }
     @ResponseBody
-    @RequestMapping("/getForumById")
+    @RequestMapping("/getforumbyid")
     public String getForumById(Integer id){
         Forum forum = forumService.getForumById(id);
         return JSON.toJSONString(forum);
     }
     @ResponseBody
-    @RequestMapping("/addForum")
+    @RequestMapping("/addforum")
     public String addForum(Forum forum){
         Integer result = forumService.addForum(forum);
         return  JSON.toJSONString(forum);
     }
     @ResponseBody
-    @RequestMapping("delForumById")
+    @RequestMapping("delforumbyid")
     public String delForumById(Integer id){
         Integer result = forumService.delForumById(id);
         return  JSON.toJSONString(result);
     }
+    /*************************后台管理*************************/
 
+    @GetMapping("/back/forums")
+    public String backForums(ModelMap modelMap){
+        Collection<Forum> forums = forumService.getForums();
+        modelMap.addAttribute("forums",forums);
+        return "forum/list";
+    }
+
+    @DeleteMapping("/back/forum/{id}")
+    public String deleteForum(@PathVariable("id") Integer id){
+        forumService.delForumById(id);
+        return "redirect:/back/forums";
+    }
 }

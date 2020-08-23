@@ -3,6 +3,10 @@
                 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.CommentMapper">
+        <!--public List<Comment> getComments();-->
+        <select id="getComments" resultType="comment">
+                select * from comment_tb
+        </select>
         <!--public List<Comment> getCommentsByForumId(Integer forum_id);-->
         <select id="getCommentsByForumId" resultType="comment">
                 select * from comment_tb where forum_id=#{forum_id}

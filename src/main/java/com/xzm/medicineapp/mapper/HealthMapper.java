@@ -1,6 +1,7 @@
 package com.xzm.medicineapp.mapper;
 
 import com.xzm.medicineapp.bean.Health;
+import com.xzm.medicineapp.bean.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -15,5 +16,8 @@ public interface HealthMapper {
     public Health getHealthById(Integer id);
     public List<Health> getHealthsByType(@Param("main_type") String main_type,@Param("sub_type") String sub_type);
     public List<Health> getHealths();
+    public Integer addHealth(Health health);
+    public Integer delHealth(Integer id);
+    public Integer updateHealth(Health health);
 
 }

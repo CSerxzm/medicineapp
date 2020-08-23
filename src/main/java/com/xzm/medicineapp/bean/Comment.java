@@ -9,19 +9,20 @@ import java.util.Date;
 public class Comment {
 
     private Integer id;
-    private Integer forum_id;
+    private Integer forumId;
     private String name;
-    private Date edit_time;
+    private Date editTime;
     private String content;
 
     public Comment(){
 
     }
-    public Comment(Integer id, Integer forum_id, String name, Date edit_time, String content) {
+
+    public Comment(Integer id, Integer forumId, String name, Date editTime, String content) {
         this.id = id;
-        this.forum_id = forum_id;
+        this.forumId = forumId;
         this.name = name;
-        this.edit_time = edit_time;
+        this.editTime = editTime;
         this.content = content;
     }
 
@@ -33,12 +34,12 @@ public class Comment {
         this.id = id;
     }
 
-    public Integer getForum_id() {
-        return forum_id;
+    public Integer getForumId() {
+        return forumId;
     }
 
-    public void setForum_id(Integer forum_id) {
-        this.forum_id = forum_id;
+    public void setForumId(Integer forumId) {
+        this.forumId = forumId;
     }
 
     public String getName() {
@@ -49,12 +50,12 @@ public class Comment {
         this.name = name;
     }
 
-    public Date getEdit_time() {
-        return edit_time;
+    public Date getEditTime() {
+        return editTime;
     }
 
-    public void setEdit_time(Date edit_time) {
-        this.edit_time = edit_time;
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
     }
 
     public String getContent() {
@@ -69,9 +70,9 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "id=" + id +
-                ", forum_id=" + forum_id +
+                ", forumId=" + forumId +
                 ", name='" + name + '\'' +
-                ", edit_time=" + edit_time +
+                ", editTime=" + editTime +
                 ", content='" + content + '\'' +
                 '}';
     }

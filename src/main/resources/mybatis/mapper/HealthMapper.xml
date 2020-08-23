@@ -9,10 +9,24 @@
         </select>
         <!--public List<Health> getHealthsByType(@Param("main_type") String main_type,@Param("sub_type") String sub_type);-->
         <select id="getHealthsByType" resultType="health">
-                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type}
+                select * from health_tb where main_type=#{mainType} and sub_type=#{subType}
         </select>
         <!--public List<Health> getHealths();-->
         <select id="getHealths" resultType="health">
                 select * from health_tb
         </select>
+        <!--public Integer addHealth(Health health);-->
+        <insert id="addHealth">
+                insert into health_tb(title,author,edit_time,content,main_type,sub_type) values
+                      (#{title},#{author},#{editTime},#{content},#{mainType},#{subType})
+        </insert>
+        <!--public Integer delHealth(Integer id);-->
+        <delete id="delHealth">
+                delete from health_tb where id=#{id}
+        </delete>
+        <!--public Integer updateHealth(Health health);-->
+        <update id="updateHealth">
+                update health_tb set title=#{title},author=#{author},edit_time=#{editTime},content=#{content},main_type=#{mainType},sub_type=#{subType}
+                where id=#{id}
+        </update>
 </mapper>

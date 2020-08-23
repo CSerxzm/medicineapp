@@ -25,4 +25,14 @@ public class PrescrDao {
     public List<Prescr> getPrescrs(){
         return  prescrMapper.getPrescrs();
     }
+
+    public Integer addPrescr(Prescr prescr){
+        return prescrMapper.addPrescr(prescr);
+    }
+    public Integer delPrescr(Integer id){
+        return prescrMapper.delPrescr(id);
+    }
+    public Integer updatePrescr(Prescr prescr){
+        return prescrMapper.updatePrescr(prescr);
+    }
 }

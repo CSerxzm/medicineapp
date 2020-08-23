@@ -25,4 +25,14 @@ public class MedicineService {
     public List<Medicine> getMedicines(){
         return medicineDao.getMedicines();
     }
+
+    public Integer addMedicine(Medicine medicine){
+        return medicineDao.addMedicine(medicine);
+    }
+    public Integer delMedicine(Integer id){
+        return medicineDao.delMedicine(id);
+    }
+    public Integer updateMedicine(Medicine medicine){
+        return medicineDao.updateMedicine(medicine);
+    }
 }

@@ -24,4 +24,14 @@ public class MedicineDao {
     public List<Medicine> getMedicines(){
         return medicineMapper.getMedicines();
     }
+
+    public Integer addMedicine(Medicine medicine){
+        return medicineMapper.addMedicine(medicine);
+    }
+    public Integer delMedicine(Integer id){
+        return medicineMapper.delMedicine(id);
+    }
+    public Integer updateMedicine(Medicine medicine){
+        return medicineMapper.updateMedicine(medicine);
+    }
 }

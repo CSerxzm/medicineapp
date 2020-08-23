@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>本草善养-后台</title>
+		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+	</head>
+
+	<body>
+		<div th:replace="~{commons/bar::topbar}"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div th:replace="~{commons/bar::#sidebar(activeuri='user')}"></div>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<div class="table-responsive">
+						<form th:action="@{/back/user}" method="post">
+							<input type="hidden" name="_method" value="put" th:if="${user!=null}"/>
+							<div class="form-group">
+								<label>用户名</label>
+								<input name="name" type="text" class="form-control" th:value="${user}!=null?${user.name}" th:readonly="${user}!=null" required>
+							</div>
+							<div class="form-group">
+								<label>密码</label>
+								<input name="password" type="password" class="form-control" th:value="${user}!=null?${user.password}" required>
+							</div>
+							<div class="form-group">
+								<label>头像</label>
+								<input name="image" type="text" class="form-control" th:value="${user}!=null?${user.image}">
+							</div>
+							<div class="form-group">
+								<label>权限</label><br/>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="authority"  value="root" th:checked="${user!=null}?${user.authority}=='root'">
+									<label class="form-check-label">管理员</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="authority"  value="user" th:checked="${user!=null}?${user.authority}=='user'">
+									<label class="form-check-label">普通用户</label>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-sm btn-primary" th:text="${user}==null?'添加':'更新'">添加</button>
+						</form>
+					</div>
+				</main>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+
+		<!-- Icons -->
+		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
+		<script>
+			feather.replace()
+		</script>
+	</body>
+
+</html>

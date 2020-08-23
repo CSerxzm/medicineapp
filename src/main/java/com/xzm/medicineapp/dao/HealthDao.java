@@ -31,4 +31,13 @@ public class HealthDao {
     public List<Health> getHealths(){
         return healthMapper.getHealths();
     }
+    public Integer addHealth(Health health){
+        return healthMapper.addHealth(health);
+    }
+    public Integer delHealth(Integer id){
+        return healthMapper.delHealth(id);
+    }
+    public Integer updateHealth(Health health){
+        return healthMapper.updateHealth(health);
+    }
 }

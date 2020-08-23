@@ -8,10 +8,10 @@ import com.xzm.medicineapp.service.MedicineService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -24,16 +24,55 @@ public class MedicineController {
     @Autowired
     private MedicineService medicineService;
     @ResponseBody
-    @RequestMapping("/getMedicineById")
+    @RequestMapping("/getmedicinebyid")
     public String getMedicineById(Integer id){
         Medicine medicine = medicineService.getMedicineById(id);
         return JSON.toJSONString(medicine);
     }
 
     @ResponseBody
-    @RequestMapping("/getMedicines")
+    @RequestMapping("/getmedicines")
     public String getMedicines(){
         List<Medicine> medicineList = medicineService.getMedicines();
         return JSON.toJSONString(medicineList);
+    }
+    /*************************后台管理*************************/
+
+    @GetMapping("/back/medicines")
+    public String backMedicines(ModelMap modelMap){
+        Collection<Medicine> medicines = medicineService.getMedicines();
+        modelMap.addAttribute("medicines",medicines);
+        return "medicine/list";
+    }
+
+    @GetMapping("/back/medicine")
+    public String toAddPage(){
+        return "medicine/add";
+    }
+
+    @PostMapping("/back/medicine")
+    public String addMedicine(Medicine medicine){
+        medicineService.addMedicine(medicine);
+        return "redirect:/back/medicines";
+    }
+
+    @GetMapping("/back/medicine/{id}")
+    public String toEditPage(@PathVariable("id") Integer id, ModelMap modelMap){
+        Medicine medicine = medicineService.getMedicineById(id);
+        modelMap.addAttribute("medicine",medicine);
+        //回到修改页面(add是一个修改添加二合一的页面);
+        return "medicine/add";
+    }
+
+    @PutMapping("/back/medicine")
+    public String updateMedicine(Medicine medicine){
+        medicineService.updateMedicine(medicine);
+        return "redirect:/back/medicines";
+    }
+
+    @DeleteMapping("/back/medicine/{id}")
+    public String deleteMedicine(@PathVariable("id") Integer id){
+        medicineService.delMedicine(id);
+        return "redirect:/back/medicines";
     }
 }
