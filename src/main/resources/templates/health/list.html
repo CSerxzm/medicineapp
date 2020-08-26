@@ -12,10 +12,10 @@
 		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
 		<!-- Bootstrap core CSS -->
 		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
-
 		<!-- Custom styles for this template -->
 		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
-	</head>
+        <script type="text/javascript" src="asserts/js/info.js" th:src="@{/asserts/js/info.js}"></script>
+    </head>
 
 	<body>
 		<div th:replace="~{commons/bar::topbar}"></div>
@@ -33,6 +33,7 @@
 									<th>标题</th>
 									<th>作者</th>
 									<th>发布时间</th>
+									<th>图片</th>
 									<th>内容</th>
 									<th>主类别</th>
 									<th>子类别</th>
@@ -45,9 +46,10 @@
 								  <td th:text="${health.title}"></td>
 								  <td th:text="${health.author}"></td>
 								  <td th:text="${#dates.format(health.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
+								  <td><img style="width: 80px;height: 80px;" th:src="${health.image}"/></td>
 								  <td th:text="${health.content}"></td>
 								  <td th:text="${health.mainType}"></td>
-								  <td th:text="${health.subType}"></td>
+                                  <td th:text="${health.subType}"></td>
 								  <td>
 									 <a class="btn btn-sm btn-primary" th:href="@{'/back/health/'+${health.id}}">编辑</a>
 									  <button th:attr="del_uri=@{/back/health/}+${health.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>

@@ -7,9 +7,9 @@
         <select id="getHealthById" resultType="health">
                 select * from health_tb where id=#{id}
         </select>
-        <!--public List<Health> getHealthsByType(@Param("main_type") String main_type,@Param("sub_type") String sub_type);-->
+        <!--public List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);-->
         <select id="getHealthsByType" resultType="health">
-                select * from health_tb where main_type=#{mainType} and sub_type=#{subType}
+                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type}
         </select>
         <!--public List<Health> getHealths();-->
         <select id="getHealths" resultType="health">
@@ -17,8 +17,8 @@
         </select>
         <!--public Integer addHealth(Health health);-->
         <insert id="addHealth">
-                insert into health_tb(title,author,edit_time,content,main_type,sub_type) values
-                      (#{title},#{author},#{editTime},#{content},#{mainType},#{subType})
+                insert into health_tb(title,author,edit_time,image,content,main_type,sub_type) values
+                      (#{title},#{author},#{editTime},#{image},#{content},#{mainType},#{subType})
         </insert>
         <!--public Integer delHealth(Integer id);-->
         <delete id="delHealth">
@@ -26,7 +26,7 @@
         </delete>
         <!--public Integer updateHealth(Health health);-->
         <update id="updateHealth">
-                update health_tb set title=#{title},author=#{author},edit_time=#{editTime},content=#{content},main_type=#{mainType},sub_type=#{subType}
+                update health_tb set title=#{title},author=#{author},edit_time=#{editTime},image=#{image},content=#{content},main_type=#{mainType},sub_type=#{subType}
                 where id=#{id}
         </update>
 </mapper>

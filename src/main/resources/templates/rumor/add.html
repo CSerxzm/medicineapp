@@ -33,6 +33,10 @@
 								<input name="title" type="text" class="form-control" th:value="${rumor}!=null?${rumor.title}" required>
 							</div>
 							<div class="form-group">
+								<label>图片</label>
+								<input name="image" type="text" class="form-control" th:value="${rumor}!=null?${rumor.image}" required>
+							</div>
+							<div class="form-group">
 								<label>内容</label>
 								<input name="content" type="text" class="form-control" th:value="${rumor}!=null?${rumor.content}" required>
 							</div>

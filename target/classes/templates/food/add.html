@@ -33,6 +33,10 @@
 								<input name="name" type="text" class="form-control" th:value="${food}!=null?${food.name}" required>
 							</div>
 							<div class="form-group">
+								<label>图片</label>
+								<input name="image" type="text" class="form-control" th:value="${food}!=null?${food.image}" imagerequired>
+							</div>
+							<div class="form-group">
 								<label>用料</label>
 								<input name="compose" type="text" class="form-control" th:value="${food}!=null?${food.compose}" required>
 							</div>

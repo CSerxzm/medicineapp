@@ -14,7 +14,7 @@
         <!--public Integer addForum(Forum forum);-->
         <insert id="addForum" parameterType="forum" useGeneratedKeys="true" keyProperty="id">
                 insert into forum_tb(name,edit_time,content,keyword) values
-                (#{name},#{edit_time},#{content},#{keyword})
+                (#{name},#{editTime},#{content},#{keyword})
         </insert>
         <!--public Integer delForumById(Integer id);-->
         <delete id="delForumById">

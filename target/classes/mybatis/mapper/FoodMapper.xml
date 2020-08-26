@@ -13,8 +13,8 @@
         </select>
         <!--public Integer addFood(Food food);-->
         <insert id="addFood">
-                insert into food_tb(name,compose,method,funs) values
-                (#{name},#{compose},#{method},#{funs})
+                insert into food_tb(name,image,compose,method,funs) values
+                (#{name},#{image},#{compose},#{method},#{funs})
         </insert>
         <!--public Integer delFood(Integer id);-->
         <delete id="delFood">
@@ -22,6 +22,6 @@
         </delete>
         <!--public Integer updateFood(Food food);-->
         <update id="updateFood">
-                update food_tb set name=#{name},compose=#{compose},method=#{method},funs=#{funs} where id=#{id}
+                update food_tb set name=#{name},image=#{image},compose=#{compose},method=#{method},funs=#{funs} where id=#{id}
         </update>
 </mapper>

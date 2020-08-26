@@ -8,6 +8,7 @@ public class Rumor {
 
     private Integer id;
     private String title;
+    private String image;
     private String content;
     private String source;
     private String reality;
@@ -16,9 +17,10 @@ public class Rumor {
 
     }
 
-    public Rumor(Integer id, String title, String content, String source, String reality) {
+    public Rumor(Integer id, String title,String image, String content, String source, String reality) {
         this.id = id;
         this.title = title;
+        this.image=image;
         this.content = content;
         this.source = source;
         this.reality = reality;
@@ -38,6 +40,14 @@ public class Rumor {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getContent() {
@@ -69,6 +79,7 @@ public class Rumor {
         return "Rumor{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
                 ", content='" + content + '\'' +
                 ", source='" + source + '\'' +
                 ", reality='" + reality + '\'' +

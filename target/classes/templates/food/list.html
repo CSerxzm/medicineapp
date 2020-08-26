@@ -31,6 +31,7 @@
 								<tr>
 									<th>ID</th>
 									<th>食谱名</th>
+									<th>图片</th>
 									<th>用料</th>
 									<th>做法</th>
 									<th>功效</th>
@@ -41,6 +42,7 @@
 							  <tr th:each="food:${foods}">
 								  <td th:text="${food.id}"></td>
 								  <td th:text="${food.name}"></td>
+                                  <td><img style="width: 80px;height: 80px;" th:src="${food.image}"/></td>
 								  <td th:text="${food.compose}"></td>
 								  <td th:text="${food.method}"></td>
 								  <td th:text="${food.funs}"></td>

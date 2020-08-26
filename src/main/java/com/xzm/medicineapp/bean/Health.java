@@ -10,20 +10,22 @@ public class Health {
     private String title;
     private String author;
     private String editTime;
+    private String image;
     private String content;
-    private String mainType;
-    private String subType;
-    Integer views;
+    private Integer mainType;
+    private Integer subType;
+    private Integer views;
 
     public Health() {
 
     }
 
-    public Health(Integer id, String title, String author, String editTime, String content, String mainType, String subType, Integer views) {
+    public Health(Integer id, String title, String author, String editTime, String image, String content, Integer mainType, Integer subType, Integer views) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.editTime = editTime;
+        this.image = image;
         this.content = content;
         this.mainType = mainType;
         this.subType = subType;
@@ -62,6 +64,14 @@ public class Health {
         this.editTime = editTime;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getContent() {
         return content;
     }
@@ -70,19 +80,19 @@ public class Health {
         this.content = content;
     }
 
-    public String getMainType() {
+    public Integer getMainType() {
         return mainType;
     }
 
-    public void setMainType(String mainType) {
+    public void setMainType(Integer mainType) {
         this.mainType = mainType;
     }
 
-    public String getSubType() {
+    public Integer getSubType() {
         return subType;
     }
 
-    public void setSubType(String subType) {
+    public void setSubType(Integer subType) {
         this.subType = subType;
     }
 
@@ -101,9 +111,10 @@ public class Health {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", editTime='" + editTime + '\'' +
+                ", image='" + image + '\'' +
                 ", content='" + content + '\'' +
-                ", mainType='" + mainType + '\'' +
-                ", subType='" + subType + '\'' +
+                ", mainType=" + mainType +
+                ", subType=" + subType +
                 ", views=" + views +
                 '}';
     }

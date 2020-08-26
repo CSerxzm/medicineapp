@@ -13,7 +13,7 @@
         </select>
         <!--public Integer addComment(Comment comment);-->
         <insert id="addComment" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
-                insert into comment_tb(forum_id,name,edit_time,content) values (#{forum_id},#{name},#{edit_time},#{content})
+                insert into comment_tb(forum_id,name,edit_time,content) values (#{forumId},#{name},#{editTime},#{content})
         </insert>
         <!--public Integer delCommentById(Integer id);-->
         <delete id="delCommentById">

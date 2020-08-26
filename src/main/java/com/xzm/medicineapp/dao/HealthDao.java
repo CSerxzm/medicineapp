@@ -24,8 +24,8 @@ public class HealthDao {
         return healthMapper.getHealthById(id);
     }
 
-    public List<Health> getHealthsByType(String main_type,String sub_type){
-        return healthMapper.getHealthsByType(main_type,sub_type);
+    public List<Health> getHealthsByType(Integer mainType,Integer subType){
+        return healthMapper.getHealthsByType(mainType,subType);
     }
 
     public List<Health> getHealths(){

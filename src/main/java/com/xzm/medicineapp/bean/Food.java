@@ -8,6 +8,7 @@ public class Food {
 
     private Integer id;
     private String name;
+    private String image;
     private String compose;
     private String method;
     private String funs;
@@ -16,9 +17,10 @@ public class Food {
 
     }
 
-    public Food(Integer id, String name, String compose, String method, String funs) {
+    public Food(Integer id, String name, String image, String compose, String method, String funs) {
         this.id = id;
         this.name = name;
+        this.image = image;
         this.compose = compose;
         this.method = method;
         this.funs = funs;
@@ -34,6 +36,14 @@ public class Food {
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setName(String name) {
@@ -69,6 +79,7 @@ public class Food {
         return "Food{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
                 ", compose='" + compose + '\'' +
                 ", method='" + method + '\'' +
                 ", funs='" + funs + '\'' +

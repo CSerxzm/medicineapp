@@ -13,8 +13,8 @@
         </select>
         <!--public Integer addRumor(Rumor rumor);-->
         <insert id="addRumor">
-                insert into rumor_tb(title,content,source,reality) values
-                      (#{title},#{content},#{source},#{reality})
+                insert into rumor_tb(title,image,content,source,reality) values
+                      (#{title},image=#{image},#{content},#{source},#{reality})
         </insert>
         <!--public Integer delRumor(Integer id);-->
         <delete id="delRumor">
@@ -22,7 +22,7 @@
         </delete>
         <!--public Integer updateRumor(Rumor rumor);-->
         <update id="updateRumor">
-              update rumor_tb set title=#{title},content=#{content},source=#{source},reality=#{reality}
+              update rumor_tb set title=#{title},image=#{image},content=#{content},source=#{source},reality=#{reality}
               where id=#{id}
         </update>
 </mapper>

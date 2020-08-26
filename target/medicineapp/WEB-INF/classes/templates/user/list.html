@@ -40,7 +40,7 @@
 							  <tr th:each="user:${users}">
 								  <td th:text="${user.name}"></td>
 								  <td th:text="${user.password}"></td>
-								  <td th:text="${user.image}"></td>
+								  <td><img style="width: 80px;height: 80px;" th:src="${user.image}"/></td>
 								  <td th:text="${user.authority}=='root'?'管理员':'普通用户'"></td>
 								  <td>
 									 <a class="btn btn-sm btn-primary" th:href="@{'/back/user/'+${user.name}}">编辑</a>

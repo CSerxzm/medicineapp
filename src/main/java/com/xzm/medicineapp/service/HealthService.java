@@ -24,8 +24,8 @@ public class HealthService {
         return result;
     }
 
-    public List<Health> getHealthsByType(String main_type,String sub_type){
-        return healthDao.getHealthsByType(main_type,sub_type);
+    public List<Health> getHealthsByType(Integer mainType,Integer subType){
+        return healthDao.getHealthsByType(mainType,subType);
     }
 
     public List<Health> getHealths(){

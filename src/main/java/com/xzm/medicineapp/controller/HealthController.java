@@ -29,8 +29,9 @@ public class HealthController {
     }
     @ResponseBody
     @RequestMapping("/getheathbytype")
-    public String getHealthsByType(@Param("main_type") String main_type, @Param("sub_type") String sub_type){
-        List<Health> healthList = healthService.getHealthsByType(main_type,sub_type);
+    public String getHealthsByType(@RequestParam("main_type") Integer mainType, @RequestParam("sub_type") Integer subType){
+        System.out.println(mainType+"/"+mainType);
+        List<Health> healthList = healthService.getHealthsByType(mainType,subType);
         return JSON.toJSONString(healthList);
     }
     @ResponseBody
