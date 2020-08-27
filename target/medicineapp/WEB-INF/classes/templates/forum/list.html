@@ -41,7 +41,7 @@
 							<tbody>
 							  <tr th:each="forum:${forums}">
 								  <td th:text="${forum.id}"></td>
-								  <td th:text="${forum.name}"></td>
+								  <td th:text="${forum.user.name}"></td>
 								  <td th:text="${#dates.format(forum.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
 								  <td th:text="${forum.content}"></td>
 								  <td th:text="${forum.keyword}"></td>

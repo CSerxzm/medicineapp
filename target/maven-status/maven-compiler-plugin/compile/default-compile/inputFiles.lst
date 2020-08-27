@@ -33,6 +33,7 @@ E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\mapper\RumorMapper.
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\controller\CommentController.java
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\mapper\CommentMapper.java
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\mapper\FoodMapper.java
+E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\util\PageModel.java
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\controller\RumorController.java
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\bean\Comment.java
 E:\ProjectIdea\medicineapp\src\main\java\com\xzm\medicineapp\dao\ForumDao.java

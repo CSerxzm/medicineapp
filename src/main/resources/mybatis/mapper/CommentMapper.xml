@@ -22,7 +22,7 @@
         </select>
         <!--public List<Comment> getCommentsByForumId(Integer forum_id);-->
         <select id="getCommentsByForumId" resultMap="commentanduser">
-                select id, forum_id, edit_time,content,user_tb.name name,image from comment_tb,user_tb where comment_tb.name=user_tb.name  order by edit_time desc
+                select id, forum_id, edit_time,content,user_tb.name name,image from comment_tb,user_tb where comment_tb.name=user_tb.name and forum_id=#{forum_id}  order by edit_time desc
         </select>
         <!--public Integer addComment(Comment comment);-->
         <insert id="addComment" parameterType="comment" useGeneratedKeys="true" keyProperty="id">

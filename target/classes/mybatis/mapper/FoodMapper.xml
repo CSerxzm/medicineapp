@@ -7,9 +7,12 @@
         <select id="getFoodById" resultType="food">
                 select * from food_tb where id=#{id}
         </select>
-        <!--public List<Food> getFoods();-->
+        <!--public List<Food> getFoods(PageModel pageModel);-->
         <select id="getFoods" resultType="food">
-                select * from food_tb
+                select * from food_tb  order by name desc
+                <if test="firstLimitParam!=null and pageSize!=null" >
+                        limit #{firstLimitParam} , #{pageSize}
+                </if>
         </select>
         <!--public Integer addFood(Food food);-->
         <insert id="addFood">
@@ -24,4 +27,8 @@
         <update id="updateFood">
                 update food_tb set name=#{name},image=#{image},compose=#{compose},method=#{method},funs=#{funs} where id=#{id}
         </update>
+        <!--public Integer getCount();-->
+        <select id="getCount" resultType="Integer">
+                select count(*) from  food_tb
+        </select>
 </mapper>

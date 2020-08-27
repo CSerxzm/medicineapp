@@ -9,11 +9,14 @@
         </select>
         <!--public List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);-->
         <select id="getHealthsByType" resultType="health">
-                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type}
+                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type} order by edit_time
         </select>
-        <!--public List<Health> getHealths();-->
+        <!--public List<Health> getHealths(PageModel pageModel);-->
         <select id="getHealths" resultType="health">
-                select * from health_tb
+                select * from health_tb  order by edit_time
+                <if test="firstLimitParam!=null and pageSize!=null" >
+                        limit #{firstLimitParam} , #{pageSize}
+                </if>
         </select>
         <!--public Integer addHealth(Health health);-->
         <insert id="addHealth">
@@ -29,4 +32,8 @@
                 update health_tb set title=#{title},author=#{author},edit_time=#{editTime},image=#{image},content=#{content},main_type=#{mainType},sub_type=#{subType}
                 where id=#{id}
         </update>
+        <!--public Integer getCount();-->
+        <select id="getCount" resultType="Integer">
+                select count(*) from  health_tb
+        </select>
 </mapper>
