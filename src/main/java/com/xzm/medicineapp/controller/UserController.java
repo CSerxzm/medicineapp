@@ -3,6 +3,7 @@ package com.xzm.medicineapp.controller;
 import com.alibaba.fastjson.JSON;
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.service.UserService;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,8 +32,8 @@ public class UserController {
     }
     @ResponseBody
     @RequestMapping("/getusers")
-    public String getUsers(){
-        List<User> users = userService.getUsers();
+    public String getUsers(PageModel pageModel){
+        List<User> users = userService.getUsers(pageModel);
         return JSON.toJSONString(users);
     }
     /*************************后台管理*************************/
@@ -62,8 +63,8 @@ public class UserController {
 
     //查询所有员工返回列表页面
     @GetMapping("/back/users")
-    public String backUsers(ModelMap modelMap){
-        Collection<User> users = userService.getUsers();
+    public String backUsers(ModelMap modelMap,PageModel pageModel){
+        Collection<User> users = userService.getUsers(pageModel);
         modelMap.addAttribute("users",users);
         return "user/list";
     }

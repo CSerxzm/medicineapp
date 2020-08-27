@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Comment;
 import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.mapper.CommentMapper;
 import com.xzm.medicineapp.mapper.FoodMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -22,8 +23,8 @@ public class FoodDao {
     public Food getFoodById(Integer id){
         return foodMapper.getFoodById(id);
     }
-    public List<Food> getFoods(){
-        return foodMapper.getFoods();
+    public List<Food> getFoods(PageModel pageModel){
+        return foodMapper.getFoods(pageModel);
     }
     public Integer addFood(Food food){
         return foodMapper.addFood(food);
@@ -33,5 +34,8 @@ public class FoodDao {
     }
     public Integer updateFood(Food food){
         return foodMapper.updateFood(food);
+    }
+    public Integer getCount(){
+        return foodMapper.getCount();
     }
 }

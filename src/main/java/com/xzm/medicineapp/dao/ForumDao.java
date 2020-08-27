@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.mapper.FoodMapper;
 import com.xzm.medicineapp.mapper.ForumMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -19,8 +20,8 @@ public class ForumDao {
     @Resource
     public ForumMapper forumMapper;
     //得到论坛
-    public List<Forum> getForums(){
-        return forumMapper.getForums();
+    public List<Forum> getForums(PageModel pageModel){
+        return forumMapper.getForums(pageModel);
     }
     //得到论坛
     public Forum getForumById(Integer id){
@@ -33,5 +34,8 @@ public class ForumDao {
     //删除论坛
     public Integer delForumById(Integer id){
         return forumMapper.delForumById(id);
+    }
+    public Integer getCount(){
+        return forumMapper.getCount();
     }
 }

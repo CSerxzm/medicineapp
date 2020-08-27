@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.bean.Prescr;
 import com.xzm.medicineapp.mapper.ForumMapper;
 import com.xzm.medicineapp.mapper.PrescrMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -22,8 +23,8 @@ public class PrescrDao {
     public Prescr getPrescrById(Integer id){
         return  prescrMapper.getPrescrById(id);
     }
-    public List<Prescr> getPrescrs(){
-        return  prescrMapper.getPrescrs();
+    public List<Prescr> getPrescrs(PageModel pageModel){
+        return  prescrMapper.getPrescrs(pageModel);
     }
 
     public Integer addPrescr(Prescr prescr){
@@ -34,5 +35,9 @@ public class PrescrDao {
     }
     public Integer updatePrescr(Prescr prescr){
         return prescrMapper.updatePrescr(prescr);
+    }
+
+    public Integer getCount(){
+        return prescrMapper.getCount();
     }
 }

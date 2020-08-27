@@ -4,13 +4,16 @@ import com.alibaba.fastjson.JSON;
 import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Rumor;
 import com.xzm.medicineapp.service.FoodService;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 3052
@@ -29,15 +32,18 @@ public class FoodController {
     }
     @ResponseBody
     @RequestMapping("/getfoods")
-    public String getFoods(){
-        List<Food> foodList=foodService.getFoods();
-        return JSON.toJSONString(foodList);
+    public String getFoods(PageModel pageModel){
+        List<Food> foodList=foodService.getFoods(pageModel);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",foodList);
+        return JSON.toJSONString(map);
     }
     /*************************后台管理*************************/
 
     @GetMapping("/back/foods")
-    public String backFoods(ModelMap modelMap){
-        Collection<Food> foods = foodService.getFoods();
+    public String backFoods(ModelMap modelMap,PageModel pageModel){
+        Collection<Food> foods = foodService.getFoods(pageModel);
         modelMap.addAttribute("foods",foods);
         return "food/list";
     }

@@ -10,7 +10,7 @@ public class Comment {
 
     private Integer id;
     private Integer forumId;
-    private String name;
+    private User user;
     private Date editTime;
     private String content;
 
@@ -18,10 +18,10 @@ public class Comment {
 
     }
 
-    public Comment(Integer id, Integer forumId, String name, Date editTime, String content) {
+    public Comment(Integer id, Integer forumId, User user, Date editTime, String content) {
         this.id = id;
         this.forumId = forumId;
-        this.name = name;
+        this.user = user;
         this.editTime = editTime;
         this.content = content;
     }
@@ -42,12 +42,12 @@ public class Comment {
         this.forumId = forumId;
     }
 
-    public String getName() {
-        return name;
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getEditTime() {
@@ -71,7 +71,7 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", forumId=" + forumId +
-                ", name='" + name + '\'' +
+                ", user=" + user +
                 ", editTime=" + editTime +
                 ", content='" + content + '\'' +
                 '}';

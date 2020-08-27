@@ -2,6 +2,7 @@ package com.xzm.medicineapp.dao;
 
 import com.xzm.medicineapp.bean.Medicine;
 import com.xzm.medicineapp.mapper.MedicineMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -21,8 +22,8 @@ public class MedicineDao {
         return medicineMapper.getMedicineById(id);
     }
 
-    public List<Medicine> getMedicines(){
-        return medicineMapper.getMedicines();
+    public List<Medicine> getMedicines(PageModel pageModel){
+        return medicineMapper.getMedicines(pageModel);
     }
 
     public Integer addMedicine(Medicine medicine){
@@ -33,5 +34,8 @@ public class MedicineDao {
     }
     public Integer updateMedicine(Medicine medicine){
         return medicineMapper.updateMedicine(medicine);
+    }
+    public Integer getCount(){
+        return medicineMapper.getCount();
     }
 }

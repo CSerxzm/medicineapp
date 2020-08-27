@@ -2,6 +2,7 @@ package com.xzm.medicineapp.service;
 
 import com.xzm.medicineapp.bean.Rumor;
 import com.xzm.medicineapp.dao.RumorDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,10 @@ public class RumorService {
     public Rumor getRumorById(Integer id){
         return rumorDao.getRumorById(id);
     }
-    public List<Rumor> getRumors(){
-        return rumorDao.getRumors();
+    public List<Rumor> getRumors(PageModel pageModel){
+        Integer count = rumorDao.getCount();
+        pageModel.setRecordCount(count);
+        return rumorDao.getRumors(pageModel);
     }
     public Integer addRumor(Rumor rumor){
         return rumorDao.addRumor(rumor);

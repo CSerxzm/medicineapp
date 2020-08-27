@@ -6,13 +6,16 @@ import com.xzm.medicineapp.bean.Prescr;
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.service.PrescrService;
 import com.xzm.medicineapp.service.UserService;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 3052
@@ -31,15 +34,18 @@ public class PrescrController {
     }
     @ResponseBody
     @RequestMapping("/getprescrs")
-    public String getPrescrs(){
-        List<Prescr> prescrList = prescrService.getPrescrs();
-        return JSON.toJSONString(prescrList);
+    public String getPrescrs(PageModel pageModel){
+        List<Prescr> prescrList = prescrService.getPrescrs(pageModel);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",prescrList);
+        return JSON.toJSONString(map);
     }
     /*************************后台管理*************************/
 
     @GetMapping("/back/prescrs")
-    public String backPrescrs(ModelMap modelMap){
-        Collection<Prescr> prescrs = prescrService.getPrescrs();
+    public String backPrescrs(ModelMap modelMap,PageModel pageModel){
+        Collection<Prescr> prescrs = prescrService.getPrescrs(pageModel);
         modelMap.addAttribute("prescrs",prescrs);
         return "prescr/list";
     }

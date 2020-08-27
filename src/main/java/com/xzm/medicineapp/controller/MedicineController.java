@@ -5,6 +5,7 @@ import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.bean.Medicine;
 import com.xzm.medicineapp.service.HealthService;
 import com.xzm.medicineapp.service.MedicineService;
+import com.xzm.medicineapp.util.PageModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 3052
@@ -32,15 +35,18 @@ public class MedicineController {
 
     @ResponseBody
     @RequestMapping("/getmedicines")
-    public String getMedicines(){
-        List<Medicine> medicineList = medicineService.getMedicines();
-        return JSON.toJSONString(medicineList);
+    public String getMedicines(PageModel pageModel){
+        List<Medicine> medicineList = medicineService.getMedicines(pageModel);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",medicineList);
+        return JSON.toJSONString(map);
     }
     /*************************后台管理*************************/
 
     @GetMapping("/back/medicines")
-    public String backMedicines(ModelMap modelMap){
-        Collection<Medicine> medicines = medicineService.getMedicines();
+    public String backMedicines(ModelMap modelMap,PageModel pageModel){
+        Collection<Medicine> medicines = medicineService.getMedicines(pageModel);
         modelMap.addAttribute("medicines",medicines);
         return "medicine/list";
     }

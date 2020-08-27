@@ -5,13 +5,16 @@ import com.xzm.medicineapp.bean.Prescr;
 import com.xzm.medicineapp.bean.Rumor;
 import com.xzm.medicineapp.service.PrescrService;
 import com.xzm.medicineapp.service.RumorService;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 3052
@@ -30,16 +33,19 @@ public class RumorController {
     }
     @ResponseBody
     @RequestMapping("/getrumors")
-    public String getRumors(){
-        List<Rumor> rumorList = rumorService.getRumors();
-        return JSON.toJSONString(rumorList);
+    public String getRumors(PageModel pageModel){
+        List<Rumor> rumorList = rumorService.getRumors(pageModel);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",rumorList);
+        return JSON.toJSONString(map);
     }
 
     /*************************后台管理*************************/
 
     @GetMapping("/back/rumors")
-    public String backRumors(ModelMap modelMap){
-        Collection<Rumor> rumors = rumorService.getRumors();
+    public String backRumors(ModelMap modelMap,PageModel pageModel){
+        Collection<Rumor> rumors = rumorService.getRumors(pageModel);
         modelMap.addAttribute("rumors",rumors);
         return "rumor/list";
     }

@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.dao.HealthDao;
 import com.xzm.medicineapp.dao.UserDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,10 @@ public class HealthService {
         return healthDao.getHealthsByType(mainType,subType);
     }
 
-    public List<Health> getHealths(){
-        return healthDao.getHealths();
+    public List<Health> getHealths(PageModel pageModel){
+        Integer count = healthDao.getCount();
+        pageModel.setRecordCount(count);
+        return healthDao.getHealths(pageModel);
     }
 
     public Integer addHealth(Health health){

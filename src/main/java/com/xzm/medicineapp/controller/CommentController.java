@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.xzm.medicineapp.bean.Comment;
 import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.bean.Health;
+import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.service.CommentService;
 import com.xzm.medicineapp.service.HealthService;
+import com.xzm.medicineapp.util.PageModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +34,10 @@ public class CommentController {
     }
     @ResponseBody
     @RequestMapping("/addcomment")
-    public String addComment(Comment comment){
+    public String addComment(Comment comment,String name){
+        User user = new User();
+        user.setName(name);
+        comment.setUser(user);
         Integer result = commentService.addComment(comment);
         return JSON.toJSONString(comment);
     }
@@ -45,8 +50,8 @@ public class CommentController {
     /*************************后台管理*************************/
 
     @GetMapping("/back/comments")
-    public String backComments(ModelMap modelMap){
-        Collection<Comment> comments = commentService.getComments();
+    public String backComments(ModelMap modelMap,PageModel pageModel){
+        Collection<Comment> comments = commentService.getComments(pageModel);
         modelMap.addAttribute("comments",comments);
         return "comment/list";
     }

@@ -3,6 +3,7 @@ package com.xzm.medicineapp.controller;
 import com.alibaba.fastjson.JSON;
 import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.service.HealthService;
+import com.xzm.medicineapp.util.PageModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 3052
@@ -29,23 +32,30 @@ public class HealthController {
     }
     @ResponseBody
     @RequestMapping("/getheathbytype")
-    public String getHealthsByType(@RequestParam("main_type") Integer mainType, @RequestParam("sub_type") Integer subType){
-        System.out.println(mainType+"/"+mainType);
+    public String getHealthsByType(@RequestParam("main_type") Integer mainType,
+                                   @RequestParam("sub_type") Integer subType,
+                                   PageModel pageModel){
         List<Health> healthList = healthService.getHealthsByType(mainType,subType);
-        return JSON.toJSONString(healthList);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",healthList);
+        return JSON.toJSONString(map);
     }
     @ResponseBody
     @RequestMapping("/gethealths")
-    public String getHealths(){
-        List<Health> healthList = healthService.getHealths();
-        return JSON.toJSONString(healthList);
+    public String getHealths(PageModel pageModel){
+        List<Health> healthList = healthService.getHealths(pageModel);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",healthList);
+        return JSON.toJSONString(map);
     }
 
     /*************************后台管理*************************/
 
     @GetMapping("/back/healths")
-    public String backHealths(ModelMap modelMap){
-        Collection<Health> healths = healthService.getHealths();
+    public String backHealths(ModelMap modelMap,PageModel pageModel){
+        Collection<Health> healths = healthService.getHealths(pageModel);
         modelMap.addAttribute("healths",healths);
         return "health/list";
     }

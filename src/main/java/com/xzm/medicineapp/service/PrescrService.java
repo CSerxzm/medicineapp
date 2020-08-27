@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.bean.Prescr;
 import com.xzm.medicineapp.dao.HealthDao;
 import com.xzm.medicineapp.dao.PrescrDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,10 @@ public class PrescrService {
     public Prescr getPrescrById(Integer id){
         return prescrDao.getPrescrById(id);
     }
-    public List<Prescr> getPrescrs(){
-        return prescrDao.getPrescrs();
+    public List<Prescr> getPrescrs(PageModel pageModel){
+        Integer count = prescrDao.getCount();
+        pageModel.setRecordCount(count);
+        return prescrDao.getPrescrs(pageModel);
     }
     public Integer addPrescr(Prescr prescr){
         return prescrDao.addPrescr(prescr);

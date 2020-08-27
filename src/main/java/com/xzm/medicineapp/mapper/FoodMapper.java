@@ -2,6 +2,7 @@ package com.xzm.medicineapp.mapper;
 
 import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Medicine;
+import com.xzm.medicineapp.util.PageModel;
 
 import java.util.List;
 
@@ -13,9 +14,9 @@ import java.util.List;
 public interface FoodMapper {
 
     public Food getFoodById(Integer id);
-    public List<Food> getFoods();
+    public List<Food> getFoods(PageModel pageModel);
     public Integer addFood(Food food);
     public Integer delFood(Integer id);
     public Integer updateFood(Food food);
-
+    public Integer getCount();
 }

@@ -2,6 +2,7 @@ package com.xzm.medicineapp.dao;
 
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.mapper.UserMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,8 +23,8 @@ public class UserDao {
         return userMapper.getUser(user);
     }
 
-    public List<User> getUsers(){
-        return userMapper.getUsers();
+    public List<User> getUsers(PageModel pageModel){
+        return userMapper.getUsers(pageModel);
     }
 
     public Integer addUser(User user){
@@ -40,5 +41,10 @@ public class UserDao {
 
     public User getUserByName(String name){
         return userMapper.getUserByName(name);
+    }
+
+
+    public Integer getCount(){
+        return userMapper.getCount();
     }
 }

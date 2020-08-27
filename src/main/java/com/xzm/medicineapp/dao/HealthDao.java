@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.mapper.HealthMapper;
 import com.xzm.medicineapp.mapper.UserMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -28,8 +29,8 @@ public class HealthDao {
         return healthMapper.getHealthsByType(mainType,subType);
     }
 
-    public List<Health> getHealths(){
-        return healthMapper.getHealths();
+    public List<Health> getHealths(PageModel pageModel){
+        return healthMapper.getHealths(pageModel);
     }
     public Integer addHealth(Health health){
         return healthMapper.addHealth(health);
@@ -39,5 +40,8 @@ public class HealthDao {
     }
     public Integer updateHealth(Health health){
         return healthMapper.updateHealth(health);
+    }
+    public Integer getCount(){
+        return healthMapper.getCount();
     }
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 public class Forum {
 
     private Integer id;
-    private String name;
+    private User user;//发布者名字
     private Date editTime;
     private String content;
     private String keyword;
@@ -20,9 +20,9 @@ public class Forum {
 
     }
 
-    public Forum(Integer id, String name, Date editTime, String content, String keyword, Integer views, Integer comments) {
+    public Forum(Integer id, User user, Date editTime, String content, String keyword, Integer views, Integer comments) {
         this.id = id;
-        this.name = name;
+        this.user = user;
         this.editTime = editTime;
         this.content = content;
         this.keyword = keyword;
@@ -38,12 +38,12 @@ public class Forum {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getEditTime() {
@@ -90,7 +90,7 @@ public class Forum {
     public String toString() {
         return "Forum{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", user=" + user +
                 ", editTime=" + editTime +
                 ", content='" + content + '\'' +
                 ", keyword='" + keyword + '\'' +

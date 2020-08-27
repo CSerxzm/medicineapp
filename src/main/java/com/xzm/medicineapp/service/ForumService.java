@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.dao.FoodDao;
 import com.xzm.medicineapp.dao.ForumDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,10 @@ public class ForumService {
     private ForumDao forumDao;
 
     //得到论坛
-    public List<Forum> getForums(){
-        return forumDao.getForums();
+    public List<Forum> getForums(PageModel pageModel){
+        Integer count = forumDao.getCount();
+        pageModel.setRecordCount(count);
+        return forumDao.getForums(pageModel);
     }
     //得到论坛
     public Forum getForumById(Integer id){

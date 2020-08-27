@@ -4,6 +4,7 @@ import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.dao.FoodDao;
 import com.xzm.medicineapp.dao.HealthDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,10 @@ public class FoodService {
     public Food getFoodById(Integer id){
         return  foodDao.getFoodById(id);
     }
-    public List<Food> getFoods(){
-        return foodDao.getFoods();
+    public List<Food> getFoods(PageModel pageModel){
+        Integer count = foodDao.getCount();
+        pageModel.setRecordCount(count);
+        return foodDao.getFoods(pageModel);
     }
     public Integer addFood(Food food){
         return foodDao.addFood(food);

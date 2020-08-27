@@ -3,20 +3,37 @@
                 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.CommentMapper">
-        <!--public List<Comment> getComments();-->
-        <select id="getComments" resultType="comment">
-                select * from comment_tb
+        <resultMap type="comment" id="commentanduser">
+                <id column="id" property="id"/>
+                <result column="forum_id" property="forumId"/>
+                <result column="edit_time" property="editTime"/>
+                <result column="content" property="content"/>
+                <association property="user" javaType="user">
+                        <id column="name" property="name"/>
+                        <result column="image" property="image"/>
+                </association>
+        </resultMap>
+        <!--public List<Comment> getComments(PageModel pageModel);-->
+        <select id="getComments" resultMap="commentanduser">
+                select id, forum_id, edit_time,content,user_tb.name name,image from comment_tb,user_tb where comment_tb.name=user_tb.name  order by edit_time desc
+                <if test="firstLimitParam!=null and pageSize!=null" >
+                        limit #{firstLimitParam} , #{pageSize}
+                </if>
         </select>
         <!--public List<Comment> getCommentsByForumId(Integer forum_id);-->
-        <select id="getCommentsByForumId" resultType="comment">
-                select * from comment_tb where forum_id=#{forum_id}
+        <select id="getCommentsByForumId" resultMap="commentanduser">
+                select id, forum_id, edit_time,content,user_tb.name name,image from comment_tb,user_tb where comment_tb.name=user_tb.name  order by edit_time desc
         </select>
         <!--public Integer addComment(Comment comment);-->
         <insert id="addComment" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
-                insert into comment_tb(forum_id,name,edit_time,content) values (#{forumId},#{name},#{editTime},#{content})
+                insert into comment_tb(forum_id,name,edit_time,content) values (#{forumId},#{user.name},#{editTime},#{content})
         </insert>
         <!--public Integer delCommentById(Integer id);-->
         <delete id="delCommentById">
                 delete from comment_tb where id=#{id}
         </delete>
+        <!--public Integer getCount();-->
+        <select id="getCount" resultType="Integer">
+                select count(*) from  comment_tb
+        </select>
 </mapper>

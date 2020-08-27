@@ -2,6 +2,7 @@ package com.xzm.medicineapp.service;
 
 import com.xzm.medicineapp.bean.User;
 import com.xzm.medicineapp.dao.UserDao;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,10 @@ public class UserService {
             return true;
     }
 
-    public List<User> getUsers(){
-        return userDao.getUsers();
+    public List<User> getUsers(PageModel pageModel){
+        Integer count = userDao.getCount();
+        pageModel.setRecordCount(count);
+        return userDao.getUsers(pageModel);
     }
 
     public Integer addUser(User user){

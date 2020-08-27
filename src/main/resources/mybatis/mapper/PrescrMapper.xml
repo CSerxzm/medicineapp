@@ -7,9 +7,12 @@
         <select id="getPrescrById" resultType="prescr">
                 select * from prescr_tb where id=#{id}
         </select>
-        <!--public List<Prescr> getPrescrs();-->
+        <!--public List<Prescr> getPrescrs(PageModel pageModel);-->
         <select id="getPrescrs" resultType="prescr">
-                select * from prescr_tb
+                select * from prescr_tb  order by name desc
+                <if test="firstLimitParam!=null and pageSize!=null" >
+                        limit #{firstLimitParam} , #{pageSize}
+                </if>
         </select>
         <!--public Integer addPrescr(Prescr prescr);-->
         <insert id="addPrescr">
@@ -25,4 +28,8 @@
                 update prescr_tb set name=#{name},compose=#{compose},funs=#{funs},source=#{source}
                 where id=#{id}
         </update>
+        <!--public Integer getCount();-->
+        <select id="getCount" resultType="Integer">
+                select count(*) from  prescr_tb
+        </select>
 </mapper>

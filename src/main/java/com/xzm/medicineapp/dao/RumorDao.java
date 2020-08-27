@@ -2,6 +2,7 @@ package com.xzm.medicineapp.dao;
 
 import com.xzm.medicineapp.bean.Rumor;
 import com.xzm.medicineapp.mapper.RumorMapper;
+import com.xzm.medicineapp.util.PageModel;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -20,8 +21,8 @@ public class RumorDao {
     public Rumor getRumorById(Integer id){
         return rumorMapper.getRumorById(id);
     }
-    public List<Rumor> getRumors(){
-        return rumorMapper.getRumors();
+    public List<Rumor> getRumors(PageModel pageModel){
+        return rumorMapper.getRumors(pageModel);
     }
     public Integer addRumor(Rumor rumor){
         return rumorMapper.addRumor(rumor);
@@ -31,5 +32,9 @@ public class RumorDao {
     }
     public Integer updateRumor(Rumor rumor){
         return rumorMapper.updateRumor(rumor);
+    }
+
+    public Integer getCount(){
+        return rumorMapper.getCount();
     }
 }
