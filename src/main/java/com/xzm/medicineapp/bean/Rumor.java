@@ -11,13 +11,13 @@ public class Rumor {
     private String image;
     private String content;
     private String source;
-    private String reality;
+    private Integer reality;
 
     public Rumor(){
 
     }
 
-    public Rumor(Integer id, String title,String image, String content, String source, String reality) {
+    public Rumor(Integer id, String title,String image, String content, String source, Integer reality) {
         this.id = id;
         this.title = title;
         this.image=image;
@@ -66,11 +66,11 @@ public class Rumor {
         this.source = source;
     }
 
-    public String getReality() {
+    public Integer getReality() {
         return reality;
     }
 
-    public void setReality(String reality) {
+    public void setReality(Integer reality) {
         this.reality = reality;
     }
 

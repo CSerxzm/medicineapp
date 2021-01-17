@@ -2,7 +2,7 @@ spring:
   datasource:
 #   数据源基本配置
     username: root
-    password: password
+    password: egova
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/medicineapp?useUnicode=true&characterEncoding=UTF-8
     type: com.alibaba.druid.pool.DruidDataSource

@@ -20,13 +20,13 @@ public class AppController {
     public String getGoods(){
         List<Map> mapList = new ArrayList();
         Map map1 = new HashMap();
-        map1.put("image_src","http://47.102.155.48:8080/fuyuanplant/2.png");
+        map1.put("image_src","http://47.102.155.48:8080/pic_medicineapp/2.png");
         map1.put("open_type","navigate");
         map1.put("goods_id",129);
         map1.put("navigator_url","navigate");
         mapList.add(map1);
         Map map2 = new HashMap();
-        map2.put("image_src","http://47.102.155.48:8080/fuyuanplant/1.png");
+        map2.put("image_src","http://47.102.155.48:8080/pic_medicineapp/1.png");
         map2.put("open_type","navigate");
         map2.put("goods_id",300);
         map2.put("navigator_url","navigate");
