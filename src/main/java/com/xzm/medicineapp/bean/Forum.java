@@ -13,7 +13,6 @@ public class Forum {
     private Date editTime;
     private String content;
     private String keyword;
-    private Integer views;
     private Integer comments;
 
     public Forum(){
@@ -26,7 +25,6 @@ public class Forum {
         this.editTime = editTime;
         this.content = content;
         this.keyword = keyword;
-        this.views = views;
         this.comments = comments;
     }
 
@@ -70,14 +68,6 @@ public class Forum {
         this.keyword = keyword;
     }
 
-    public Integer getViews() {
-        return views;
-    }
-
-    public void setViews(Integer views) {
-        this.views = views;
-    }
-
     public Integer getComments() {
         return comments;
     }
@@ -94,7 +84,6 @@ public class Forum {
                 ", editTime=" + editTime +
                 ", content='" + content + '\'' +
                 ", keyword='" + keyword + '\'' +
-                ", views=" + views +
                 ", comments=" + comments +
                 '}';
     }

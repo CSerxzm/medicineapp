@@ -24,4 +24,11 @@ public interface ForumMapper {
 
     public Integer getCount();
 
+    /**
+     * 浏览量加1
+     * @param id
+     * @return
+     */
+    public Integer addComments(Integer id);
+
 }

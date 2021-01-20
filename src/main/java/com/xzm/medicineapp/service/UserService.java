@@ -12,39 +12,60 @@ import java.util.List;
  * @author 3052
  * @create 2020-08-21 21:18
  */
-@Service
-public class UserService {
 
-    @Autowired
-    private UserDao userDao;
+public interface UserService {
 
-    public boolean login(User user){
-        User result = userDao.getUser(user);
-        if(result==null)
-            return false;
-        else
-            return true;
-    }
+    /**
+     * 登录用户
+     * @param user
+     * @return
+     */
+    User login(User user);
 
-    public List<User> getUsers(PageModel pageModel){
-        Integer count = userDao.getCount();
-        pageModel.setRecordCount(count);
-        return userDao.getUsers(pageModel);
-    }
+    /**
+     * 分页得到所有的用户
+     * @param pageModel
+     * @return
+     */
+    List<User> getUsers(PageModel pageModel);
 
-    public Integer addUser(User user){
-        return userDao.addUser(user);
-    }
+    Integer addUser(User user);
 
-    public Integer delUser(String name){
-        return userDao.delUser(name);
-    }
+    /**
+     * 删除用户
+     * @param name
+     * @return
+     */
+    Integer delUser(String name);
 
-    public Integer updateUser(User user){
-        return userDao.updateUser(user);
-    }
+    Integer updateUser(User user);
 
-    public User getUserByName(String name){
-        return userDao.getUserByName(name);
-    }
+    /**
+     * 得到用户名
+     * @param name
+     * @return
+     */
+    User getUserByName(String name);
+
+    /**
+     * 注册用户
+     * @param user
+     * @return
+     */
+    Integer registUser(User user);
+
+    /**
+     * 保存用户的相关信息，除了用户密码和权限
+     * @param user
+     * @return
+     */
+    Integer updateUserWithoutPassAndAuthority(User user);
+
+    /**
+     * 更新用户密码
+     * @param user
+     * @param oldPass
+     * @return
+     */
+    Integer updateUserPass(User user,String oldPass);
 }

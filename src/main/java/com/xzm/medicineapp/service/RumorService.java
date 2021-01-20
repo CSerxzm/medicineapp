@@ -12,27 +12,13 @@ import java.util.List;
  * @author 3052
  * @create 2020-08-21 21:18
  */
-@Service
-public class RumorService {
 
-    @Autowired
-    private RumorDao rumorDao;
+public interface RumorService {
 
-    public Rumor getRumorById(Integer id){
-        return rumorDao.getRumorById(id);
-    }
-    public List<Rumor> getRumors(PageModel pageModel){
-        Integer count = rumorDao.getCount();
-        pageModel.setRecordCount(count);
-        return rumorDao.getRumors(pageModel);
-    }
-    public Integer addRumor(Rumor rumor){
-        return rumorDao.addRumor(rumor);
-    }
-    public Integer delRumor(Integer id){
-        return rumorDao.delRumor(id);
-    }
-    public Integer updateRumor(Rumor rumor){
-        return rumorDao.updateRumor(rumor);
-    }
+    Rumor getRumorById(Integer id);
+    List<Rumor> getRumors(PageModel pageModel);
+    Integer addRumor(Rumor rumor);
+    Integer delRumor(Integer id);
+    Integer updateRumor(Rumor rumor);
+
 }

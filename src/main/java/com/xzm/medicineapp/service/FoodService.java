@@ -14,27 +14,13 @@ import java.util.List;
  * @author 3052
  * @create 2020-08-21 21:18
  */
-@Service
-public class FoodService {
 
-    @Autowired
-    private FoodDao foodDao;
+public interface FoodService {
 
-    public Food getFoodById(Integer id){
-        return  foodDao.getFoodById(id);
-    }
-    public List<Food> getFoods(PageModel pageModel){
-        Integer count = foodDao.getCount();
-        pageModel.setRecordCount(count);
-        return foodDao.getFoods(pageModel);
-    }
-    public Integer addFood(Food food){
-        return foodDao.addFood(food);
-    }
-    public Integer delFood(Integer id){
-        return foodDao.delFood(id);
-    }
-    public Integer updateFood(Food food){
-        return foodDao.updateFood(food);
-    }
+    Food getFoodById(Integer id);
+    List<Food> getFoods(PageModel pageModel);
+    Integer addFood(Food food);
+    Integer delFood(Integer id);
+    Integer updateFood(Food food);
+
 }

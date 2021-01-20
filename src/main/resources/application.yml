@@ -25,8 +25,32 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   mvc:
     date-format: yyyy-MM-dd
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+    freemarker:
+  freemarker:
+    cache: false
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 3
+    password: egovaredis
+    pool:
+      minIdle: 1
+      maxIdle: 10
+      maxWait: 3
+      maxActive: 8
+
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations:
     - classpath:mybatis/mapper/*.xml
+
 

@@ -11,6 +11,10 @@ public class User implements Serializable{
     private String name;
     private String password;
     private String image;
+    private Integer sex;//性别,0为女，1为男
+    private String constellation;//星座
+    private String phone;//电话
+    private String email;//邮箱
     private String authority;
 
     public User(String name, String password, String image, String authority) {
@@ -53,6 +57,30 @@ public class User implements Serializable{
         this.image = image;
     }
 
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getConstellation() {
+        return constellation;
+    }
+
+    public void setConstellation(String constellation) {
+        this.constellation = constellation;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getAuthority() {
         return authority;
     }
@@ -61,13 +89,11 @@ public class User implements Serializable{
         this.authority = authority;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", image='" + image + '\'' +
-                ", authority='" + authority + '\'' +
-                '}';
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

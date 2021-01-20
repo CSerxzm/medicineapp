@@ -14,34 +14,14 @@ import java.util.List;
  * @author 3052
  * @create 2020-08-21 21:18
  */
-@Service
-public class HealthService {
 
-    @Autowired
-    private HealthDao healthDao;
+public interface HealthService {
 
-    public Health getHealthById(Integer id){
-        Health result = healthDao.getOneById(id);
-        return result;
-    }
+    Health getHealthById(Integer id);
+    List<Health> getHealthsByType(Integer mainType,Integer subType);
+    List<Health> getHealths(PageModel pageModel);
+    Integer addHealth(Health health);
+    Integer delHealth(Integer id);
+    Integer updateHealth(Health health);
 
-    public List<Health> getHealthsByType(Integer mainType,Integer subType){
-        return healthDao.getHealthsByType(mainType,subType);
-    }
-
-    public List<Health> getHealths(PageModel pageModel){
-        Integer count = healthDao.getCount();
-        pageModel.setRecordCount(count);
-        return healthDao.getHealths(pageModel);
-    }
-
-    public Integer addHealth(Health health){
-        return healthDao.addHealth(health);
-    }
-    public Integer delHealth(Integer id){
-        return healthDao.delHealth(id);
-    }
-    public Integer updateHealth(Health health){
-        return healthDao.updateHealth(health);
-    }
 }

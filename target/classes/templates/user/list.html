@@ -30,8 +30,11 @@
 							<thead>
 								<tr>
 									<th>用户名</th>
-									<th>密码</th>
 									<th>头像</th>
+									<th>性别</th>
+									<th>星座</th>
+									<th>电话</th>
+									<th>邮箱</th>
 									<th>权限</th>
 									<th>操作</th>
 								</tr>
@@ -39,8 +42,11 @@
 							<tbody>
 							  <tr th:each="user:${users}">
 								  <td th:text="${user.name}"></td>
-								  <td th:text="${user.password}"></td>
 								  <td><img style="width: 80px;height: 80px;" th:src="${user.image}"/></td>
+								  <td th:text="${user.sex}==0?'男':'女'"></td>
+								  <td th:text="${user.constellation}"></td>
+								  <td th:text="${user.phone}"></td>
+								  <td th:text="${user.email}"></td>
 								  <td th:text="${user.authority}=='root'?'管理员':'普通用户'"></td>
 								  <td>
 									 <a class="btn btn-sm btn-primary" th:href="@{'/back/user/'+${user.name}}">编辑</a>

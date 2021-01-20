@@ -38,4 +38,8 @@ public class ForumDao {
     public Integer getCount(){
         return forumMapper.getCount();
     }
+
+    public Integer addComments(Integer id){
+        return forumMapper.addComments(id);
+    }
 }

@@ -43,8 +43,19 @@ public class UserDao {
         return userMapper.getUserByName(name);
     }
 
-
     public Integer getCount(){
         return userMapper.getCount();
+    }
+
+    public Integer registUser(User user){
+        return userMapper.registUser(user);
+    }
+
+    public Integer updateUserWithoutPassAndAuthority(User user){
+        return userMapper.updateUserWithoutPassAndAuthority(user);
+    }
+
+    public Integer updateUserPass(User user){
+        return userMapper.updateUserPass(user);
     }
 }

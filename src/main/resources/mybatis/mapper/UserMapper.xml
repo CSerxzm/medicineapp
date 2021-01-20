@@ -35,4 +35,20 @@
         <select id="getCount" resultType="Integer">
                 select count(*) from  user_tb
         </select>
+        <!--public Integer registUser(User user);-->
+        <insert id="registUser">
+                insert into user_tb(name,password,authority,image,sex,constellation) values
+                    (#{name},#{password},#{authority},#{image},#{sex},#{constellation})
+        </insert>
+
+        <!--public Integer updateUserWithoutPassAndAuthority(User user);-->
+        <update id="updateUserWithoutPassAndAuthority">
+                update user_tb set image=#{image},sex=#{sex},constellation=#{constellation},phone=#{phone},email=#{email}where name=#{name}
+        </update>
+
+        <!--public Integer updateUserPass(User user);-->
+        <update id="updateUserPass">
+                update user_tb set password=#{password} where name=#{name}
+        </update>
+
 </mapper>

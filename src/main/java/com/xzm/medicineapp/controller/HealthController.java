@@ -28,6 +28,8 @@ public class HealthController {
     @RequestMapping("/gethealthbyid")
     public String getHealthById(Integer id){
         Health health = healthService.getHealthById(id);
+        health.setViews(health.getViews()+1);
+        healthService.updateHealth(health);
         return JSON.toJSONString(health);
     }
     @ResponseBody

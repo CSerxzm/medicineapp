@@ -33,7 +33,6 @@
 									<th>时间</th>
 									<th>内容</th>
 									<th>关键字</th>
-									<th>浏览量</th>
 									<th>评论数</th>
 									<th>操作</th>
 								</tr>
@@ -45,7 +44,6 @@
 								  <td th:text="${#dates.format(forum.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
 								  <td th:text="${forum.content}"></td>
 								  <td th:text="${forum.keyword}"></td>
-								  <td th:text="${forum.views}"></td>
 								  <td th:text="${forum.comments}"></td>
 								  <td>
 									  <button th:attr="del_uri=@{/back/forum/}+${forum.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
