@@ -3,6 +3,7 @@ package com.xzm.medicineapp.mapper;
 import com.xzm.medicineapp.bean.Health;
 import com.xzm.medicineapp.bean.Medicine;
 import com.xzm.medicineapp.util.PageModel;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,10 +14,13 @@ import java.util.List;
 
 public interface MedicineMapper {
 
-    public Medicine getMedicineById(Integer id);
-    public List<Medicine> getMedicines(PageModel pageModel);
-    public Integer addMedicine(Medicine medicine);
-    public Integer delMedicine(Integer id);
-    public Integer updateMedicine(Medicine medicine);
-    public Integer getCount();
+    Medicine getMedicineById(Integer id);
+    List<Medicine> getMedicines(PageModel pageModel);
+    List<Medicine> searchMedicines(@Param("firstLimitParam") Integer firstLimitParam,
+                                   @Param("pageSize") Integer pageSize,
+                                   @Param("name") String name);
+    Integer addMedicine(Medicine medicine);
+    Integer delMedicine(Integer id);
+    Integer updateMedicine(Medicine medicine);
+    Integer getCount(String name);
 }

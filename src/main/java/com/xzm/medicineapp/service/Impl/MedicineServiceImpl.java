@@ -25,9 +25,16 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     public List<Medicine> getMedicines(PageModel pageModel){
-        Integer count = medicineDao.getCount();
+        Integer count = medicineDao.getCount(null);
         pageModel.setRecordCount(count);
         return medicineDao.getMedicines(pageModel);
+    }
+
+    @Override
+    public List<Medicine> searchMedicines(PageModel pageModel, String name) {
+        Integer count = medicineDao.getCount(name);
+        pageModel.setRecordCount(count);
+        return medicineDao.searchMedicines(pageModel,name);
     }
 
     public Integer addMedicine(Medicine medicine){

@@ -9,11 +9,11 @@
         </select>
         <!--public List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);-->
         <select id="getHealthsByType" resultType="health">
-                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type} order by views
+                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type} order by views desc
         </select>
         <!--public List<Health> getHealths(PageModel pageModel);-->
         <select id="getHealths" resultType="health">
-                select * from health_tb  order by views
+                select * from health_tb  order by views desc
                 <if test="firstLimitParam!=null and pageSize!=null" >
                         limit #{firstLimitParam} , #{pageSize}
                 </if>

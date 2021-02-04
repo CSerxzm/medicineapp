@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzm.medicineapp.mapper.TestQuestionMapper">
+
+    <!--List<TestQuestion> selectQuestionByType(String type);-->
+    <select id="selectQuestionByType" resultType="testQuestion">
+        select * from  test_question where type=#{type}
+    </select>
+
+</mapper>

@@ -89,8 +89,10 @@ public class UserServiceImpl implements UserService {
      * @param user
      * @return
      */
-    public Integer updateUserWithoutPassAndAuthority(User user){
-        return  userDao.updateUserWithoutPassAndAuthority(user);
+    public User updateUserWithoutPassAndAuthority(User user){
+        userDao.updateUserWithoutPassAndAuthority(user);
+        User userByName = userDao.getUserByName(user.getName());
+        return  userByName;
     }
 
     /**
@@ -99,15 +101,16 @@ public class UserServiceImpl implements UserService {
      * @param oldPass
      * @return
      */
-    public Integer updateUserPass(User user,String oldPass){
+    public User updateUserPass(User user,String oldPass){
         User userByName = userDao.getUserByName(user.getName());
         String pass = DigestUtils.md5DigestAsHex(oldPass.getBytes());
-        if(userByName.getPassword()!=pass){
+        if(!userByName.getPassword().equals(pass)){
             //密码错误，原有的
-            return 0;
+            return null;
         }
         String newPass = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
         user.setPassword(newPass);
-        return userDao.updateUserPass(user);
+        userDao.updateUserPass(user);
+        return userDao.getUser(user);
     }
 }

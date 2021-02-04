@@ -14,21 +14,21 @@ import java.util.List;
 public interface ForumMapper {
 
     //得到论坛
-    public List<Forum> getForums(PageModel pageModel);
+    List<Forum> getForums(PageModel pageModel);
     //得到论坛
-    public Forum getForumById(Integer id);
+    Forum getForumById(Integer id);
     //添加论坛
-    public Integer addForum(Forum forum);
+    Integer addForum(Forum forum);
     //删除论坛
-    public Integer delForumById(Integer id);
+    Integer delForumById(Integer id);
 
-    public Integer getCount();
+    Integer getCount();
 
     /**
      * 浏览量加1
      * @param id
      * @return
      */
-    public Integer addComments(Integer id);
+    Integer addComments(Integer id);
 
 }

@@ -28,8 +28,23 @@
                 update medicine_tb set name=#{name},nickname=#{nickname},image=#{image},funs=#{funs},taboos=#{taboos}
                 where id=#{id}
         </update>
-        <!--public Integer getCount();-->
+        <!--public Integer getCount(String name);-->
         <select id="getCount" resultType="Integer">
                 select count(*) from  medicine_tb
+                <if test="name!=null" >
+                        where name like concat('%',#{name},'%')
+                </if>
+        </select>
+
+        <!--List<Medicine> searchMedicines(PageModel pageModel)-->
+        <select id="searchMedicines" resultType="medicine">
+                select * from medicine_tb
+                <if test="name!=null" >
+                        where name like concat('%',#{name},'%')
+                </if>
+                order by name desc
+                <if test="firstLimitParam!=null and pageSize!=null" >
+                        limit #{firstLimitParam} , #{pageSize}
+                </if>
         </select>
 </mapper>

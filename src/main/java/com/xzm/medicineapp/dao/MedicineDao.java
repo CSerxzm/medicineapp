@@ -3,6 +3,7 @@ package com.xzm.medicineapp.dao;
 import com.xzm.medicineapp.bean.Medicine;
 import com.xzm.medicineapp.mapper.MedicineMapper;
 import com.xzm.medicineapp.util.PageModel;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -26,6 +27,11 @@ public class MedicineDao {
         return medicineMapper.getMedicines(pageModel);
     }
 
+    public List<Medicine> searchMedicines(PageModel pageModel,String name){
+        return medicineMapper.searchMedicines(pageModel.getFirstLimitParam(),
+                pageModel.getPageSize(),name);
+    }
+
     public Integer addMedicine(Medicine medicine){
         return medicineMapper.addMedicine(medicine);
     }
@@ -35,7 +41,7 @@ public class MedicineDao {
     public Integer updateMedicine(Medicine medicine){
         return medicineMapper.updateMedicine(medicine);
     }
-    public Integer getCount(){
-        return medicineMapper.getCount();
+    public Integer getCount(String name){
+        return medicineMapper.getCount(name);
     }
 }

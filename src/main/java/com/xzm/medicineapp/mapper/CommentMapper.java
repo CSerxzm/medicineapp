@@ -14,14 +14,14 @@ import java.util.List;
 public interface CommentMapper {
 
     //得到所有
-    public List<Comment> getComments(PageModel pageModel);
+    List<Comment> getComments(PageModel pageModel);
     //得到评论列表
-    public List<Comment> getCommentsByForumId(Integer forum_id);
+    List<Comment> getCommentsByForumId(Integer forum_id);
     //添加评论
-    public Integer addComment(Comment comment);
+    Integer addComment(Comment comment);
     //删除评论
-    public Integer delCommentById(Integer id);
+    Integer delCommentById(Integer id);
 
-    public Integer getCount();
+    Integer getCount();
 
 }

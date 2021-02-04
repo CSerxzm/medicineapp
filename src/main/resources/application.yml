@@ -41,16 +41,16 @@ spring:
     host: 127.0.0.1
     port: 6379
     timeout: 3
-    password: egovaredis
     pool:
       minIdle: 1
       maxIdle: 10
       maxWait: 3
       maxActive: 8
+    password: egovaredis
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations:
     - classpath:mybatis/mapper/*.xml
-
-
+server:
+  context-path: /medicineapp

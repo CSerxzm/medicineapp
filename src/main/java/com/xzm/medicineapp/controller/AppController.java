@@ -56,6 +56,7 @@ public class AppController {
             filePath.getParentFile().mkdirs();
         }
         file.transferTo(filePath);
+        System.out.println(serverPath+picNameCode);
         return serverPath+picNameCode;
     }
 

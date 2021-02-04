@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest
 public class MedicineappApplicationTests {
 
-	@Autowired
+/*	@Autowired
 	@Qualifier("myRedisTemplate")
 	private RedisTemplate redisTemplate;
 
@@ -26,7 +26,7 @@ public class MedicineappApplicationTests {
 	public void contextLoads() {
 		redisTemplate.opsForValue().set("键", "这是一段汉字",10, TimeUnit.HOURS);
 		System.out.println(redisTemplate.opsForValue().get("键"));
-	}
+	}*/
 
 	@Test
 	public void Test() throws UnsupportedEncodingException {

@@ -43,7 +43,7 @@
 
         <!--public Integer updateUserWithoutPassAndAuthority(User user);-->
         <update id="updateUserWithoutPassAndAuthority">
-                update user_tb set image=#{image},sex=#{sex},constellation=#{constellation},phone=#{phone},email=#{email}where name=#{name}
+                update user_tb set image=#{image},sex=#{sex},constellation=#{constellation},phone=#{phone},email=#{email} where name=#{name}
         </update>
 
         <!--public Integer updateUserPass(User user);-->

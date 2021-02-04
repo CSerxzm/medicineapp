@@ -17,6 +17,7 @@ public interface MedicineService {
 
     Medicine getMedicineById(Integer id);
     List<Medicine> getMedicines(PageModel pageModel);
+    List<Medicine> searchMedicines(PageModel pageModel,String name);
     Integer addMedicine(Medicine medicine);
     Integer delMedicine(Integer id);
     Integer updateMedicine(Medicine medicine);

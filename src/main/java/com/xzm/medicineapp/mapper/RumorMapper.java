@@ -12,13 +12,13 @@ import java.util.List;
  * @create 2020-08-21 21:05
  */
 
-public interface RumorMapper {
+ public interface RumorMapper {
 
-    public Rumor getRumorById(Integer id);
-    public List<Rumor> getRumors(PageModel pageModel);
-    public Integer addRumor(Rumor rumor);
-    public Integer delRumor(Integer id);
-    public Integer updateRumor(Rumor rumor);
-    public Integer getCount();
+     Rumor getRumorById(Integer id);
+     List<Rumor> getRumors(PageModel pageModel);
+     Integer addRumor(Rumor rumor);
+     Integer delRumor(Integer id);
+     Integer updateRumor(Rumor rumor);
+     Integer getCount();
 
 }

@@ -59,7 +59,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    Integer updateUserWithoutPassAndAuthority(User user);
+    User updateUserWithoutPassAndAuthority(User user);
 
     /**
      * 更新用户密码
@@ -67,5 +67,5 @@ public interface UserService {
      * @param oldPass
      * @return
      */
-    Integer updateUserPass(User user,String oldPass);
+    User updateUserPass(User user,String oldPass);
 }

@@ -42,6 +42,18 @@ public class MedicineController {
         map.put("data",medicineList);
         return JSON.toJSONString(map);
     }
+
+    @ResponseBody
+    @RequestMapping("/searchmedicines")
+    public String searchMedicines(PageModel pageModel,String name){
+        List<Medicine> medicineList = medicineService.searchMedicines(pageModel,name);
+        Map<String,Object> map = new HashMap();
+        map.put("page",pageModel);
+        map.put("data",medicineList);
+        return JSON.toJSONString(map);
+    }
+
+
     /*************************后台管理*************************/
 
     @GetMapping("/back/medicines")

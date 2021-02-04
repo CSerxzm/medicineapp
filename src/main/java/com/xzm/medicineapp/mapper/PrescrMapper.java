@@ -13,11 +13,11 @@ import java.util.List;
 
 public interface PrescrMapper {
 
-    public Prescr getPrescrById(Integer id);
-    public List<Prescr> getPrescrs(PageModel pageModel);
-    public Integer addPrescr(Prescr prescr);
-    public Integer delPrescr(Integer id);
-    public Integer updatePrescr(Prescr prescr);
-    public Integer getCount();
+    Prescr getPrescrById(Integer id);
+    List<Prescr> getPrescrs(PageModel pageModel);
+    Integer addPrescr(Prescr prescr);
+    Integer delPrescr(Integer id);
+    Integer updatePrescr(Prescr prescr);
+    Integer getCount();
 
 }

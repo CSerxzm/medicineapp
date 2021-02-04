@@ -30,6 +30,7 @@ public class UserController {
         User result = userService.login(user);
         return JSON.toJSONString(result);
     }
+
     @ResponseBody
     @RequestMapping("/getusers")
     public String getUsers(PageModel pageModel){
@@ -60,8 +61,9 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("/updateuserwithoutpassandauthority")
-    public Integer updateUserWithoutPassAndAuthority(User user){
-        return  userService.updateUserWithoutPassAndAuthority(user);
+    public String updateUserWithoutPassAndAuthority(User user){
+        User user1 = userService.updateUserWithoutPassAndAuthority(user);
+        return JSON.toJSONString(user1);
     }
 
     /**
@@ -72,8 +74,9 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("/updateuserpass")
-    public Integer updateUserPass(User user,String oldPass){
-        return userService.updateUserPass(user,oldPass);
+    public String updateUserPass(User user,String oldPass){
+        User user1 = userService.updateUserPass(user, oldPass);
+        return JSON.toJSONString(user1);
     }
 
     /*************************后台管理*************************/
