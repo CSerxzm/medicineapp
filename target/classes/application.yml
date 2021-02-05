@@ -46,7 +46,7 @@ spring:
       maxIdle: 10
       maxWait: 3
       maxActive: 8
-    password: egovaredis
+    password:
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml

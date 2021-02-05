@@ -19,10 +19,10 @@ public class Forum {
 
     }
 
-    public Forum(Integer id, User user, Date editTime, String content, String keyword, Integer views, Integer comments) {
+    public Forum(Integer id, User user,String content, String keyword, Integer views, Integer comments) {
         this.id = id;
         this.user = user;
-        this.editTime = editTime;
+        this.editTime = new Date();
         this.content = content;
         this.keyword = keyword;
         this.comments = comments;
