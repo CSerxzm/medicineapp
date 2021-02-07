@@ -47,7 +47,15 @@ public class PrescrController {
     public String backPrescrs(ModelMap modelMap,PageModel pageModel){
         Collection<Prescr> prescrs = prescrService.getPrescrs(pageModel);
         modelMap.addAttribute("prescrs",prescrs);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "prescr/list";
+    }
+
+    @GetMapping("/back/prescrinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Prescr prescr = prescrService.getPrescrById(id);
+        modelMap.addAttribute("prescr",prescr);
+        return "prescr/info";
     }
 
     @GetMapping("/back/prescr")

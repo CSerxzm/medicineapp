@@ -60,6 +60,7 @@ public class MedicineController {
     public String backMedicines(ModelMap modelMap,PageModel pageModel){
         Collection<Medicine> medicines = medicineService.getMedicines(pageModel);
         modelMap.addAttribute("medicines",medicines);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "medicine/list";
     }
 
@@ -72,6 +73,13 @@ public class MedicineController {
     public String addMedicine(Medicine medicine){
         medicineService.addMedicine(medicine);
         return "redirect:/back/medicines";
+    }
+
+    @GetMapping("/back/medicineinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Medicine medicine = medicineService.getMedicineById(id);
+        modelMap.addAttribute("medicine",medicine);
+        return "medicine/info";
     }
 
     @GetMapping("/back/medicine/{id}")

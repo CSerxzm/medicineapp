@@ -4,7 +4,7 @@ spring:
     username: root
     password: egova
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/medicineapp?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/medicineapp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=CTT
     type: com.alibaba.druid.pool.DruidDataSource
 #   数据源其他配置
     initialSize: 5
@@ -24,7 +24,7 @@ spring:
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   mvc:
-    date-format: yyyy-MM-dd
+    date-format: yyyy-MM-dd HH:mm:ss
   http:
     multipart:
       max-file-size: 10MB
@@ -46,7 +46,10 @@ spring:
       maxIdle: 10
       maxWait: 3
       maxActive: 8
-    password:
+    password: egovaredis
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml

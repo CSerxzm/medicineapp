@@ -42,4 +42,16 @@ public class ForumDao {
     public Integer addComments(Integer id){
         return forumMapper.addComments(id);
     }
+
+    public Integer delComments(Integer id){
+        return forumMapper.delComments(id);
+    }
+
+    public List<Forum> getForumByUserName(String name){
+        return forumMapper.getForumByUserName(name);
+    }
+
+    public Integer delForumByUserName(String name){
+        return forumMapper.delForumByUserName(name);
+    }
 }

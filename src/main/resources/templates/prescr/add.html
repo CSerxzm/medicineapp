@@ -23,7 +23,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='prescr')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<div class="table-responsive">
 						<form th:action="@{/back/prescr}" method="post">
 							<input type="hidden" name="_method" value="put" th:if="${prescr!=null}"/>
@@ -34,11 +34,11 @@
 							</div>
 							<div class="form-group">
 								<label>组成</label>
-								<input name="compose" type="text" class="form-control" th:value="${prescr}!=null?${prescr.compose}" required>
+								<textarea name="compose" type="text" class="form-control" th:text="${prescr}!=null?${prescr.compose}" required></textarea>
 							</div>
 							<div class="form-group">
 								<label>作用</label>
-								<input name="funs" type="text" class="form-control" th:value="${prescr}!=null?${prescr.funs}" required>
+								<textarea name="funs" type="text" class="form-control" th:text="${prescr}!=null?${prescr.funs}" required></textarea>
 							</div>
 							<div class="form-group">
 								<label>出处</label>

@@ -9,6 +9,7 @@ import com.xzm.medicineapp.service.TestService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,11 @@ public class TestServiceImpl implements TestService {
             testQuestion.setAnswerList(answerList);
         }
         return testQuestions;
+    }
+
+    @Override
+    public TestResult selectResultById(Integer id) {
+        return testDao.selectResultById(id);
     }
 
     @Override
@@ -78,5 +84,27 @@ public class TestServiceImpl implements TestService {
         return testDao.selectResultByType(name);
     }
 
+    @Override
+    public List<TestPaper> getTestPapers(PageModel pageModel){
+        Integer count = testDao.getCount(null);
+        pageModel.setRecordCount(count);
+        return testDao.getTestPapers(pageModel);
+    }
 
+    @Override
+    @Transactional
+    public Integer delTestPaper(Integer id) {
+        return testDao.delTestPaper(id);
+    }
+
+    @Override
+    public List<TestResult> selectTestResults() {
+        return testDao.selectTestResults();
+    }
+
+    @Override
+    @Transactional
+    public Integer updateTestResult(TestResult testResult) {
+        return testDao.updateTestResult(testResult);
+    }
 }

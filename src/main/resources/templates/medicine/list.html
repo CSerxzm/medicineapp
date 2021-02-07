@@ -23,13 +23,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='medicine')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<h2><a class="btn btn-sm btn-success" th:href="@{/back/medicine}">药材添加</a></h2>
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>名字</th>
 									<th>别名</th>
 									<th>图片</th>
@@ -40,19 +39,36 @@
 							</thead>
 							<tbody>
 							  <tr th:each="medicine:${medicines}">
-								  <td th:text="${medicine.id}"></td>
-								  <td th:text="${medicine.name}"></td>
-								  <td th:text="${medicine.nickname}"></td>
-								  <td><img style="width: 80px;height: 80px;" th:src="${medicine.image}"/></td>
-								  <td th:text="${medicine.funs}"></td>
-								  <td th:text="${medicine.taboos}"></td>
+								  <td th:text="${#strings.abbreviate(medicine.name,10)}"></td>
+								  <td th:text="${#strings.abbreviate(medicine.nickname,10)}"></td>
+								  <td><img class="list_image" th:src="${medicine.image}"/></td>
+								  <td th:text="${#strings.abbreviate(medicine.funs,20)}"></td>
+								  <td th:text="${#strings.abbreviate(medicine.taboos,20)}"></td>
 								  <td>
-									 <a class="btn btn-sm btn-primary" th:href="@{'/back/medicine/'+${medicine.id}}">编辑</a>
+									  <a class="btn btn-sm btn-info" th:href="@{'/back/medicineinfo/'+${medicine.id}}">详情</a>
+									  <a class="btn btn-sm btn-primary" th:href="@{'/back/medicine/'+${medicine.id}}">编辑</a>
 									  <button th:attr="del_uri=@{/back/medicine/}+${medicine.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
 								  </td>
 							  </tr>
 							</tbody>
 						</table>
+					</div>
+					<div style="width:200px;">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+								<li th:if="${pagemodel.pageIndex>1}">
+									<a href="#" aria-label="Previous" th:href="@{/back/medicines?pageIndex=}+${pagemodel.pageIndex-1}">
+										<span class="span" aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+									<a href="#" aria-label="Next" th:href="@{/back/medicines?pageIndex=}+${pagemodel.pageIndex+1}">
+										<span class="span" aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</main>
 				<form id="deleteEmpForm"  method="post">

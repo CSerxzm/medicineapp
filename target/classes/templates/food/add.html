@@ -19,11 +19,10 @@
 
 	<body>
 		<div th:replace="~{commons/bar::topbar}"></div>
-
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='food')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<div class="table-responsive">
 						<form th:action="@{/back/food}" method="post">
 							<input type="hidden" name="_method" value="put" th:if="${food!=null}"/>
@@ -38,15 +37,15 @@
 							</div>
 							<div class="form-group">
 								<label>用料</label>
-								<input name="compose" type="text" class="form-control" th:value="${food}!=null?${food.compose}" required>
+								<textarea name="compose" type="text" class="form-control" th:text="${food}!=null?${food.compose}" required></textarea>
 							</div>
 							<div class="form-group">
 								<label>做法</label>
-								<input name="method" type="text" class="form-control" th:value="${food}!=null?${food.method}" required>
+								<textarea name="method" type="text" class="form-control" th:text="${food}!=null?${food.method}" required></textarea>
 							</div>
 							<div class="form-group">
 								<label>功效</label>
-								<input name="funs" type="text" class="form-control" th:value="${food}!=null?${food.funs}" required>
+								<textarea name="funs" type="text" class="form-control" th:text="${food}!=null?${food.funs}" required></textarea>
 							</div>
 							<button type="submit" class="btn btn-sm btn-primary" th:text="${food}==null?'添加':'更新'"></button>
 						</form>

@@ -53,6 +53,7 @@ public class CommentController {
     public String backComments(ModelMap modelMap,PageModel pageModel){
         Collection<Comment> comments = commentService.getComments(pageModel);
         modelMap.addAttribute("comments",comments);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "comment/list";
     }
 

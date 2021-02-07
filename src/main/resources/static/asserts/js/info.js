@@ -9,6 +9,7 @@ subTypeArr[0] = ['立春','雨水','惊蛰', '春分', '清明', '谷雨', '立�
     '立秋', '处暑', '白露', '秋分', '寒露', '霜降', '立冬','小雪', '大雪', '冬至', '小寒', '大寒'];
 subTypeArr[2] = ['儿童','青年','老年'];
 
-function myFunction(index) {
-    return subTypeArr[0][index];
+function getMainType(index){
+    console.log(mainTypeArr[index]);
+    return mainTypeArr[index];
 }

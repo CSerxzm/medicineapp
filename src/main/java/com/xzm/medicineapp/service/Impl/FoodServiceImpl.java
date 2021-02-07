@@ -6,6 +6,7 @@ import com.xzm.medicineapp.service.FoodService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @create 2020-08-21 21:18
  */
 @Service
+
 public class FoodServiceImpl implements FoodService {
 
     @Autowired
@@ -27,12 +29,17 @@ public class FoodServiceImpl implements FoodService {
         pageModel.setRecordCount(count);
         return foodDao.getFoods(pageModel);
     }
+    @Transactional
     public Integer addFood(Food food){
         return foodDao.addFood(food);
     }
+
+    @Transactional
     public Integer delFood(Integer id){
         return foodDao.delFood(id);
     }
+
+    @Transactional
     public Integer updateFood(Food food){
         return foodDao.updateFood(food);
     }

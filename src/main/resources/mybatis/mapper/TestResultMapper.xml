@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.TestResultMapper">
 
+    <!--TestResult selectResultById(Integer id);-->
+    <select id="selectResultById" resultType="testResult">
+        select * from test_result where id=#{id}
+    </select>
+
     <!--List<TestResult> selectResultByType(String type);-->
     <select id="selectResultByType" resultType="testResult">
         select * from test_result where type=#{type}
@@ -18,11 +23,40 @@
     <update id="updateTestResult" parameterType="com.xzm.medicineapp.bean.TestResult">
         update test_result
         <set>
+            <if test="feature != null">
+                feature = #{feature},
+            </if>
+            <if test="reason != null">
+                reason = #{reason},
+            </if>
+            <if test="attack != null">
+                attack = #{attack},
+            </if>
+            <if test="healthPrinciple != null">
+                health_principle = #{healthPrinciple},
+            </if>
+            <if test="dailyCare != null">
+                daily_care = #{dailyCare},
+            </if>
+            <if test="foodCare != null">
+                food_care = #{foodCare},
+            </if>
+            <if test="medicineCare != null">
+                medicine_care = #{medicineCare},
+            </if>
+            <if test="spiritCare != null">
+                spirit_care = #{spiritCare},
+            </if>
             <if test="views != null">
-                views = #{views,jdbcType=INTEGER},
+                views = #{views},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <!--List<TestResult> selectTestResults();-->
+    <select id="selectTestResults" resultType="testResult">
+        select * from test_result
+    </select>
 
 </mapper>

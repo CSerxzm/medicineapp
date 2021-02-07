@@ -1,0 +1,14 @@
+
+Q
+java:S1128"<Remove this unused import 'com.xzm.medicineapp.bean.Prescr'.(î˜ìQ
+Y
+java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(—Ş¶Îøÿÿÿÿ
+q
+java:S1192="VDefine a constant instead of duplicating this literal "redirect:/back/rumors" 3 times.(ô˜²Šüÿÿÿÿ
+\
+java:S1128"FRemove this unused import 'com.xzm.medicineapp.service.PrescrService'.(Ã×¢ä
+T
+java:S3752#">Add a "method" parameter to this "@RequestMapping" annotation.(áöôÆ
+E
+java:S3740&"/Provide the parametrized type for this generic.(‰ÌÑŒ
+V	java:S125D"<This block of commented-out lines of code should be removed.(»îô¿øÿÿÿÿ

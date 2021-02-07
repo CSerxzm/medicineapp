@@ -19,16 +19,14 @@
 
 	<body>
 		<div th:replace="~{commons/bar::topbar}"></div>
-
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='comment')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>论坛ID</th>
 									<th>评论者</th>
 									<th>评论时间</th>
@@ -38,17 +36,34 @@
 							</thead>
 							<tbody>
 							  <tr th:each="comment:${comments}">
-								  <td th:text="${comment.id}"></td>
 								  <td th:text="${comment.forumId}"></td>
 								  <td th:text="${comment.user.name}"></td>
 								  <td th:text="${#dates.format(comment.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
-								  <td th:text="${comment.content}"></td>
+								  <td class="list_content" th:attr="value=${comment.content}" th:text="${#strings.abbreviate(comment.content,10)}"></td>
 								  <td>
+									  <a class="btn btn-sm btn-info" th:href="@{'/back/foruminfo/'+${comment.forumId}}">前往论坛</a>
 									  <button th:attr="del_uri=@{/back/comment/}+${comment.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
 								  </td>
 							  </tr>
 							</tbody>
 						</table>
+					</div>
+					<div style="width:200px;">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+								<li th:if="${pagemodel.pageIndex>1}">
+									<a href="#" aria-label="Previous" th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex-1}">
+										<span class="span" aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+									<a href="#" aria-label="Next" th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex+1}">
+										<span class="span" aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</main>
 				<form id="deleteEmpForm"  method="post">
@@ -56,7 +71,7 @@
 				</form>
 			</div>
 		</div>
-
+		<div class="list_content_div"></div>
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
@@ -76,6 +91,21 @@
                 $("#deleteEmpForm").attr("action",$(this).attr("del_uri")).submit();
                 return false;
             });
+
+            $(function (){
+                $(".list_content").mouseenter(function(e){
+                    var e_ = window.event || e; // 兼容IE，FF事件源
+                    var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+                    $(".list_content_div").css("left",x +'px');
+                    $(".list_content_div").css("top",y +'px');
+                    var title = $(this).attr("value");
+                    $(".list_content_div").text(title).css("display","block");
+                });
+                $(".list_content").mouseleave(function(){
+                    $(".list_content_div").css("display","none");
+                });
+            });
+
 		</script>
 
 	</body>

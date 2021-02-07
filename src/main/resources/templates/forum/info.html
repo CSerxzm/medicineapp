@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>本草善养-后台</title>
+		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+	</head>
+
+	<body>
+		<div th:replace="~{commons/bar::topbar}"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div th:replace="~{commons/bar::#sidebar(activeuri='forum')}"></div>
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+					<div class="row">
+						<div class="col-md-1">
+							<image class="forum_image" th:src="${forum.user.image}"></image>
+						</div>
+						<div class="col-md-4 forum_head">
+							<div class="row">[[${forum.user.name}]]</div>
+							<div class="row">[[${#dates.format(forum.editTime,'yyyy/MM/dd HH:mm:ss')}]]</div>
+						</div>
+					</div>
+					<div class="row forum_content" >
+						[[${forum.content}]]
+					</div>
+					<div class="row" style="font-size:22px;font-weight: bold">
+						评论
+					</div>
+					<div class="row line"></div>
+					<div class="container-fluid" th:each="comment:${comments}">
+						<div class="container-fluid item">
+							<div class="row">
+								<div class="col-md-1">
+									<image class="comment_image" th:src="${comment.user.image}"></image>
+								</div>
+								<div class="col-md-4 comment_head">
+									<div class="row">[[${comment.user.name}]]</div>
+									<div class="row">[[${#dates.format(comment.editTime,'yyyy/MM/dd HH:mm:ss')}]]</div>
+								</div>
+							</div>
+							<div class="row comment_content" >
+								[[${comment.content}]]
+							</div>
+						</div>
+					</div>
+
+				</main>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+
+		<!-- Icons -->
+		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
+		<script>
+			feather.replace()
+		</script>
+
+	</body>
+
+</html>

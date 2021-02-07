@@ -23,13 +23,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='rumor')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<h2><a class="btn btn-sm btn-success" th:href="@{/back/rumor}">辟谣添加</a></h2>
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>标题</th>
 									<th>图片</th>
 									<th>内容</th>
@@ -40,19 +39,36 @@
 							</thead>
 							<tbody>
 							  <tr th:each="rumor:${rumors}">
-								  <td th:text="${rumor.id}"></td>
-								  <td th:text="${rumor.title}"></td>
-                                  <td><img style="width: 80px;height: 80px;" th:src="${rumor.image}"/></td>
-								  <td th:text="${rumor.content}"></td>
-								  <td th:text="${rumor.source}"></td>
-								  <td th:text="${rumor.reality=='true'?'真实':'谣言'}"></td>
+								  <td th:text="${#strings.abbreviate(rumor.title,10)}"></td>
+                                  <td><img class="list_image" th:src="${rumor.image}"/></td>
+								  <td th:text="${#strings.abbreviate(rumor.content,30)}"></td>
+								  <td th:text="${#strings.abbreviate(rumor.source,10)}"></td>
+								  <td th:text="${rumor.reality==1?'真实':'虚假'}"></td>
 								  <td>
-									 <a class="btn btn-sm btn-primary" th:href="@{'/back/rumor/'+${rumor.id}}">编辑</a>
+									  <a class="btn btn-sm btn-info" th:href="@{'/back/rumorinfo/'+${rumor.id}}">详情</a>
+									  <a class="btn btn-sm btn-primary" th:href="@{'/back/rumor/'+${rumor.id}}">编辑</a>
 									  <button th:attr="del_uri=@{/back/rumor/}+${rumor.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
 								  </td>
 							  </tr>
 							</tbody>
 						</table>
+					</div>
+					<div style="width:200px;">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+								<li th:if="${pagemodel.pageIndex>1}">
+									<a href="#" aria-label="Previous" th:href="@{/back/rumors?pageIndex=}+${pagemodel.pageIndex-1}">
+										<span class="span" aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+									<a href="#" aria-label="Next" th:href="@{/back/rumors?pageIndex=}+${pagemodel.pageIndex+1}">
+										<span class="span" aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</main>
 				<form id="deleteEmpForm"  method="post">

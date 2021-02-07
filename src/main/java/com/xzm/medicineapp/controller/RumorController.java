@@ -47,7 +47,15 @@ public class RumorController {
     public String backRumors(ModelMap modelMap,PageModel pageModel){
         Collection<Rumor> rumors = rumorService.getRumors(pageModel);
         modelMap.addAttribute("rumors",rumors);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "rumor/list";
+    }
+
+    @GetMapping("/back/rumorinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Rumor rumor = rumorService.getRumorById(id);
+        modelMap.addAttribute("rumor",rumor);
+        return "rumor/info";
     }
 
     @GetMapping("/back/rumor")

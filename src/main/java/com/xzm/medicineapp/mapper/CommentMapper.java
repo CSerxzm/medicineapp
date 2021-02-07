@@ -24,4 +24,31 @@ public interface CommentMapper {
 
     Integer getCount();
 
+    /**
+     * 通过评论的id找到forum_id
+     * @param id
+     * @return
+     */
+    Integer getForumIdbyId(Integer id);
+
+    /**
+     * 通过用户名找到该评论
+     * @param name
+     * @return
+     */
+    List<Comment> getCommentsByUserName(String name);
+
+    /**
+     * 通过用户名删除评论
+     * @param name
+     * @return
+     */
+    Integer delCommentsByUserName(String name);
+
+    /**
+     * 通过论坛的标识删除评论
+     * @param id
+     * @return
+     */
+    Integer delCommentsByForumId(Integer id);
 }

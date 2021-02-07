@@ -27,8 +27,8 @@
         </select>
         <!--public Integer addForum(Forum forum);-->
         <insert id="addForum" parameterType="forum" useGeneratedKeys="true" keyProperty="id">
-                insert into forum_tb(name,edit_time,content,keyword,edit_time) values
-                (#{user.name},#{editTime},#{content},#{keyword},#{editTime})
+                insert into forum_tb(name,edit_time,content,keyword) values
+                (#{user.name},#{editTime},#{content},#{keyword})
         </insert>
         <!--public Integer delForumById(Integer id);-->
         <delete id="delForumById">
@@ -42,4 +42,19 @@
         <update id="addComments">
                 update forum_tb set comments=comments+1 where id=#{id}
         </update>
+        <!--public Integer delComments(Integer id);-->
+        <update id="delComments">
+                update forum_tb set comments=comments-1 where id=#{id}
+        </update>
+
+        <!--List<Forum> getForumByUserName(String name);-->
+        <select id="getForumByUserName" resultMap="forumanduser">
+                select * from forum_tb where name=#{name};
+        </select>
+
+        <!--Integer delForumByUserName(String name);-->
+        <delete id="delForumByUserName">
+                delete from forum_tb where name=#{name}
+        </delete>
+
 </mapper>

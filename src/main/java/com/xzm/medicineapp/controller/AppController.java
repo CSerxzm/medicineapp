@@ -1,11 +1,15 @@
 package com.xzm.medicineapp.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.xzm.medicineapp.bean.Constant;
+import com.xzm.medicineapp.bean.Constellation;
 import com.xzm.medicineapp.util.HttpClientUtil;
 import org.codehaus.groovy.transform.sc.transformers.ListExpressionTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  * @create 2021-01-19 19:55
  */
 
-@RestController
+@Controller
 public class AppController {
 
     @Autowired
@@ -65,6 +69,7 @@ public class AppController {
      * @return
      */
     @RequestMapping("/getimages")
+    @ResponseBody
     public String getGoods(){
         List<Map> mapList = new ArrayList();
         Map map1 = new HashMap();
@@ -93,18 +98,69 @@ public class AppController {
      * @param constellation
      */
     @RequestMapping("/getconstellation")
+    @ResponseBody
     public String getConstellation(String constellation) throws UnsupportedEncodingException {
         String desc = (String) redisTemplate.opsForValue().get(constellation);
-        String url="http://web.juhe.cn:8080/constellation/getAll";
         Map<String, String> params = new HashMap<>();
         if(desc==null){
             params.put("consName",constellation);
-            params.put("type","today");
-            params.put("key","6f99d04702c95adfc2c354dfede407b0");
-            desc = HttpClientUtil.doGet(url, params);
-            redisTemplate.opsForValue().set(constellation, desc,10, TimeUnit.HOURS);
+            params.put(Constant.ConstellationParam.TYPE.getKey(),Constant.ConstellationParam.TYPE.getValue());
+            params.put(Constant.ConstellationParam.KEY.getKey(),Constant.ConstellationParam.KEY.getValue());
+            desc = HttpClientUtil.doGet(Constant.CONSTELLATIONURL, params);
+            redisTemplate.opsForValue().set(constellation, desc,Constant.CONSTELLATIONTTL, TimeUnit.HOURS);
         }
         return desc;
+    }
+
+    /*************************后台管理*************************/
+    /**
+     * 获得redis中星座运势
+     * @param modelMap
+     * @return
+     */
+    @GetMapping("/back/constellations")
+    public String backConstellation(ModelMap modelMap){
+        List<Constellation> constellationList = new ArrayList<>();
+        for(String str: Constant.CONSTELLATIONSTRLIST){
+            String res = (String) redisTemplate.opsForValue().get(str);
+            if(res!=null){
+                Long ttl = redisTemplate.getExpire(str);
+                Constellation constellation = JSON.parseObject(res, Constellation.class);
+                constellation.setTtl(ttl);
+                constellationList.add(constellation);
+            }
+        }
+        modelMap.addAttribute("constellations",constellationList);
+        return "constellation/list";
+    }
+
+    /**
+     * 删除星座运势
+     * @param name
+     * @return
+     */
+    @DeleteMapping("/back/delconstellation")
+    public String delConstellation(String name){
+        redisTemplate.delete(name);
+        return "redirect:/back/constellations";
+    }
+
+    /**
+     * 拉取所有的星座运势
+     * @return
+     */
+    @GetMapping("/back/getallconstellation")
+    public String getAllConstellation(){
+        Map<String,String> params = new HashMap<>();
+        String desc=null;
+        params.put(Constant.ConstellationParam.TYPE.getKey(),Constant.ConstellationParam.TYPE.getValue());
+        params.put(Constant.ConstellationParam.KEY.getKey(),Constant.ConstellationParam.KEY.getValue());
+        for(String str: Constant.CONSTELLATIONSTRLIST){
+            params.put("consName",str);
+            desc = HttpClientUtil.doGet(Constant.CONSTELLATIONURL, params);
+            redisTemplate.opsForValue().set(str, desc,Constant.CONSTELLATIONTTL, TimeUnit.HOURS);
+        }
+        return "redirect:/back/constellations";
     }
 
 }

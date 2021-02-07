@@ -1,11 +1,17 @@
 package com.xzm.medicineapp.service.Impl;
 
+import com.xzm.medicineapp.bean.Comment;
+import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.bean.User;
+import com.xzm.medicineapp.dao.CommentDao;
+import com.xzm.medicineapp.dao.ForumDao;
+import com.xzm.medicineapp.dao.TestDao;
 import com.xzm.medicineapp.dao.UserDao;
 import com.xzm.medicineapp.service.UserService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.List;
@@ -19,6 +25,15 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private ForumDao forumDao;
+
+    @Autowired
+    private CommentDao commentDao;
+
+    @Autowired
+    TestDao testDao;
 
     /**
      * 登录用户
@@ -52,10 +67,27 @@ public class UserServiceImpl implements UserService {
      * @param name
      * @return
      */
+    @Transactional
     public Integer delUser(String name){
+        //删除用户发表的评论
+        List<Comment> comments = commentDao.getCommentsByUserName(name);
+        for(Comment comment:comments){
+            //降低评论数
+            forumDao.delComments(comment.getForumId());
+        }
+        commentDao.delCommentsByUserName(name);
+        //删除用户发表的论坛
+        List<Forum> forums = forumDao.getForumByUserName(name);
+        for(Forum forum :forums){
+            commentDao.delCommentsByForumId(forum.getId());
+        }
+        forumDao.delForumByUserName(name);
+        //删除用户的测试记录
+        testDao.delPaperByUser(name);
         return userDao.delUser(name);
     }
 
+    @Transactional
     public Integer updateUser(User user){
         return userDao.updateUser(user);
     }
@@ -74,6 +106,7 @@ public class UserServiceImpl implements UserService {
      * @param user
      * @return
      */
+    @Transactional
     public Integer registUser(User user){
         User userByName = userDao.getUserByName(user.getName());
         if(userByName!=null){
@@ -89,6 +122,7 @@ public class UserServiceImpl implements UserService {
      * @param user
      * @return
      */
+    @Transactional
     public User updateUserWithoutPassAndAuthority(User user){
         userDao.updateUserWithoutPassAndAuthority(user);
         User userByName = userDao.getUserByName(user.getName());
@@ -101,6 +135,7 @@ public class UserServiceImpl implements UserService {
      * @param oldPass
      * @return
      */
+    @Transactional
     public User updateUserPass(User user,String oldPass){
         User userByName = userDao.getUserByName(user.getName());
         String pass = DigestUtils.md5DigestAsHex(oldPass.getBytes());

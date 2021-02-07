@@ -17,6 +17,13 @@ public interface TestService {
 
     List<TestQuestion> selectQuestionByType(String type);
 
+    /**
+     * 获得测试建议
+     * @param id
+     * @return
+     */
+    TestResult selectResultById(Integer id);
+
     TestResult selectResultByType(List<Answer> answerList,String name);
 
     List<TestResult> selectAllType();
@@ -36,4 +43,32 @@ public interface TestService {
      * @return
      */
     TestResult selectResultByType(String name);
+
+    /**
+     * 分页获得所有的测试记录
+     * @param pageModel
+     * @return
+     */
+    List<TestPaper> getTestPapers(PageModel pageModel);
+
+    /**
+     * 删除测试记录
+     * @param id
+     * @return
+     */
+    Integer delTestPaper(Integer id);
+
+    /**
+     * 获得所有的测试记录
+     * @return
+     */
+    List<TestResult> selectTestResults();
+
+    /**
+     * 更新测试建议
+     * @param testResult
+     * @return
+     */
+    Integer updateTestResult(TestResult testResult);
+
 }

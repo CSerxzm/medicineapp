@@ -28,6 +28,12 @@
         <insert id="addComment" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
                 insert into comment_tb(forum_id,name,edit_time,content) values (#{forumId},#{user.name},#{editTime},#{content})
         </insert>
+
+        <!--public Integer getForumIdbyId(Integer id);-->
+        <select id="getForumIdbyId" resultType="Integer">
+                select forum_id from  comment_tb where id=#{id}
+        </select>
+
         <!--public Integer delCommentById(Integer id);-->
         <delete id="delCommentById">
                 delete from comment_tb where id=#{id}
@@ -36,4 +42,20 @@
         <select id="getCount" resultType="Integer">
                 select count(*) from  comment_tb
         </select>
+
+        <!--List<Comment> getCommentsByUserName(String name);-->
+        <select id="getCommentsByUserName" resultType="comment">
+                select * from comment_tb where name = #{name}
+        </select>
+
+        <!--Integer delCommentsByUserName(String name);-->
+        <delete id="delCommentsByUserName" >
+                delete from comment_tb where name=#{name}
+        </delete>
+
+        <!--Integer delCommentsByForumId(Integer id);-->
+        <delete id="delCommentsByForumId">
+                delete from comment_tb where forum_id=#{id}
+        </delete>
+
 </mapper>

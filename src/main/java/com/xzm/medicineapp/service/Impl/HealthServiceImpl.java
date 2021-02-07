@@ -6,6 +6,7 @@ import com.xzm.medicineapp.service.HealthService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @create 2020-08-21 21:18
  */
 @Service
+@Transactional
 public class HealthServiceImpl implements HealthService {
 
     @Autowired
@@ -34,12 +36,17 @@ public class HealthServiceImpl implements HealthService {
         return healthDao.getHealths(pageModel);
     }
 
+    @Transactional
     public Integer addHealth(Health health){
         return healthDao.addHealth(health);
     }
+
+    @Transactional
     public Integer delHealth(Integer id){
         return healthDao.delHealth(id);
     }
+
+    @Transactional
     public Integer updateHealth(Health health){
         return healthDao.updateHealth(health);
     }

@@ -1,5 +1,8 @@
 package com.xzm.medicineapp.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -10,6 +13,8 @@ public class Forum {
 
     private Integer id;
     private User user;//发布者名字
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date editTime;
     private String content;
     private String keyword;

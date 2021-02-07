@@ -11,10 +11,8 @@ import com.xzm.medicineapp.service.TestService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -69,4 +67,69 @@ public class TestController {
     public TestResult selectResultByType(String type){
         return testService.selectResultByType(type);
     }
+
+    /*************************后台管理*************************/
+    /**
+     * 获得所有的测试记录
+     * @param modelMap
+     * @param pageModel
+     * @return
+     */
+    @GetMapping("/back/testpapers")
+    public String backTestPapers(ModelMap modelMap, PageModel pageModel){
+        List<TestPaper> testPapers = testService.getTestPapers(pageModel);
+        modelMap.addAttribute("testpapers",testPapers);
+        modelMap.addAttribute("pagemodel",pageModel);
+        return "testpaper/list";
+    }
+
+    /**
+     * 删除测试记录
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/back/testpaper/{id}")
+    public String deleteTestPaper(@PathVariable("id") Integer id){
+        testService.delTestPaper(id);
+        return "redirect:/back/testpaper";
+    }
+
+    /**
+     * 获得所有体质的建议
+     * @param modelMap
+     * @return
+     */
+    @GetMapping("/back/testresults")
+    public String backTestResults(ModelMap modelMap){
+        List<TestResult> testResults = testService.selectTestResults();
+        modelMap.addAttribute("testresults",testResults);
+        return "testresult/list";
+    }
+
+    /**
+     * 获得体质建议
+     * @param id
+     * @param modelMap
+     * @return
+     */
+    @GetMapping("/back/resultinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        TestResult testResult = testService.selectResultById(id);
+        modelMap.addAttribute("testresult",testResult);
+        return "testresult/info";
+    }
+
+    @GetMapping("/back/testresult/{id}")
+    public String toEditPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        TestResult testResult = testService.selectResultById(id);
+        modelMap.addAttribute("testresult",testResult);
+        return "testresult/edit";
+    }
+
+    @PutMapping("/back/testresult")
+    public String updateTestResult(TestResult testResult){
+        testService.updateTestResult(testResult);
+        return "redirect:/back/testresults";
+    }
+
 }

@@ -1,0 +1,39 @@
+
+R
+java:S1128"5Remove this unused import 'org.apache.http.HttpHost'.(õÑ‰¯8§¼Ôñ.
+n
+java:S2095*"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(™ıÄ“8µ°ÃÔñ.
+o
+java:S2095†"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(ıê”Ê8µ°ÃÔñ.
+F
+java:S1148“"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+Q
+java:S2864e"4Iterate over the "entrySet" instead of the "keySet".(÷¤Äò8¬½½Ôñ.
+E
+java:S1148B"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+E
+java:S1148v"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+n
+java:S2095\"QUse try-with-resources or close this "CloseableHttpClient" in a "finally" clause.(ıê”Ê8µ°ÃÔñ.
+F
+java:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+E
+java:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+Q
+java:S28642"4Iterate over the "entrySet" instead of the "keySet".(÷¤Äò8¬½½Ôñ.
+E
+java:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬½½Ôñ.
+W
+java:S1118 ":Add a private constructor to hide the implicit public one.(…ÎÒÌ8¬½½Ôñ.
+c
+java:S2259s"FA "NullPointerException" could be thrown; "response" is nullable here.(Âì“¡8¬½½Ôñ.
+T
+java:S1135u"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¬½½Ôñ.
+e
+java:S1128"HRemove this unused import 'org.apache.http.client.config.RequestConfig'.(™Öˆ8§¼Ôñ.
+d
+java:S2259–"FA "NullPointerException" could be thrown; "response" is nullable here.(Âì“¡8¬½½Ôñ.
+T
+java:S1128"7Remove this unused import 'org.apache.http.HttpEntity'.(©À¥ë8§¼Ôñ.
+U
+java:S1135˜"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8¬½½Ôñ.

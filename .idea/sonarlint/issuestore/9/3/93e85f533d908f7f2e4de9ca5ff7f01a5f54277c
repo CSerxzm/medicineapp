@@ -1,0 +1,16 @@
+
+Y
+java:S1128"DRemove this unused import 'com.xzm.medicineapp.service.UserService'.(Œîì
+Y
+java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(ªÏüıÿÿÿÿ
+m
+java:S1192="WDefine a constant instead of duplicating this literal "redirect:/back/prescrs" 3 times.(Ç‚¼
+V	java:S125D"<This block of commented-out lines of code should be removed.(»îô¿øÿÿÿÿ
+E
+java:S3740'"/Provide the parametrized type for this generic.(‰ÌÑŒ
+P
+java:S1128":Remove this unused import 'com.xzm.medicineapp.bean.User'.(ñ²…
+T
+java:S1128">Remove this unused import 'com.xzm.medicineapp.bean.Medicine'.(ÌÊÂÊ
+T
+java:S3752$">Add a "method" parameter to this "@RequestMapping" annotation.(¢¹™Ó

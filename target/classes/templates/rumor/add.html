@@ -19,11 +19,10 @@
 
 	<body>
 		<div th:replace="~{commons/bar::topbar}"></div>
-
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='rumor')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<div class="table-responsive">
 						<form th:action="@{/back/rumor}" method="post">
 							<input type="hidden" name="_method" value="put" th:if="${rumor!=null}"/>
@@ -38,7 +37,7 @@
 							</div>
 							<div class="form-group">
 								<label>内容</label>
-								<input name="content" type="text" class="form-control" th:value="${rumor}!=null?${rumor.content}" required>
+								<textarea name="content" type="text" class="form-control" th:text="${rumor}!=null?${rumor.content}" required></textarea>
 							</div>
 							<div class="form-group">
 								<label>出处</label>
@@ -47,12 +46,12 @@
 							<div class="form-group">
 								<label>真实否</label><br/>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="reality"  value="true" th:checked="${rumor!=null}?${rumor.reality}=='true'">
+									<input class="form-check-input" type="radio" name="reality"  value="1" th:checked="${rumor!=null}?${rumor.reality}==1">
 									<label class="form-check-label">真实</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="reality"  value="false" th:checked="${rumor!=null}?${rumor.reality}=='false'">
-									<label class="form-check-label">谣言</label>
+									<input class="form-check-input" type="radio" name="reality"  value="0" th:checked="${rumor!=null}?${rumor.reality}==0">
+									<label class="form-check-label">虚假</label>
 								</div>
 							</div>
 							<button type="submit" class="btn btn-sm btn-primary" th:text="${rumor}==null?'添加':'更新'"></button>

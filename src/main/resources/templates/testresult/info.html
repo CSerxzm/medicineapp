@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>本草善养-后台</title>
+		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+	</head>
+
+	<body>
+		<div th:replace="~{commons/bar::topbar}"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div th:replace="~{commons/bar::#sidebar(activeuri='testresult')}"></div>
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+					<div class="table-responsive">
+						<h3 class="info_title" th:text="${testresult.type+'的相关建议'}">标题</h3>
+						<div class="info_row"><span class="info_attribute">体质特征：</span>[[${testresult.feature}]]</div>
+						<div class="info_row"><span class="info_attribute">形成原因:</span>[[${testresult.reason}]]</div>
+						<div class="info_row"><span class="info_attribute">发病倾向:</span>[[${testresult.attack}]]</div>
+						<div class="info_row"><span class="info_attribute">保健原则:</span>[[${testresult.healthPrinciple}]]</div>
+						<div class="info_row"><span class="info_attribute">起居养生:</span>[[${testresult.dailyCare}]]</div>
+						<div class="info_row"><span class="info_attribute">饮食调养:</span>[[${testresult.foodCare}]]</div>
+						<div class="info_row"><span class="info_attribute">药物调理:</span>[[${testresult.medicineCare}]]</div>
+						<div class="info_row"><span class="info_attribute">精神疗养:</span>[[${testresult.spiritCare}]]</div>
+					</div>
+				</main>
+
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+
+		<!-- Icons -->
+		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
+		<script>
+			feather.replace()
+		</script>
+
+	</body>
+
+</html>

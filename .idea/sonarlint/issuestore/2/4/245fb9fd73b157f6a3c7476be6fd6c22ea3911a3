@@ -1,0 +1,14 @@
+
+s
+java:S1128	"VRemove this unused import 'org.springframework.data.redis.serializer.RedisSerializer'.(èÈ„­8µÂÔÓñ.
+y
+java:S1128
+"\Remove this unused import 'org.springframework.data.redis.serializer.StringRedisSerializer'.(íâè»8µÂÔÓñ.
+‹
+java:S1128"iRemove this unused import 'org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer'.(ˆƒ’Îşÿÿÿÿ8µÂÔÓñ.
+˜
+java:S1130"vRemove the declaration of thrown exception 'java.net.UnknownHostException', as it cannot be thrown from method's body.(Ò¹–Öıÿÿÿÿ8…†×Óñ.
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(÷úòé8µÂÔÓñ.
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ì´Äì8µÂÔÓñ.

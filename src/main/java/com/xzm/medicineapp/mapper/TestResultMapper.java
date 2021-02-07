@@ -13,10 +13,14 @@ import java.util.List;
  */
 public interface TestResultMapper {
 
+    TestResult selectResultById(Integer id);
+
     TestResult selectResultByType(String type);
 
     List<TestResult> selectAllType();
 
     Integer updateTestResult(TestResult testResult);
+
+    List<TestResult> selectTestResults();
 
 }

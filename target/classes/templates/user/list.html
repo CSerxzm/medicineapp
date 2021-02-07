@@ -21,9 +21,9 @@
 		<div th:replace="~{commons/bar::topbar}"></div>
 
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row container-fluid">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='user')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<h2><a class="btn btn-sm btn-success" th:href="@{/back/user}">用户添加</a></h2>
 					<div class="table-responsive">
 						<table class="table table-hover">
@@ -41,12 +41,12 @@
 							</thead>
 							<tbody>
 							  <tr th:each="user:${users}">
-								  <td th:text="${user.name}"></td>
-								  <td><img style="width: 80px;height: 80px;" th:src="${user.image}"/></td>
+								  <td th:text="${#strings.abbreviate(user.name,10)}"></td>
+								  <td><img class="list_image" th:src="${user.image}"/></td>
 								  <td th:text="${user.sex}==0?'男':'女'"></td>
 								  <td th:text="${user.constellation}"></td>
-								  <td th:text="${user.phone}"></td>
-								  <td th:text="${user.email}"></td>
+								  <td th:text="${#strings.abbreviate(user.phone,11)}"></td>
+								  <td th:text="${#strings.abbreviate(user.email,20)}"></td>
 								  <td th:text="${user.authority}=='root'?'管理员':'普通用户'"></td>
 								  <td>
 									 <a class="btn btn-sm btn-primary" th:href="@{'/back/user/'+${user.name}}">编辑</a>
@@ -55,6 +55,23 @@
 							  </tr>
 							</tbody>
 						</table>
+					</div>
+					<div style="width:200px;">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+								<li th:if="${pagemodel.pageIndex>1}">
+									<a href="#" aria-label="Previous" th:href="@{/back/users?pageIndex=}+${pagemodel.pageIndex-1}">
+										<span class="span" aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+									<a href="#" aria-label="Next" th:href="@{/back/users?pageIndex=}+${pagemodel.pageIndex+1}">
+										<span class="span" aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</main>
 				<form id="deleteEmpForm"  method="post">

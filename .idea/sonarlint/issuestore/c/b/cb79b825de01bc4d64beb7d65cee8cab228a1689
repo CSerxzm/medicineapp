@@ -1,0 +1,9 @@
+
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¬òç¥ÿÿÿÿÿ
+f
+java:S1128"KRemove this unused import 'org.springframework.web.servlet.LocaleResolver'.(¿ë¿úÿÿÿÿ
+l
+java:S1128"ORemove this unused import 'org.springframework.cache.annotation.EnableCaching'.(ÍŠ³Ï8€‡ŒÓñ.
+u
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "adapter".(µ¬ì€

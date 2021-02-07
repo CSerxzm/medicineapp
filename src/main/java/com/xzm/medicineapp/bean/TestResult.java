@@ -19,7 +19,7 @@ public class TestResult {
 
     private Integer tendThreshold;
 
-    private String character;
+    private String feature;
 
     private String reason;
 
@@ -72,12 +72,12 @@ public class TestResult {
         this.tendThreshold = tendThreshold;
     }
 
-    public String getCharacter() {
-        return character;
+    public String getFeature() {
+        return feature;
     }
 
-    public void setCharacter(String character) {
-        this.character = character;
+    public void setFeature(String feature) {
+        this.feature = feature;
     }
 
     public String getReason() {

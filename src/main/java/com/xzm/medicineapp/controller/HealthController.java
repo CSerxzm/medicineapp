@@ -59,6 +59,7 @@ public class HealthController {
     public String backHealths(ModelMap modelMap,PageModel pageModel){
         Collection<Health> healths = healthService.getHealths(pageModel);
         modelMap.addAttribute("healths",healths);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "health/list";
     }
 
@@ -73,8 +74,16 @@ public class HealthController {
         return "redirect:/back/healths";
     }
 
+    @GetMapping("/back/healthinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Health health = healthService.getHealthById(id);
+        modelMap.addAttribute("health",health);
+        //回到修改页面(add是一个修改添加二合一的页面);
+        return "health/info";
+    }
+
     @GetMapping("/back/health/{id}")
-    public String toEditPage(@PathVariable("") Integer id, ModelMap modelMap){
+    public String toEditPage(@PathVariable("id") Integer id, ModelMap modelMap){
         Health health = healthService.getHealthById(id);
         modelMap.addAttribute("health",health);
         //回到修改页面(add是一个修改添加二合一的页面);

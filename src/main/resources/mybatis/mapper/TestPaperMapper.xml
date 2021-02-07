@@ -30,4 +30,22 @@
         </if>
     </select>
 
+    <!--List<TestPaper> getTestPapers(PageModel pageModel);-->
+    <select id="getTestPapers" resultType="testPaper">
+        select * from test_paper  order by  create_time
+        <if test="firstLimitParam!=null and pageSize!=null" >
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+
+    <!--Integer delTestPaper(Integer id);-->
+    <delete id="delTestPaper">
+          delete from test_paper where id=#{id}
+    </delete>
+
+    <!--Integer delTestPaperByName(String name);-->
+    <delete id="delTestPaperByName">
+          delete from test_paper where name=#{name}
+    </delete>
+
 </mapper>

@@ -2,9 +2,11 @@ package com.xzm.medicineapp.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.xzm.medicineapp.bean.Comment;
 import com.xzm.medicineapp.bean.Food;
 import com.xzm.medicineapp.bean.Forum;
 import com.xzm.medicineapp.bean.User;
+import com.xzm.medicineapp.service.CommentService;
 import com.xzm.medicineapp.service.FoodService;
 import com.xzm.medicineapp.service.ForumService;
 import com.xzm.medicineapp.util.PageModel;
@@ -27,6 +29,9 @@ public class ForumController {
 
     @Autowired
     private ForumService forumService;
+
+    @Autowired
+    private CommentService commentService;
 
     @ResponseBody
     @RequestMapping("/getforums")
@@ -64,6 +69,7 @@ public class ForumController {
     public String backForums(ModelMap modelMap,PageModel pageModel){
         Collection<Forum> forums = forumService.getForums(pageModel);
         modelMap.addAttribute("forums",forums);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "forum/list";
     }
 
@@ -72,4 +78,14 @@ public class ForumController {
         forumService.delForumById(id);
         return "redirect:/back/forums";
     }
+
+    @GetMapping("/back/foruminfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Forum forum = forumService.getForumById(id);
+        List<Comment> comments = commentService.getCommentsByForumId(id);
+        modelMap.addAttribute("forum",forum);
+        modelMap.addAttribute("comments",comments);
+        return "forum/info";
+    }
+
 }

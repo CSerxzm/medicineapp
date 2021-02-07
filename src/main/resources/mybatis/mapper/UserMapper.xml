@@ -25,7 +25,7 @@
         </delete>
         <!--public Integer updateUser(User user);-->
         <update id="updateUser">
-                update user_tb set password=#{password},image=#{image},authority=#{authority} where name=#{name}
+                update user_tb set password=#{password},image=#{image},authority=#{authority},constellation=#{constellation},phone=#{phone},email=#{email} where name=#{name}
         </update>
         <!--public User getUserByName(String name);-->
         <select id="getUserByName" resultType="user">

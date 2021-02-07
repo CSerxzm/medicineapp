@@ -31,6 +31,10 @@ public class TestDao {
     @Autowired
     TestPaperMapper testPaperMapper;
 
+    public TestResult selectResultById(Integer id){
+        return testResultMapper.selectResultById(id);
+    }
+
     public List<TestQuestion> selectQuestionByType(String type){
         return testQuestionMapper.selectQuestionByType(type);
     }
@@ -58,5 +62,21 @@ public class TestDao {
 
     public Integer getCount(String name){
         return testPaperMapper.getCount(name);
+    }
+
+    public List<TestPaper> getTestPapers(PageModel pageModel){
+        return testPaperMapper.getTestPapers(pageModel);
+    }
+
+    public Integer delTestPaper(Integer id){
+        return testPaperMapper.delTestPaper(id);
+    }
+
+    public Integer delPaperByUser(String name){
+        return testPaperMapper.delTestPaperByName(name);
+    }
+
+    public List<TestResult> selectTestResults(){
+        return testResultMapper.selectTestResults();
     }
 }

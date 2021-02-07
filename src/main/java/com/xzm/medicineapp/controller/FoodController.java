@@ -45,7 +45,16 @@ public class FoodController {
     public String backFoods(ModelMap modelMap,PageModel pageModel){
         Collection<Food> foods = foodService.getFoods(pageModel);
         modelMap.addAttribute("foods",foods);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "food/list";
+    }
+
+    @GetMapping("/back/foodinfo/{id}")
+    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+        Food food = foodService.getFoodById(id);
+        modelMap.addAttribute("food",food);
+        //回到修改页面(add是一个修改添加二合一的页面);
+        return "food/info";
     }
 
     @GetMapping("/back/food")

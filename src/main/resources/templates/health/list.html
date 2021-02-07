@@ -23,13 +23,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='health')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<h2><a class="btn btn-sm btn-success" th:href="@{/back/health}">养生知识添加</a></h2>
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>标题</th>
 									<th>作者</th>
 									<th>发布时间</th>
@@ -42,21 +41,38 @@
 							</thead>
 							<tbody>
 							  <tr th:each="health:${healths}">
-								  <td th:text="${health.id}"></td>
-								  <td th:text="${health.title}"></td>
+								  <td th:text="${#strings.abbreviate(health.title,10)}"></td>
 								  <td th:text="${health.author}"></td>
 								  <td th:text="${#dates.format(health.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
-								  <td><img style="width: 80px;height: 80px;" th:src="${health.image}"/></td>
-								  <td th:text="${health.content}"></td>
+								  <td><img class="list_image" th:src="${health.image}"/></td>
+								  <td th:text="${#strings.abbreviate(health.content,10)}"></td>
 								  <td th:text="${health.mainType}"></td>
                                   <td th:text="${health.subType}"></td>
 								  <td>
+									 <a class="btn btn-sm btn-info" th:href="@{'/back/healthinfo/'+${health.id}}">详情</a>
 									 <a class="btn btn-sm btn-primary" th:href="@{'/back/health/'+${health.id}}">编辑</a>
-									  <button th:attr="del_uri=@{/back/health/}+${health.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+									 <button th:attr="del_uri=@{/back/health/}+${health.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
 								  </td>
 							  </tr>
 							</tbody>
 						</table>
+					</div>
+					<div style="width:200px;">
+						<nav aria-label="Page navigation">
+							<ul class="pagination">
+								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+								<li th:if="${pagemodel.pageIndex>1}">
+									<a href="#" aria-label="Previous" th:href="@{/back/healths?pageIndex=}+${pagemodel.pageIndex-1}">
+										<span class="span" aria-hidden="true">上一页</span>
+									</a>
+								</li>
+								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+									<a href="#" aria-label="Next" th:href="@{/back/healths?pageIndex=}+${pagemodel.pageIndex+1}">
+										<span class="span" aria-hidden="true">下一页</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</main>
 				<form id="deleteEmpForm"  method="post">
@@ -64,7 +80,6 @@
 				</form>
 			</div>
 		</div>
-
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
@@ -78,12 +93,18 @@
 			feather.replace()
 		</script>
 
-		<script>
+		<script th:inline="javascript">
             $(".deleteBtn").click(function(){
                 //删除当前员工的
                 $("#deleteEmpForm").attr("action",$(this).attr("del_uri")).submit();
                 return false;
             });
+
+            function getMainType(index){
+                console.log(mainTypeArr[index]);
+                return mainTypeArr[index];
+            }
+
 		</script>
 
 	</body>

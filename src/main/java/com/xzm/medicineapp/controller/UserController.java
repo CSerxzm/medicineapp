@@ -80,14 +80,26 @@ public class UserController {
     }
 
     /*************************后台管理*************************/
+    /**
+     * 后台用户登录
+     * @param username
+     * @param password
+     * @param map
+     * @param httpSession
+     * @return
+     */
     @RequestMapping("/back/login")
     public String backLogin(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         Map<String,Object> map, HttpSession httpSession){
-        if(userService.login(new User(username,password))!=null){
+        User login = userService.login(new User(username, password));
+        if(login !=null && "root".equals(login.getAuthority())){
             //为了防止表单重复提交，可以设置网页重定向
             httpSession.setAttribute("loginUser",username);
             return "redirect:/back/index";
+        }else if(login !=null){
+            map.put("msg","您没有管理员权限");
+            return "login";
         }else{
             map.put("msg","用户名或密码错误");
             return "login";
@@ -104,26 +116,46 @@ public class UserController {
         return "login";
     }
 
-    //查询所有员工返回列表页面
+    /**
+     * 得到用户列表
+     * @param modelMap
+     * @param pageModel
+     * @return
+     */
     @GetMapping("/back/users")
     public String backUsers(ModelMap modelMap,PageModel pageModel){
         Collection<User> users = userService.getUsers(pageModel);
         modelMap.addAttribute("users",users);
+        modelMap.addAttribute("pagemodel",pageModel);
         return "user/list";
     }
 
-    //来到员工添加页面
+    /**
+     * 来到用户添加界面
+     * @return
+     */
     @GetMapping("/back/user")
     public String toAddPage(){
         return "user/add";
     }
-    //员工添加
+
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
     @PostMapping("/back/user")
     public String addUser(User user){
         userService.addUser(user);
         return "redirect:/back/users";
     }
-    //来到修改页面，查出当前员工，在页面回显
+
+    /**
+     * 来到用户信息修改界面
+     * @param name
+     * @param modelMap
+     * @return
+     */
     @GetMapping("/back/user/{name}")
     public String toEditPage(@PathVariable("name") String name, ModelMap modelMap){
         User user = userService.getUserByName(name);
@@ -132,13 +164,22 @@ public class UserController {
         return "user/add";
     }
 
+    /**
+     * 更新用户
+     * @param user
+     * @return
+     */
     @PutMapping("/back/user")
     public String updateUser(User user){
         userService.updateUser(user);
         return "redirect:/back/users";
     }
 
-    //员工删除
+    /**
+     * 删除用户
+     * @param name
+     * @return
+     */
     @DeleteMapping("/back/user/{name}")
     public String deleteUser(@PathVariable("name") String name){
         userService.delUser(name);

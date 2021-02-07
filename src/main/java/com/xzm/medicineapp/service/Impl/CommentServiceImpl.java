@@ -7,6 +7,7 @@ import com.xzm.medicineapp.service.CommentService;
 import com.xzm.medicineapp.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.getCommentsByForumId(forum_id);
     }
 
+    @Transactional
     public Integer addComment(Comment comment){
         Integer forumId = comment.getForumId();
         //加评论
@@ -39,7 +41,10 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.addComment(comment);
     }
 
+    @Transactional
     public Integer delCommentById(Integer id){
+        Integer forumIdbyId = commentDao.getForumIdbyId(id);
+        forumDao.delComments(forumIdbyId);
         return commentDao.delCommentById(id);
     }
 }

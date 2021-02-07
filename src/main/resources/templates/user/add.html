@@ -23,7 +23,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div th:replace="~{commons/bar::#sidebar(activeuri='user')}"></div>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
 					<div class="table-responsive">
 						<form th:action="@{/back/user}" method="post">
 							<input type="hidden" name="_method" value="put" th:if="${user!=null}"/>
@@ -38,6 +38,18 @@
 							<div class="form-group">
 								<label>头像</label>
 								<input name="image" type="text" class="form-control" th:value="${user}!=null?${user.image}">
+							</div>
+							<div class="form-group">
+								<label>星座</label>
+								<input name="constellation" type="text" class="form-control" th:value="${user}!=null?${user.constellation}">
+							</div>
+							<div class="form-group">
+								<label>电话</label>
+								<input name="phone" type="text" class="form-control" th:value="${user}!=null?${user.phone}">
+							</div>
+							<div class="form-group">
+								<label>邮箱</label>
+								<input name="email" type="text" class="form-control" th:value="${user}!=null?${user.email}">
 							</div>
 							<div class="form-group">
 								<label>权限</label><br/>
