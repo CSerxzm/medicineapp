@@ -36,12 +36,12 @@ spring:
 
 放入tomcat中，进行运行。
 
-浏览器访问http://localhost:8080/medicineapp/访问，用户名为root，密码为password。
+浏览器访问 `http://localhost:8080/medicineapp/` 访问，用户名为root，密码为password。
 
 ##### 效果图
 
-![](pic/test (1).png)
+![](./pic/test (1).png)
 
-![test (2)](pic/test (2).png)
+![test (2)](./pic/test (2).png)
 
-![test (3)](pic/test (3).png)
+![test (3)](./pic/test (3).png)
