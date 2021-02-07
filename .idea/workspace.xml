@@ -6,12 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1141030-4e8b-42f2-939f-0043c047ba7b" name="Default" comment="更新readme">
+    <list default="true" id="f1141030-4e8b-42f2-939f-0043c047ba7b" name="Default" comment="解决图片不显示问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic/test (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic/test (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic/test (3).png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -93,7 +89,7 @@
           <entry key="js" value="2" />
           <entry key="md" value="16" />
           <entry key="sql" value="10" />
-          <entry key="txt" value="120" />
+          <entry key="txt" value="136" />
           <entry key="xml" value="698" />
           <entry key="yml" value="327" />
         </counts>
@@ -105,7 +101,7 @@
           <entry key="JAVA" value="7260" />
           <entry key="JavaScript" value="2" />
           <entry key="Markdown" value="16" />
-          <entry key="PLAIN_TEXT" value="120" />
+          <entry key="PLAIN_TEXT" value="136" />
           <entry key="SQL" value="26" />
           <entry key="XML" value="682" />
           <entry key="YAML" value="327" />
@@ -191,7 +187,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="765">
+              <first_editor relative-caret-position="376">
                 <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               </first_editor>
               <second_editor />
@@ -251,8 +247,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="CSerxzm &lt;3052720966@qq.com&gt;" />
         <option value="xiangzhimin &lt;xiangzhimin@egova.com.cn&gt;" />
+        <option value="CSerxzm &lt;3052720966@qq.com&gt;" />
       </list>
     </option>
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -443,7 +439,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1612686257339" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1612686338020" />
     <property name="last_opened_file_path" value="E:/Company/temp/wizdom-urban-v14" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -853,7 +849,7 @@
       <workItem from="1612485330083" duration="4525000" />
       <workItem from="1612524031012" duration="3625000" />
       <workItem from="1612577171331" duration="36671000" />
-      <workItem from="1612659971667" duration="23858000" />
+      <workItem from="1612659971667" duration="24508000" />
     </task>
     <task id="LOCAL-00001" summary="更新relatity字段为int">
       <created>1610886378507</created>
@@ -890,7 +886,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612686157994</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="解决图片不显示问题">
+      <created>1612686295168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612686295168</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -926,7 +929,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274933000" />
+    <option name="totallyTimeSpent" value="275583000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1055,7 +1058,8 @@
     <MESSAGE value="添加身体测试相关类" />
     <MESSAGE value="论坛添加时间" />
     <MESSAGE value="更新readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新readme" />
+    <MESSAGE value="解决图片不显示问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决图片不显示问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1490,7 +1494,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="765">
+          <first_editor relative-caret-position="376">
             <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           </first_editor>
           <second_editor />
