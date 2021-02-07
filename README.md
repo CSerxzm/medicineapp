@@ -40,8 +40,8 @@ spring:
 
 ##### 效果图
 
-![](./pic/test (1).png)
+![](./pic/1.png)
 
-![test (2)](./pic/test (2).png)
+![test (2)](./pic/2.png)
 
-![test (3)](./pic/test (3).png)
+![test (3)](./pic/3.png)
