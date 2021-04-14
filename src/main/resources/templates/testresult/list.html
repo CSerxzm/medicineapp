@@ -2,82 +2,83 @@
 <!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<title>本草善养-后台</title>
-		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
-		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+    <title>本草善养-后台</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
 
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
-	</head>
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+</head>
 
-	<body>
-		<div th:replace="~{commons/bar::topbar}"></div>
+<body>
+<div th:replace="~{commons/bar::topbar}"></div>
 
-		<div class="container-fluid">
-			<div class="row">
-				<div th:replace="~{commons/bar::#sidebar(activeuri='testresult')}"></div>
-				<main role="main" class="ccol-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
-					<div class="table-responsive">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th>类型</th>
-									<th>体质特征</th>
-									<th>形成原因</th>
-									<th>发病倾向</th>
-									<th>保健原则</th>
-									<th>起居养生</th>
-									<th>饮食调养</th>
-									<th>药物调理</th>
-									<th>精神疗养</th>
-									<th>浏览量</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-							  <tr th:each="testresult:${testresults}">
-								  <td th:text="${testresult.type}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.feature,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.reason,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.attack,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.healthPrinciple,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.dailyCare,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.foodCare,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.medicineCare,8)}"></td>
-								  <td th:text="${#strings.abbreviate(testresult.spiritCare,8)}"></td>
-								  <td th:text="${testresult.views}"></td>
-								  <td>
-									  <a class="btn btn-sm btn-info" th:href="@{'/back/resultinfo/'+${testresult.id}}">详情</a>
-									  <a class="btn btn-sm btn-primary" th:href="@{'/back/testresult/'+${testresult.id}}">编辑</a>
-								  </td>
-							  </tr>
-							</tbody>
-						</table>
-					</div>
-				</main>
-			</div>
-		</div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/bar::#sidebar(activeuri='testresult')}"></div>
+        <main role="main" class="ccol-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>类型</th>
+                        <th>体质特征</th>
+                        <th>形成原因</th>
+                        <th>发病倾向</th>
+                        <th>保健原则</th>
+                        <th>起居养生</th>
+                        <th>饮食调养</th>
+                        <th>药物调理</th>
+                        <th>精神疗养</th>
+                        <th>浏览量</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="testresult:${testresults}">
+                        <td th:text="${testresult.type}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.feature,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.reason,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.attack,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.healthPrinciple,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.dailyCare,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.foodCare,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.medicineCare,8)}"></td>
+                        <td th:text="${#strings.abbreviate(testresult.spiritCare,8)}"></td>
+                        <td th:text="${testresult.views}"></td>
+                        <td>
+                            <a class="btn btn-sm btn-info" th:href="@{'/back/resultinfo/'+${testresult.id}}">详情</a>
+                            <a class="btn btn-sm btn-primary" th:href="@{'/back/testresult/'+${testresult.id}}">编辑</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
 
-		<!-- Bootstrap core JavaScript
-    ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
 
-		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
-		<script>
-			feather.replace()
-		</script>
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
 
-	</body>
+</body>
 
 </html>

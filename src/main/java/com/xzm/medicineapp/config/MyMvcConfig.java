@@ -20,13 +20,14 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
     @Bean
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
-        WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter(){
+    public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
+        WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/").setViewName("login");
                 registry.addViewController("/index.html").setViewName("index");
             }
+
             //注册拦截器
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
@@ -34,10 +35,10 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
                 //静态资源；  *.css , *.js
                 //SpringBoot已经做好了静态资源映射
                 registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/back/**")
-                      .excludePathPatterns("/index.html","/","/back/login");
+                        .excludePathPatterns("/index.html", "/", "/back/login");
             }
         };
-         return adapter;
+        return adapter;
     }
 
 }

@@ -19,8 +19,11 @@ import java.util.List;
 public interface CommentService {
 
     List<Comment> getComments(PageModel pageModel);
+
     List<Comment> getCommentsByForumId(Integer forum_id);
+
     Integer addComment(Comment comment);
+
     Integer delCommentById(Integer id);
 
 }

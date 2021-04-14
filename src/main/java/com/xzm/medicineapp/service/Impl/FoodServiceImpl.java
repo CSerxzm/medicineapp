@@ -21,26 +21,28 @@ public class FoodServiceImpl implements FoodService {
     @Autowired
     private FoodDao foodDao;
 
-    public Food getFoodById(Integer id){
-        return  foodDao.getFoodById(id);
+    public Food getFoodById(Integer id) {
+        return foodDao.getFoodById(id);
     }
-    public List<Food> getFoods(PageModel pageModel){
+
+    public List<Food> getFoods(PageModel pageModel) {
         Integer count = foodDao.getCount();
         pageModel.setRecordCount(count);
         return foodDao.getFoods(pageModel);
     }
+
     @Transactional
-    public Integer addFood(Food food){
+    public Integer addFood(Food food) {
         return foodDao.addFood(food);
     }
 
     @Transactional
-    public Integer delFood(Integer id){
+    public Integer delFood(Integer id) {
         return foodDao.delFood(id);
     }
 
     @Transactional
-    public Integer updateFood(Food food){
+    public Integer updateFood(Food food) {
         return foodDao.updateFood(food);
     }
 }

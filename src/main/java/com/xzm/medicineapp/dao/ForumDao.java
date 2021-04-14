@@ -19,39 +19,44 @@ public class ForumDao {
 
     @Resource
     public ForumMapper forumMapper;
+
     //得到论坛
-    public List<Forum> getForums(PageModel pageModel){
+    public List<Forum> getForums(PageModel pageModel) {
         return forumMapper.getForums(pageModel);
     }
+
     //得到论坛
-    public Forum getForumById(Integer id){
+    public Forum getForumById(Integer id) {
         return forumMapper.getForumById(id);
     }
+
     //添加论坛
-    public Integer addForum(Forum forum){
+    public Integer addForum(Forum forum) {
         return forumMapper.addForum(forum);
     }
+
     //删除论坛
-    public Integer delForumById(Integer id){
+    public Integer delForumById(Integer id) {
         return forumMapper.delForumById(id);
     }
-    public Integer getCount(){
+
+    public Integer getCount() {
         return forumMapper.getCount();
     }
 
-    public Integer addComments(Integer id){
+    public Integer addComments(Integer id) {
         return forumMapper.addComments(id);
     }
 
-    public Integer delComments(Integer id){
+    public Integer delComments(Integer id) {
         return forumMapper.delComments(id);
     }
 
-    public List<Forum> getForumByUserName(String name){
+    public List<Forum> getForumByUserName(String name) {
         return forumMapper.getForumByUserName(name);
     }
 
-    public Integer delForumByUserName(String name){
+    public Integer delForumByUserName(String name) {
         return forumMapper.delForumByUserName(name);
     }
 }

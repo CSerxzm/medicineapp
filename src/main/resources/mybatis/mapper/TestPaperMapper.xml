@@ -7,11 +7,11 @@
     <!--List<TestPaper> selectPaperByUser(String name);-->
     <select id="selectPaperByUser" resultType="testPaper">
         select * from test_paper
-        <if test="name!=null" >
+        <if test="name!=null">
             where name = #{name}
         </if>
         order by create_time desc
-        <if test="firstLimitParam!=null and pageSize!=null" >
+        <if test="firstLimitParam!=null and pageSize!=null">
             limit #{firstLimitParam} , #{pageSize}
         </if>
     </select>
@@ -19,33 +19,33 @@
     <!--Integer addTestPaper(TestPaper testPaper);-->
     <insert id="addTestPaper">
         insert into test_paper(type,name,create_time) values
-          (#{type},#{name},#{createTime})
+        (#{type},#{name},#{createTime})
     </insert>
 
     <!--Integer getCount(String name);-->
     <select id="getCount" resultType="Integer">
-        select count(*) from  test_paper
-        <if test="name!=null" >
+        select count(*) from test_paper
+        <if test="name!=null">
             where name = #{name}
         </if>
     </select>
 
     <!--List<TestPaper> getTestPapers(PageModel pageModel);-->
     <select id="getTestPapers" resultType="testPaper">
-        select * from test_paper  order by  create_time
-        <if test="firstLimitParam!=null and pageSize!=null" >
+        select * from test_paper order by create_time
+        <if test="firstLimitParam!=null and pageSize!=null">
             limit #{firstLimitParam} , #{pageSize}
         </if>
     </select>
 
     <!--Integer delTestPaper(Integer id);-->
     <delete id="delTestPaper">
-          delete from test_paper where id=#{id}
+        delete from test_paper where id=#{id}
     </delete>
 
     <!--Integer delTestPaperByName(String name);-->
     <delete id="delTestPaperByName">
-          delete from test_paper where name=#{name}
+        delete from test_paper where name=#{name}
     </delete>
 
 </mapper>

@@ -26,25 +26,26 @@ public class ForumServiceImpl implements ForumService {
     private CommentDao commentDao;
 
     //得到论坛
-    public List<Forum> getForums(PageModel pageModel){
+    public List<Forum> getForums(PageModel pageModel) {
         Integer count = forumDao.getCount();
         pageModel.setRecordCount(count);
         return forumDao.getForums(pageModel);
     }
+
     //得到论坛
-    public Forum getForumById(Integer id){
+    public Forum getForumById(Integer id) {
         return forumDao.getForumById(id);
     }
 
     //添加论坛
     @Transactional
-    public Integer addForum(Forum forum){
+    public Integer addForum(Forum forum) {
         return forumDao.addForum(forum);
     }
 
     //删除论坛
     @Transactional
-    public Integer delForumById(Integer id){
+    public Integer delForumById(Integer id) {
         Forum forum = forumDao.getForumById(id);
         commentDao.delCommentsByForumId(forum.getId());
         return forumDao.delForumById(id);

@@ -18,9 +18,13 @@ import java.util.List;
 public interface PrescrService {
 
     Prescr getPrescrById(Integer id);
+
     List<Prescr> getPrescrs(PageModel pageModel);
+
     Integer addPrescr(Prescr prescr);
+
     Integer delPrescr(Integer id);
+
     Integer updatePrescr(Prescr prescr);
 
 }

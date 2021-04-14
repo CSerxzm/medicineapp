@@ -20,22 +20,27 @@ public class FoodDao {
     @Resource
     public FoodMapper foodMapper;
 
-    public Food getFoodById(Integer id){
+    public Food getFoodById(Integer id) {
         return foodMapper.getFoodById(id);
     }
-    public List<Food> getFoods(PageModel pageModel){
+
+    public List<Food> getFoods(PageModel pageModel) {
         return foodMapper.getFoods(pageModel);
     }
-    public Integer addFood(Food food){
+
+    public Integer addFood(Food food) {
         return foodMapper.addFood(food);
     }
-    public Integer delFood(Integer id){
+
+    public Integer delFood(Integer id) {
         return foodMapper.delFood(id);
     }
-    public Integer updateFood(Food food){
+
+    public Integer updateFood(Food food) {
         return foodMapper.updateFood(food);
     }
-    public Integer getCount(){
+
+    public Integer getCount() {
         return foodMapper.getCount();
     }
 }

@@ -1,20 +1,20 @@
 
-T
-java:S3752-">Add a "method" parameter to this "@RequestMapping" annotation.(éı’Ñ
-a
-java:S1128	"FRemove this unused import 'com.xzm.medicineapp.service.HealthService'.(ËÄÀ‰ùÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éƒçıÿÿÿÿ
 V
 java:S1128"@Remove this unused import 'org.apache.ibatis.annotations.Param'.(á¬Ó²
-T
-java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(ÓÅ€Ÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éƒçıÿÿÿÿ
 U
 java:S1854)":Remove this useless assignment to local variable "result".(ğ‰Ì˜úÿÿÿÿ
-F
-java:S1481)"+Remove this unused "result" local variable.(ğ‰Ì˜úÿÿÿÿ
+T
+java:S3752$">Add a "method" parameter to this "@RequestMapping" annotation.(çâÓ
 R
 java:S1128"<Remove this unused import 'com.xzm.medicineapp.bean.Health'.(ŠÂúÜ
 T
-java:S3752$">Add a "method" parameter to this "@RequestMapping" annotation.(çâÓ
+java:S3752-">Add a "method" parameter to this "@RequestMapping" annotation.(éı’Ñ
+T
+java:S3752">Add a "method" parameter to this "@RequestMapping" annotation.(ÓÅ€Ÿ
 V
 java:S1128";Remove this unused import 'com.xzm.medicineapp.bean.Forum'.(ÀŞØêùÿÿÿÿ
+a
+java:S1128	"FRemove this unused import 'com.xzm.medicineapp.service.HealthService'.(ËÄÀ‰ùÿÿÿÿ
+F
+java:S1481)"+Remove this unused "result" local variable.(ğ‰Ì˜úÿÿÿÿ

@@ -21,27 +21,28 @@ public class PrescrServiceImpl implements PrescrService {
     @Autowired
     private PrescrDao prescrDao;
 
-    public Prescr getPrescrById(Integer id){
+    public Prescr getPrescrById(Integer id) {
         return prescrDao.getPrescrById(id);
     }
-    public List<Prescr> getPrescrs(PageModel pageModel){
+
+    public List<Prescr> getPrescrs(PageModel pageModel) {
         Integer count = prescrDao.getCount();
         pageModel.setRecordCount(count);
         return prescrDao.getPrescrs(pageModel);
     }
 
     @Transactional
-    public Integer addPrescr(Prescr prescr){
+    public Integer addPrescr(Prescr prescr) {
         return prescrDao.addPrescr(prescr);
     }
 
     @Transactional
-    public Integer delPrescr(Integer id){
+    public Integer delPrescr(Integer id) {
         return prescrDao.delPrescr(id);
     }
 
     @Transactional
-    public Integer updatePrescr(Prescr prescr){
+    public Integer updatePrescr(Prescr prescr) {
         return prescrDao.updatePrescr(prescr);
     }
 }

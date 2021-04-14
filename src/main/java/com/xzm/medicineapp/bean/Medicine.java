@@ -13,7 +13,7 @@ public class Medicine {
     private String funs;
     private String taboos;
 
-    public Medicine(){
+    public Medicine() {
 
     }
 

@@ -24,17 +24,18 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     ForumDao forumDao;
 
-    public List<Comment> getComments(PageModel pageModel){
+    public List<Comment> getComments(PageModel pageModel) {
         Integer count = commentDao.getCount();
         pageModel.setRecordCount(count);
         return commentDao.getComments(pageModel);
     }
-    public List<Comment> getCommentsByForumId(Integer forum_id){
+
+    public List<Comment> getCommentsByForumId(Integer forum_id) {
         return commentDao.getCommentsByForumId(forum_id);
     }
 
     @Transactional
-    public Integer addComment(Comment comment){
+    public Integer addComment(Comment comment) {
         Integer forumId = comment.getForumId();
         //加评论
         forumDao.addComments(forumId);
@@ -42,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Transactional
-    public Integer delCommentById(Integer id){
+    public Integer delCommentById(Integer id) {
         Integer forumIdbyId = commentDao.getForumIdbyId(id);
         forumDao.delComments(forumIdbyId);
         return commentDao.delCommentById(id);

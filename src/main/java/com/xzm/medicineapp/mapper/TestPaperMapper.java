@@ -16,6 +16,7 @@ public interface TestPaperMapper {
 
     /**
      * 获得用户的测试记录
+     *
      * @param firstLimitParam
      * @param pageSize
      * @param name
@@ -27,6 +28,7 @@ public interface TestPaperMapper {
 
     /**
      * 添加用户测试记录
+     *
      * @param testPaper
      * @return
      */
@@ -34,6 +36,7 @@ public interface TestPaperMapper {
 
     /**
      * 获得测试记录总数
+     *
      * @param name
      * @return
      */
@@ -41,6 +44,7 @@ public interface TestPaperMapper {
 
     /**
      * 获得测试记录
+     *
      * @param pageModel
      * @return
      */
@@ -48,6 +52,7 @@ public interface TestPaperMapper {
 
     /**
      * 删除测试结果
+     *
      * @param id
      * @return
      */
@@ -55,6 +60,7 @@ public interface TestPaperMapper {
 
     /**
      * 删除用户的测试记录
+     *
      * @param name
      * @return
      */

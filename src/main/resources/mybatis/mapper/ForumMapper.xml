@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.ForumMapper">
-        <resultMap type="forum" id="forumanduser">
-                <id column="id" property="id"/>
-                <result column="edit_time" property="editTime"/>
-                <result column="content" property="content"/>
-                <result column="keyword" property="keyword"/>
-                <result column="comments" property="comments"/>
-                <association property="user" javaType="user">
-                        <id column="name" property="name"/>
-                        <result column="image" property="image"/>
-                </association>
-        </resultMap>
-        <!--public List<Forum> getForums(PageModel pageModel);-->
-        <select id="getForums" resultMap="forumanduser">
-                select id, user_tb.name name, user_tb.image image, edit_time,content,keyword,comments from forum_tb,user_tb where forum_tb.name = user_tb.name order by edit_time desc
-                <if test="firstLimitParam!=null and pageSize!=null" >
-                        limit #{firstLimitParam} , #{pageSize}
-                </if>
-        </select>
-        <!--public Forum getForumById(Integer id);-->
-        <select id="getForumById" resultMap="forumanduser">
-                select id, user_tb.name name, user_tb.image image, edit_time,content,keyword,comments from forum_tb,user_tb where forum_tb.name = user_tb.name and id=#{id};
-        </select>
-        <!--public Integer addForum(Forum forum);-->
-        <insert id="addForum" parameterType="forum" useGeneratedKeys="true" keyProperty="id">
-                insert into forum_tb(name,edit_time,content,keyword) values
-                (#{user.name},#{editTime},#{content},#{keyword})
-        </insert>
-        <!--public Integer delForumById(Integer id);-->
-        <delete id="delForumById">
-                delete from forum_tb where id=#{id}
-        </delete>
-        <!--public Integer getCount();-->
-        <select id="getCount" resultType="Integer">
-                select count(*) from  forum_tb
-        </select>
-        <!--public Integer addComments(Integer id);-->
-        <update id="addComments">
-                update forum_tb set comments=comments+1 where id=#{id}
-        </update>
-        <!--public Integer delComments(Integer id);-->
-        <update id="delComments">
-                update forum_tb set comments=comments-1 where id=#{id}
-        </update>
+    <resultMap type="forum" id="forumanduser">
+        <id column="id" property="id"/>
+        <result column="edit_time" property="editTime"/>
+        <result column="content" property="content"/>
+        <result column="keyword" property="keyword"/>
+        <result column="comments" property="comments"/>
+        <association property="user" javaType="user">
+            <id column="name" property="name"/>
+            <result column="image" property="image"/>
+        </association>
+    </resultMap>
+    <!--public List<Forum> getForums(PageModel pageModel);-->
+    <select id="getForums" resultMap="forumanduser">
+        select id, user_tb.name name, user_tb.image image, edit_time,content,keyword,comments from forum_tb,user_tb
+        where forum_tb.name = user_tb.name order by edit_time desc
+        <if test="firstLimitParam!=null and pageSize!=null">
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+    <!--public Forum getForumById(Integer id);-->
+    <select id="getForumById" resultMap="forumanduser">
+        select id, user_tb.name name, user_tb.image image, edit_time,content,keyword,comments from forum_tb,user_tb
+        where forum_tb.name = user_tb.name and id=#{id};
+    </select>
+    <!--public Integer addForum(Forum forum);-->
+    <insert id="addForum" parameterType="forum" useGeneratedKeys="true" keyProperty="id">
+        insert into forum_tb(name,edit_time,content,keyword) values
+        (#{user.name},#{editTime},#{content},#{keyword})
+    </insert>
+    <!--public Integer delForumById(Integer id);-->
+    <delete id="delForumById">
+        delete from forum_tb where id=#{id}
+    </delete>
+    <!--public Integer getCount();-->
+    <select id="getCount" resultType="Integer">
+        select count(*) from forum_tb
+    </select>
+    <!--public Integer addComments(Integer id);-->
+    <update id="addComments">
+        update forum_tb set comments=comments+1 where id=#{id}
+    </update>
+    <!--public Integer delComments(Integer id);-->
+    <update id="delComments">
+        update forum_tb set comments=comments-1 where id=#{id}
+    </update>
 
-        <!--List<Forum> getForumByUserName(String name);-->
-        <select id="getForumByUserName" resultMap="forumanduser">
-                select * from forum_tb where name=#{name};
-        </select>
+    <!--List<Forum> getForumByUserName(String name);-->
+    <select id="getForumByUserName" resultMap="forumanduser">
+        select * from forum_tb where name=#{name};
+    </select>
 
-        <!--Integer delForumByUserName(String name);-->
-        <delete id="delForumByUserName">
-                delete from forum_tb where name=#{name}
-        </delete>
+    <!--Integer delForumByUserName(String name);-->
+    <delete id="delForumByUserName">
+        delete from forum_tb where name=#{name}
+    </delete>
 
 </mapper>

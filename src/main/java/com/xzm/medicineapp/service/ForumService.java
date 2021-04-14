@@ -18,10 +18,13 @@ import java.util.List;
 public interface ForumService {
 
     List<Forum> getForums(PageModel pageModel);
+
     //得到论坛
     Forum getForumById(Integer id);
+
     //添加论坛
     Integer addForum(Forum forum);
+
     //删除论坛
     Integer delForumById(Integer id);
 

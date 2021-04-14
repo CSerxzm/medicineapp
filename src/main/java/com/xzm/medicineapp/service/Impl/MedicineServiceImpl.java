@@ -21,12 +21,12 @@ public class MedicineServiceImpl implements MedicineService {
     @Autowired
     private MedicineDao medicineDao;
 
-    public Medicine getMedicineById(Integer id){
+    public Medicine getMedicineById(Integer id) {
         Medicine result = medicineDao.getMedicineById(id);
         return result;
     }
 
-    public List<Medicine> getMedicines(PageModel pageModel){
+    public List<Medicine> getMedicines(PageModel pageModel) {
         Integer count = medicineDao.getCount(null);
         pageModel.setRecordCount(count);
         return medicineDao.getMedicines(pageModel);
@@ -36,21 +36,21 @@ public class MedicineServiceImpl implements MedicineService {
     public List<Medicine> searchMedicines(PageModel pageModel, String name) {
         Integer count = medicineDao.getCount(name);
         pageModel.setRecordCount(count);
-        return medicineDao.searchMedicines(pageModel,name);
+        return medicineDao.searchMedicines(pageModel, name);
     }
 
     @Transactional
-    public Integer addMedicine(Medicine medicine){
+    public Integer addMedicine(Medicine medicine) {
         return medicineDao.addMedicine(medicine);
     }
 
     @Transactional
-    public Integer delMedicine(Integer id){
+    public Integer delMedicine(Integer id) {
         return medicineDao.delMedicine(id);
     }
 
     @Transactional
-    public Integer updateMedicine(Medicine medicine){
+    public Integer updateMedicine(Medicine medicine) {
         return medicineDao.updateMedicine(medicine);
     }
 }

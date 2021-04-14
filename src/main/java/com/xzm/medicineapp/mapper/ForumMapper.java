@@ -15,10 +15,13 @@ public interface ForumMapper {
 
     //得到论坛
     List<Forum> getForums(PageModel pageModel);
+
     //得到论坛
     Forum getForumById(Integer id);
+
     //添加论坛
     Integer addForum(Forum forum);
+
     //删除论坛
     Integer delForumById(Integer id);
 
@@ -26,6 +29,7 @@ public interface ForumMapper {
 
     /**
      * 评论数加1
+     *
      * @param id
      * @return
      */
@@ -33,6 +37,7 @@ public interface ForumMapper {
 
     /**
      * 评论数减1
+     *
      * @param id
      * @return
      */
@@ -40,6 +45,7 @@ public interface ForumMapper {
 
     /**
      * 通过用户名获得论坛
+     *
      * @param name
      * @return
      */
@@ -47,6 +53,7 @@ public interface ForumMapper {
 
     /**
      * 通过用户名删除它的帖子
+     *
      * @param name
      * @return
      */

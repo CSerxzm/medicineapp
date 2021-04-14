@@ -18,9 +18,13 @@ import java.util.List;
 public interface FoodService {
 
     Food getFoodById(Integer id);
+
     List<Food> getFoods(PageModel pageModel);
+
     Integer addFood(Food food);
+
     Integer delFood(Integer id);
+
     Integer updateFood(Food food);
 
 }

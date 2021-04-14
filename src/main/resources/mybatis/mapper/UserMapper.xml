@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.UserMapper">
-        <!--public User getUser(User user);-->
-        <select id="getUser" resultType="user">
-                select * from user_tb where name=#{name} and password=#{password}
-        </select>
-        <!--public List<User> getUsers(PageModel pageModel);-->
-        <select id="getUsers" resultType="user">
-                select * from user_tb  order by authority desc
-                <if test="firstLimitParam!=null and pageSize!=null" >
-                        limit #{firstLimitParam} , #{pageSize}
-                </if>
-        </select>
-        <!--public Integer addUser(User user);-->
-        <insert id="addUser">
-                insert into user_tb(name,password,image,authority) values
-                    (#{name},#{password},#{image},#{authority})
-        </insert>
-        <!--public Integer delUser(String name);-->
-        <delete id="delUser">
-                delete from user_tb where name=#{name}
-        </delete>
-        <!--public Integer updateUser(User user);-->
-        <update id="updateUser">
-                update user_tb set password=#{password},image=#{image},authority=#{authority},constellation=#{constellation},phone=#{phone},email=#{email} where name=#{name}
-        </update>
-        <!--public User getUserByName(String name);-->
-        <select id="getUserByName" resultType="user">
-                select * from user_tb where name=#{name}
-        </select>
-        <!--public Integer getCount();-->
-        <select id="getCount" resultType="Integer">
-                select count(*) from  user_tb
-        </select>
-        <!--public Integer registUser(User user);-->
-        <insert id="registUser">
-                insert into user_tb(name,password,authority,image,sex,constellation) values
-                    (#{name},#{password},#{authority},#{image},#{sex},#{constellation})
-        </insert>
+    <!--public User getUser(User user);-->
+    <select id="getUser" resultType="user">
+        select * from user_tb where name=#{name} and password=#{password}
+    </select>
+    <!--public List<User> getUsers(PageModel pageModel);-->
+    <select id="getUsers" resultType="user">
+        select * from user_tb order by authority desc
+        <if test="firstLimitParam!=null and pageSize!=null">
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+    <!--public Integer addUser(User user);-->
+    <insert id="addUser">
+        insert into user_tb(name,password,image,authority) values
+        (#{name},#{password},#{image},#{authority})
+    </insert>
+    <!--public Integer delUser(String name);-->
+    <delete id="delUser">
+        delete from user_tb where name=#{name}
+    </delete>
+    <!--public Integer updateUser(User user);-->
+    <update id="updateUser">
+        update user_tb set
+        password=#{password},image=#{image},authority=#{authority},constellation=#{constellation},phone=#{phone},email=#{email}
+        where name=#{name}
+    </update>
+    <!--public User getUserByName(String name);-->
+    <select id="getUserByName" resultType="user">
+        select * from user_tb where name=#{name}
+    </select>
+    <!--public Integer getCount();-->
+    <select id="getCount" resultType="Integer">
+        select count(*) from user_tb
+    </select>
+    <!--public Integer registUser(User user);-->
+    <insert id="registUser">
+        insert into user_tb(name,password,authority,image,sex,constellation) values
+        (#{name},#{password},#{authority},#{image},#{sex},#{constellation})
+    </insert>
 
-        <!--public Integer updateUserWithoutPassAndAuthority(User user);-->
-        <update id="updateUserWithoutPassAndAuthority">
-                update user_tb set image=#{image},sex=#{sex},constellation=#{constellation},phone=#{phone},email=#{email} where name=#{name}
-        </update>
+    <!--public Integer updateUserWithoutPassAndAuthority(User user);-->
+    <update id="updateUserWithoutPassAndAuthority">
+        update user_tb set image=#{image},sex=#{sex},constellation=#{constellation},phone=#{phone},email=#{email} where
+        name=#{name}
+    </update>
 
-        <!--public Integer updateUserPass(User user);-->
-        <update id="updateUserPass">
-                update user_tb set password=#{password} where name=#{name}
-        </update>
+    <!--public Integer updateUserPass(User user);-->
+    <update id="updateUserPass">
+        update user_tb set password=#{password} where name=#{name}
+    </update>
 
 </mapper>

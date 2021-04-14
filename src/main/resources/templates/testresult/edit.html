@@ -3,79 +3,89 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<title>本草善养-后台</title>
-	<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
-	<!-- Bootstrap core CSS -->
-	<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+    <title>本草善养-后台</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
 
-	<!-- Custom styles for this template -->
-	<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
 </head>
 
 <body>
 <div th:replace="~{commons/bar::topbar}"></div>
 
 <div class="container-fluid">
-	<div class="row">
-		<div th:replace="~{commons/bar::#sidebar(activeuri='testresult')}"></div>
-		<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
-			<div class="table-responsive">
-				<form th:action="@{/back/testresult}" method="post">
-					<input type="hidden" name="_method" value="put" th:if="${testresult!=null}"/>
-					<input type="hidden" name="id" th:if="${testresult!=null}" th:value="${testresult.id}">
-					<div class="form-group">
-						<label>体质特征</label>
-						<textarea name="feature" class="form-control" th:text="${testresult}!=null?${testresult.feature}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>形成原因</label>
-						<textarea name="reason" type="text" class="form-control" th:text="${testresult}!=null?${testresult.reason}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>发病倾向</label>
-						<textarea name="attack" type="text" class="form-control" th:text="${testresult}!=null?${testresult.attack}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>保健原则</label>
-						<textarea name="healthPrinciple" type="text" class="form-control" th:text="${testresult}!=null?${testresult.healthPrinciple}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>起居养生</label>
-						<textarea name="dailyCare" type="text" class="form-control" th:text="${testresult}!=null?${testresult.dailyCare}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>饮食调养</label>
-						<textarea name="foodCare" type="text" class="form-control" th:text="${testresult}!=null?${testresult.foodCare}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>药物调理</label>
-						<textarea name="medicineCare" type="text" class="form-control" th:text="${testresult}!=null?${testresult.medicineCare}" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>精神疗养</label>
-						<textarea name="spiritCare" type="text" class="form-control" th:text="${testresult}!=null?${testresult.spiritCare}" required></textarea>
-					</div>
-					<button type="submit" class="btn btn-sm btn-primary" th:text="${testresult}==null?'添加':'更新'"></button>
-				</form>
-			</div>
-		</main>
-	</div>
+    <div class="row">
+        <div th:replace="~{commons/bar::#sidebar(activeuri='testresult')}"></div>
+        <main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+            <div class="table-responsive">
+                <form th:action="@{/back/testresult}" method="post">
+                    <input type="hidden" name="_method" value="put" th:if="${testresult!=null}"/>
+                    <input type="hidden" name="id" th:if="${testresult!=null}" th:value="${testresult.id}">
+                    <div class="form-group">
+                        <label>体质特征</label>
+                        <textarea name="feature" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.feature}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>形成原因</label>
+                        <textarea name="reason" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.reason}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>发病倾向</label>
+                        <textarea name="attack" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.attack}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>保健原则</label>
+                        <textarea name="healthPrinciple" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.healthPrinciple}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>起居养生</label>
+                        <textarea name="dailyCare" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.dailyCare}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>饮食调养</label>
+                        <textarea name="foodCare" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.foodCare}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>药物调理</label>
+                        <textarea name="medicineCare" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.medicineCare}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>精神疗养</label>
+                        <textarea name="spiritCare" type="text" class="form-control"
+                                  th:text="${testresult}!=null?${testresult.spiritCare}" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary"
+                            th:text="${testresult}==null?'添加':'更新'"></button>
+                </form>
+            </div>
+        </main>
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
 <script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
 <script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
 
 <!-- Icons -->
-<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
 <script>
     feather.replace()
 </script>

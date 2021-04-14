@@ -20,24 +20,27 @@ public class PrescrDao {
     @Resource
     public PrescrMapper prescrMapper;
 
-    public Prescr getPrescrById(Integer id){
-        return  prescrMapper.getPrescrById(id);
-    }
-    public List<Prescr> getPrescrs(PageModel pageModel){
-        return  prescrMapper.getPrescrs(pageModel);
+    public Prescr getPrescrById(Integer id) {
+        return prescrMapper.getPrescrById(id);
     }
 
-    public Integer addPrescr(Prescr prescr){
+    public List<Prescr> getPrescrs(PageModel pageModel) {
+        return prescrMapper.getPrescrs(pageModel);
+    }
+
+    public Integer addPrescr(Prescr prescr) {
         return prescrMapper.addPrescr(prescr);
     }
-    public Integer delPrescr(Integer id){
+
+    public Integer delPrescr(Integer id) {
         return prescrMapper.delPrescr(id);
     }
-    public Integer updatePrescr(Prescr prescr){
+
+    public Integer updatePrescr(Prescr prescr) {
         return prescrMapper.updatePrescr(prescr);
     }
 
-    public Integer getCount(){
+    public Integer getCount() {
         return prescrMapper.getCount();
     }
 }

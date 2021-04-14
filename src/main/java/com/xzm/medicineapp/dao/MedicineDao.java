@@ -19,29 +19,32 @@ public class MedicineDao {
     @Resource
     public MedicineMapper medicineMapper;
 
-    public Medicine getMedicineById(Integer id){
+    public Medicine getMedicineById(Integer id) {
         return medicineMapper.getMedicineById(id);
     }
 
-    public List<Medicine> getMedicines(PageModel pageModel){
+    public List<Medicine> getMedicines(PageModel pageModel) {
         return medicineMapper.getMedicines(pageModel);
     }
 
-    public List<Medicine> searchMedicines(PageModel pageModel,String name){
+    public List<Medicine> searchMedicines(PageModel pageModel, String name) {
         return medicineMapper.searchMedicines(pageModel.getFirstLimitParam(),
-                pageModel.getPageSize(),name);
+                pageModel.getPageSize(), name);
     }
 
-    public Integer addMedicine(Medicine medicine){
+    public Integer addMedicine(Medicine medicine) {
         return medicineMapper.addMedicine(medicine);
     }
-    public Integer delMedicine(Integer id){
+
+    public Integer delMedicine(Integer id) {
         return medicineMapper.delMedicine(id);
     }
-    public Integer updateMedicine(Medicine medicine){
+
+    public Integer updateMedicine(Medicine medicine) {
         return medicineMapper.updateMedicine(medicine);
     }
-    public Integer getCount(String name){
+
+    public Integer getCount(String name) {
         return medicineMapper.getCount(name);
     }
 }

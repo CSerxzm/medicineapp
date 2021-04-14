@@ -31,103 +31,107 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping("/getquestion")
-    public List<TestQuestion> getQuestion(String type){
+    public List<TestQuestion> getQuestion(String type) {
         List<TestQuestion> questions = testService.selectQuestionByType(type);
         return questions;
     }
 
     @ResponseBody
     @RequestMapping("/postquestion")
-    public TestResult postQuestion(@RequestBody String answerList){
-        JSONObject obj=JSONObject.parseObject(answerList);
+    public TestResult postQuestion(@RequestBody String answerList) {
+        JSONObject obj = JSONObject.parseObject(answerList);
         JSONArray arr = obj.getJSONArray("answerList");
         String name = obj.getString("name");
-        List<Answer> taskNodes = JSONArray.parseArray(arr.toJSONString(),Answer.class);
-        return testService.selectResultByType(taskNodes,name);
+        List<Answer> taskNodes = JSONArray.parseArray(arr.toJSONString(), Answer.class);
+        return testService.selectResultByType(taskNodes, name);
     }
 
     @ResponseBody
     @RequestMapping("/getquestiontype")
-    public List<TestResult> getQuestiontype(){
+    public List<TestResult> getQuestiontype() {
         return testService.selectAllType();
     }
 
     @ResponseBody
     @RequestMapping("/getpaperbyuser")
-    public String getPaperByUser(PageModel pageModel, String name){
-        List<TestPaper> paperList = testService.selectPaperByUser(pageModel,name);
-        Map<String,Object> map = new HashMap();
-        map.put("page",pageModel);
-        map.put("data",paperList);
+    public String getPaperByUser(PageModel pageModel, String name) {
+        List<TestPaper> paperList = testService.selectPaperByUser(pageModel, name);
+        Map<String, Object> map = new HashMap();
+        map.put("page", pageModel);
+        map.put("data", paperList);
         return JSON.toJSONString(map);
     }
 
     @ResponseBody
     @RequestMapping("/selectresultbytype")
-    public TestResult selectResultByType(String type){
+    public TestResult selectResultByType(String type) {
         return testService.selectResultByType(type);
     }
 
     /*************************后台管理*************************/
     /**
      * 获得所有的测试记录
+     *
      * @param modelMap
      * @param pageModel
      * @return
      */
     @GetMapping("/back/testpapers")
-    public String backTestPapers(ModelMap modelMap, PageModel pageModel){
+    public String backTestPapers(ModelMap modelMap, PageModel pageModel) {
         List<TestPaper> testPapers = testService.getTestPapers(pageModel);
-        modelMap.addAttribute("testpapers",testPapers);
-        modelMap.addAttribute("pagemodel",pageModel);
+        modelMap.addAttribute("testpapers", testPapers);
+        modelMap.addAttribute("pagemodel", pageModel);
         return "testpaper/list";
     }
 
     /**
      * 删除测试记录
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/back/testpaper/{id}")
-    public String deleteTestPaper(@PathVariable("id") Integer id){
+    public String deleteTestPaper(@PathVariable("id") Integer id) {
         testService.delTestPaper(id);
         return "redirect:/back/testpaper";
     }
 
     /**
      * 获得所有体质的建议
+     *
      * @param modelMap
      * @return
      */
     @GetMapping("/back/testresults")
-    public String backTestResults(ModelMap modelMap){
+    public String backTestResults(ModelMap modelMap) {
         List<TestResult> testResults = testService.selectTestResults();
-        modelMap.addAttribute("testresults",testResults);
+        modelMap.addAttribute("testresults", testResults);
         return "testresult/list";
     }
 
     /**
      * 获得体质建议
+     *
      * @param id
      * @param modelMap
      * @return
      */
     @GetMapping("/back/resultinfo/{id}")
-    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+    public String toInfoPage(@PathVariable("id") Integer id, ModelMap modelMap) {
         TestResult testResult = testService.selectResultById(id);
-        modelMap.addAttribute("testresult",testResult);
+        modelMap.addAttribute("testresult", testResult);
         return "testresult/info";
     }
 
     @GetMapping("/back/testresult/{id}")
-    public String toEditPage(@PathVariable("id") Integer id,ModelMap modelMap){
+    public String toEditPage(@PathVariable("id") Integer id, ModelMap modelMap) {
         TestResult testResult = testService.selectResultById(id);
-        modelMap.addAttribute("testresult",testResult);
+        modelMap.addAttribute("testresult", testResult);
         return "testresult/edit";
     }
 
     @PutMapping("/back/testresult")
-    public String updateTestResult(TestResult testResult){
+    public String updateTestResult(TestResult testResult) {
         testService.updateTestResult(testResult);
         return "redirect:/back/testresults";
     }

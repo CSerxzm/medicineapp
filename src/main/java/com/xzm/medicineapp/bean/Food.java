@@ -13,7 +13,7 @@ public class Food {
     private String method;
     private String funs;
 
-    public Food(){
+    public Food() {
 
     }
 

@@ -2,104 +2,107 @@
 <!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<title>本草善养-后台</title>
-		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
-		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+    <title>本草善养-后台</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
 
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
-		<script type="text/javascript" src="asserts/js/info.js" th:src="@{/asserts/js/info.js}"></script>
-	</head>
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <script type="text/javascript" src="asserts/js/info.js" th:src="@{/asserts/js/info.js}"></script>
+</head>
 
-	<body>
-		<div th:replace="~{commons/bar::topbar}"></div>
+<body>
+<div th:replace="~{commons/bar::topbar}"></div>
 
-		<div class="container-fluid">
-			<div class="row">
-				<div th:replace="~{commons/bar::#sidebar(activeuri='health')}"></div>
-				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
-					<div class="table-responsive">
-						<form th:action="@{/back/health}" method="post">
-							<input type="hidden" name="_method" value="put" th:if="${health!=null}"/>
-							<input type="hidden" name="id" th:if="${health!=null}" th:value="${health.id}">
-							<div class="form-group">
-								<label>标题</label>
-								<input name="title" type="text" class="form-control" th:value="${health}!=null?${health.title}">
-							</div>
-							<div class="form-group">
-								<label>作者</label>
-								<input name="author" type="text" class="form-control" th:value="${health}!=null?${health.author}">
-							</div>
-							<div class="form-group">
-								<label>发布时间</label>
-								<input name="editTime" th:value="${health}!=null?${#dates.format(health.editTime,'yyyy/MM/dd HH:mm:ss')}:'2017/12/12 12:00:00'" type="text" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>图片</label>
-								<input name="image" type="text" class="form-control" th:value="${health}!=null?${health.image}" required>
-							</div>
-							<div class="form-group">
-								<label>内容</label>
-								<textarea name="content" type="text" class="form-control" th:text="${health}!=null?${health.content}" required></textarea>
-							</div>
-							<div class="form-group">
-								<label>父类别</label>
-								<select name="mainType" id="mainType" onclick="getSubType()"class="form-check form-control">
-									<script type="text/javascript">
-                                        for(var i=0;i<mainTypeArr.length;i++)
-                                        {
-                                            document.write("<option value="+i+">"+mainTypeArr[i]+"</option>");
-                                        }
-									</script>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>子类别</label>
-								<select name="subType" id="subType" class="form-check form-control">
-								</select>
-							</div>
-							<button type="submit" class="btn btn-sm btn-primary" th:text="${health}==null?'添加':'更新'"></button>
-						</form>
-					</div>
-				</main>
-			</div>
-		</div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/bar::#sidebar(activeuri='health')}"></div>
+        <main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+            <div class="table-responsive">
+                <form th:action="@{/back/health}" method="post">
+                    <input type="hidden" name="_method" value="put" th:if="${health!=null}"/>
+                    <input type="hidden" name="id" th:if="${health!=null}" th:value="${health.id}">
+                    <div class="form-group">
+                        <label>标题</label>
+                        <input name="title" type="text" class="form-control" th:value="${health}!=null?${health.title}">
+                    </div>
+                    <div class="form-group">
+                        <label>作者</label>
+                        <input name="author" type="text" class="form-control"
+                               th:value="${health}!=null?${health.author}">
+                    </div>
+                    <div class="form-group">
+                        <label>发布时间</label>
+                        <input name="editTime"
+                               th:value="${health}!=null?${#dates.format(health.editTime,'yyyy/MM/dd HH:mm:ss')}:'2017/12/12 12:00:00'"
+                               type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>图片</label>
+                        <input name="image" type="text" class="form-control" th:value="${health}!=null?${health.image}"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea name="content" type="text" class="form-control"
+                                  th:text="${health}!=null?${health.content}" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>父类别</label>
+                        <select name="mainType" id="mainType" onclick="getSubType()" class="form-check form-control">
+                            <script type="text/javascript">
+                                for (var i = 0; i < mainTypeArr.length; i++) {
+                                    document.write("<option value=" + i + ">" + mainTypeArr[i] + "</option>");
+                                }
+                            </script>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>子类别</label>
+                        <select name="subType" id="subType" class="form-check form-control">
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary" th:text="${health}==null?'添加':'更新'"></button>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
 
-		<!-- Bootstrap core JavaScript
-    ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
 
-		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
-		<script>
-			feather.replace()
-		</script>
-		<script>
-            //当省份的选择发生变化时调用 该方法   将市县加载到下拉选择框
-            function getSubType()
-            {
-                var maintype=document.getElementById("mainType");
-                var subtype=document.getElementById("subType");
-                var index=maintype.selectedIndex;
-                var subtypeName=subTypeArr[index];
-                subtype.length=0;
-                //通过循环遍历市县元素给下拉框赋值
-                for(var i=0;i<subTypeArr[index].length;i++)
-                {
-                    subtype.options[subtype.options.length]=new Option(subtypeName[i],index);
-                }
-            }
-		</script>
-	</body>
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+<script>
+    //当省份的选择发生变化时调用 该方法   将市县加载到下拉选择框
+    function getSubType() {
+        var maintype = document.getElementById("mainType");
+        var subtype = document.getElementById("subType");
+        var index = maintype.selectedIndex;
+        var subtypeName = subTypeArr[index];
+        subtype.length = 0;
+        //通过循环遍历市县元素给下拉框赋值
+        for (var i = 0; i < subTypeArr[index].length; i++) {
+            subtype.options[subtype.options.length] = new Option(subtypeName[i], index);
+        }
+    }
+</script>
+</body>
 
 </html>

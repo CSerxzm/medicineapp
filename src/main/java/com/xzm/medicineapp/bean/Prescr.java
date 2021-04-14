@@ -14,7 +14,7 @@ public class Prescr {
     private String funs;
     private String source;
 
-    public Prescr(){
+    public Prescr() {
 
     }
 

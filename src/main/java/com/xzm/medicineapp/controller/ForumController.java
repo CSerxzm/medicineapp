@@ -35,56 +35,60 @@ public class ForumController {
 
     @ResponseBody
     @RequestMapping("/getforums")
-    public String getForums(PageModel pageModel){
+    public String getForums(PageModel pageModel) {
         List<Forum> forumList = forumService.getForums(pageModel);
-        Map<String,Object> map = new HashMap();
-        map.put("page",pageModel);
-        map.put("data",forumList);
+        Map<String, Object> map = new HashMap();
+        map.put("page", pageModel);
+        map.put("data", forumList);
         return JSON.toJSONString(map);
     }
+
     @ResponseBody
     @RequestMapping("/getforumbyid")
-    public String getForumById(Integer id){
+    public String getForumById(Integer id) {
         Forum forum = forumService.getForumById(id);
         return JSON.toJSONString(forum);
     }
+
     @ResponseBody
     @RequestMapping("/addforum")
-    public String addForum(Forum forum,String name){
+    public String addForum(Forum forum, String name) {
         User user = new User();
         user.setName(name);
         forum.setUser(user);
         Integer result = forumService.addForum(forum);
-        return  JSON.toJSONString(forum);
+        return JSON.toJSONString(forum);
     }
+
     @ResponseBody
     @RequestMapping("delforumbyid")
-    public String delForumById(Integer id){
+    public String delForumById(Integer id) {
         Integer result = forumService.delForumById(id);
-        return  JSON.toJSONString(result);
+        return JSON.toJSONString(result);
     }
+
     /*************************后台管理*************************/
 
     @GetMapping("/back/forums")
-    public String backForums(ModelMap modelMap,PageModel pageModel){
+    public String backForums(ModelMap modelMap, PageModel pageModel) {
         Collection<Forum> forums = forumService.getForums(pageModel);
-        modelMap.addAttribute("forums",forums);
-        modelMap.addAttribute("pagemodel",pageModel);
+        modelMap.addAttribute("forums", forums);
+        modelMap.addAttribute("pagemodel", pageModel);
         return "forum/list";
     }
 
     @DeleteMapping("/back/forum/{id}")
-    public String deleteForum(@PathVariable("id") Integer id){
+    public String deleteForum(@PathVariable("id") Integer id) {
         forumService.delForumById(id);
         return "redirect:/back/forums";
     }
 
     @GetMapping("/back/foruminfo/{id}")
-    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+    public String toInfoPage(@PathVariable("id") Integer id, ModelMap modelMap) {
         Forum forum = forumService.getForumById(id);
         List<Comment> comments = commentService.getCommentsByForumId(id);
-        modelMap.addAttribute("forum",forum);
-        modelMap.addAttribute("comments",comments);
+        modelMap.addAttribute("forum", forum);
+        modelMap.addAttribute("comments", comments);
         return "forum/info";
     }
 

@@ -17,6 +17,7 @@ public interface UserService {
 
     /**
      * 登录用户
+     *
      * @param user
      * @return
      */
@@ -24,6 +25,7 @@ public interface UserService {
 
     /**
      * 分页得到所有的用户
+     *
      * @param pageModel
      * @return
      */
@@ -33,6 +35,7 @@ public interface UserService {
 
     /**
      * 删除用户
+     *
      * @param name
      * @return
      */
@@ -42,6 +45,7 @@ public interface UserService {
 
     /**
      * 得到用户名
+     *
      * @param name
      * @return
      */
@@ -49,6 +53,7 @@ public interface UserService {
 
     /**
      * 注册用户
+     *
      * @param user
      * @return
      */
@@ -56,6 +61,7 @@ public interface UserService {
 
     /**
      * 保存用户的相关信息，除了用户密码和权限
+     *
      * @param user
      * @return
      */
@@ -63,9 +69,10 @@ public interface UserService {
 
     /**
      * 更新用户密码
+     *
      * @param user
      * @param oldPass
      * @return
      */
-    User updateUserPass(User user,String oldPass);
+    User updateUserPass(User user, String oldPass);
 }

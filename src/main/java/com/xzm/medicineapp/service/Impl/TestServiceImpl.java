@@ -29,11 +29,11 @@ public class TestServiceImpl implements TestService {
     @Override
     public List<TestQuestion> selectQuestionByType(String type) {
         List<TestQuestion> testQuestions = testDao.selectQuestionByType(type);
-        for(TestQuestion testQuestion:testQuestions){
+        for (TestQuestion testQuestion : testQuestions) {
             String[] split = testQuestion.getAnswer().split(";");
             List<Answer> answerList = new ArrayList<>();
-            for(int i=0;i<split.length;i++){
-                answerList.add(new Answer(split[i],i+1));
+            for (int i = 0; i < split.length; i++) {
+                answerList.add(new Answer(split[i], i + 1));
             }
             testQuestion.setAnswerList(answerList);
         }
@@ -46,23 +46,23 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public TestResult selectResultByType(List<Answer> answerList,String name) {
-        int sum=0;
-        for(Answer answer:answerList){
-            sum+=answer.getValue();
+    public TestResult selectResultByType(List<Answer> answerList, String name) {
+        int sum = 0;
+        for (Answer answer : answerList) {
+            sum += answer.getValue();
         }
         String type = answerList.get(0).getType();
         TestResult testResult = testDao.selectResultByType(type);
-        testResult.setViews(testResult.getViews()==null?1:testResult.getViews()+1);
+        testResult.setViews(testResult.getViews() == null ? 1 : testResult.getViews() + 1);
         //只是更新views
         testDao.updateTestResult(testResult);
-        if(sum<testResult.getSureThreshold() && sum>=testResult.getTendThreshold()){
-            testDao.addTestPaper( new TestPaper(type,name));
-            testResult.setType("倾向于"+testResult.getType());
-        }else if(sum<testResult.getTendThreshold()){
-            testResult.setType("你不属于"+testResult.getType());
-        }else{
-            testDao.addTestPaper( new TestPaper(type,name));
+        if (sum < testResult.getSureThreshold() && sum >= testResult.getTendThreshold()) {
+            testDao.addTestPaper(new TestPaper(type, name));
+            testResult.setType("倾向于" + testResult.getType());
+        } else if (sum < testResult.getTendThreshold()) {
+            testResult.setType("你不属于" + testResult.getType());
+        } else {
+            testDao.addTestPaper(new TestPaper(type, name));
         }
         return testResult;
     }
@@ -76,7 +76,7 @@ public class TestServiceImpl implements TestService {
     public List<TestPaper> selectPaperByUser(PageModel pageModel, String name) {
         Integer count = testDao.getCount(name);
         pageModel.setRecordCount(count);
-        return testDao.selectPaperByUser(pageModel,name);
+        return testDao.selectPaperByUser(pageModel, name);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<TestPaper> getTestPapers(PageModel pageModel){
+    public List<TestPaper> getTestPapers(PageModel pageModel) {
         Integer count = testDao.getCount(null);
         pageModel.setRecordCount(count);
         return testDao.getTestPapers(pageModel);

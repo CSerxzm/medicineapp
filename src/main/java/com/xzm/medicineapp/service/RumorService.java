@@ -16,9 +16,13 @@ import java.util.List;
 public interface RumorService {
 
     Rumor getRumorById(Integer id);
+
     List<Rumor> getRumors(PageModel pageModel);
+
     Integer addRumor(Rumor rumor);
+
     Integer delRumor(Integer id);
+
     Integer updateRumor(Rumor rumor);
 
 }

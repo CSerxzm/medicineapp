@@ -2,112 +2,118 @@
 <!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<title>本草善养-后台</title>
-		<link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
-		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
+    <title>本草善养-后台</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/asserts/img/spring.jpg}">
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.css}" rel="stylesheet">
 
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
-	</head>
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+</head>
 
-	<body>
-		<div th:replace="~{commons/bar::topbar}"></div>
-		<div class="container-fluid">
-			<div class="row">
-				<div th:replace="~{commons/bar::#sidebar(activeuri='comment')}"></div>
-				<main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
-					<div class="table-responsive">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th>论坛ID</th>
-									<th>评论者</th>
-									<th>评论时间</th>
-									<th>内容</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-							  <tr th:each="comment:${comments}">
-								  <td th:text="${comment.forumId}"></td>
-								  <td th:text="${comment.user.name}"></td>
-								  <td th:text="${#dates.format(comment.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
-								  <td class="list_content" th:attr="value=${comment.content}" th:text="${#strings.abbreviate(comment.content,10)}"></td>
-								  <td>
-									  <a class="btn btn-sm btn-info" th:href="@{'/back/foruminfo/'+${comment.forumId}}">前往论坛</a>
-									  <button th:attr="del_uri=@{/back/comment/}+${comment.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
-								  </td>
-							  </tr>
-							</tbody>
-						</table>
-					</div>
-					<div style="width:200px;">
-						<nav aria-label="Page navigation">
-							<ul class="pagination">
-								<li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
-								<li th:if="${pagemodel.pageIndex>1}">
-									<a href="#" aria-label="Previous" th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex-1}">
-										<span class="span" aria-hidden="true">上一页</span>
-									</a>
-								</li>
-								<li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
-									<a href="#" aria-label="Next" th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex+1}">
-										<span class="span" aria-hidden="true">下一页</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</main>
-				<form id="deleteEmpForm"  method="post">
-					<input type="hidden" name="_method" value="delete"/>
-				</form>
-			</div>
-		</div>
-		<div class="list_content_div"></div>
-		<!-- Bootstrap core JavaScript
-    ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+<body>
+<div th:replace="~{commons/bar::topbar}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/bar::#sidebar(activeuri='comment')}"></div>
+        <main role="main" class="col-md-11 ml-sm-auto col-lg-11 pt-3 px-4">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>论坛ID</th>
+                        <th>评论者</th>
+                        <th>评论时间</th>
+                        <th>内容</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="comment:${comments}">
+                        <td th:text="${comment.forumId}"></td>
+                        <td th:text="${comment.user.name}"></td>
+                        <td th:text="${#dates.format(comment.editTime,'yyyy/MM/dd HH:mm:ss')}"></td>
+                        <td class="list_content" th:attr="value=${comment.content}"
+                            th:text="${#strings.abbreviate(comment.content,10)}"></td>
+                        <td>
+                            <a class="btn btn-sm btn-info" th:href="@{'/back/foruminfo/'+${comment.forumId}}">前往论坛</a>
+                            <button th:attr="del_uri=@{/back/comment/}+${comment.id}"
+                                    class="btn btn-sm btn-danger deleteBtn">删除
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="width:200px;">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>第[[${pagemodel.pageIndex}]]页/共[[${pagemodel.totalSize}]]页</li>
+                        <li th:if="${pagemodel.pageIndex>1}">
+                            <a href="#" aria-label="Previous"
+                               th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex-1}">
+                                <span class="span" aria-hidden="true">上一页</span>
+                            </a>
+                        </li>
+                        <li th:if="${pagemodel.pageIndex}<${pagemodel.totalSize}">
+                            <a href="#" aria-label="Next"
+                               th:href="@{/back/comments?pageIndex=}+${pagemodel.pageIndex+1}">
+                                <span class="span" aria-hidden="true">下一页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+        <form id="deleteEmpForm" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+        </form>
+    </div>
+</div>
+<div class="list_content_div"></div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/asserts/js/popper.min.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/asserts/js/bootstrap.min.js}"></script>
 
-		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"  th:src="@{/asserts/js/feather.min.js}"></script>
-		<script>
-			feather.replace()
-		</script>
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
 
-		<script>
-            $(".deleteBtn").click(function(){
-                //删除当前员工的
-                $("#deleteEmpForm").attr("action",$(this).attr("del_uri")).submit();
-                return false;
-            });
+<script>
+    $(".deleteBtn").click(function () {
+        //删除当前员工的
+        $("#deleteEmpForm").attr("action", $(this).attr("del_uri")).submit();
+        return false;
+    });
 
-            $(function (){
-                $(".list_content").mouseenter(function(e){
-                    var e_ = window.event || e; // 兼容IE，FF事件源
-                    var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
-                    $(".list_content_div").css("left",x +'px');
-                    $(".list_content_div").css("top",y +'px');
-                    var title = $(this).attr("value");
-                    $(".list_content_div").text(title).css("display","block");
-                });
-                $(".list_content").mouseleave(function(){
-                    $(".list_content_div").css("display","none");
-                });
-            });
+    $(function () {
+        $(".list_content").mouseenter(function (e) {
+            var e_ = window.event || e; // 兼容IE，FF事件源
+            var x = e_.clientX, y = e_.clientY; // 获取鼠标位置
+            $(".list_content_div").css("left", x + 'px');
+            $(".list_content_div").css("top", y + 'px');
+            var title = $(this).attr("value");
+            $(".list_content_div").text(title).css("display", "block");
+        });
+        $(".list_content").mouseleave(function () {
+            $(".list_content_div").css("display", "none");
+        });
+    });
 
-		</script>
+</script>
 
-	</body>
+</body>
 
 </html>

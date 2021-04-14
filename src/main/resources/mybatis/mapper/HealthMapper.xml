@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.HealthMapper">
-        <!--    public Health getHealthById(Integer id);-->
-        <select id="getHealthById" resultType="health">
-                select * from health_tb where id=#{id}
-        </select>
-        <!--public List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);-->
-        <select id="getHealthsByType" resultType="health">
-                select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type} order by views desc
-        </select>
-        <!--public List<Health> getHealths(PageModel pageModel);-->
-        <select id="getHealths" resultType="health">
-                select * from health_tb  order by views desc
-                <if test="firstLimitParam!=null and pageSize!=null" >
-                        limit #{firstLimitParam} , #{pageSize}
-                </if>
-        </select>
-        <!--public Integer addHealth(Health health);-->
-        <insert id="addHealth">
-                insert into health_tb(title,author,edit_time,image,content,main_type,sub_type) values
-                      (#{title},#{author},#{editTime},#{image},#{content},#{mainType},#{subType})
-        </insert>
-        <!--public Integer delHealth(Integer id);-->
-        <delete id="delHealth">
-                delete from health_tb where id=#{id}
-        </delete>
-        <!--public Integer updateHealth(Health health);-->
-        <update id="updateHealth">
-                update health_tb set title=#{title},author=#{author},edit_time=#{editTime},image=#{image},content=#{content},main_type=#{mainType},sub_type=#{subType},views=#{views}
-                where id=#{id}
-        </update>
-        <!--public Integer getCount();-->
-        <select id="getCount" resultType="Integer">
-                select count(*) from  health_tb
-        </select>
+    <!--    public Health getHealthById(Integer id);-->
+    <select id="getHealthById" resultType="health">
+        select * from health_tb where id=#{id}
+    </select>
+    <!--public List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);-->
+    <select id="getHealthsByType" resultType="health">
+        select * from health_tb where main_type=#{main_type} and sub_type=#{sub_type} order by views desc
+    </select>
+    <!--public List<Health> getHealths(PageModel pageModel);-->
+    <select id="getHealths" resultType="health">
+        select * from health_tb order by views desc
+        <if test="firstLimitParam!=null and pageSize!=null">
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+    <!--public Integer addHealth(Health health);-->
+    <insert id="addHealth">
+        insert into health_tb(title,author,edit_time,image,content,main_type,sub_type) values
+        (#{title},#{author},#{editTime},#{image},#{content},#{mainType},#{subType})
+    </insert>
+    <!--public Integer delHealth(Integer id);-->
+    <delete id="delHealth">
+        delete from health_tb where id=#{id}
+    </delete>
+    <!--public Integer updateHealth(Health health);-->
+    <update id="updateHealth">
+        update health_tb set
+        title=#{title},author=#{author},edit_time=#{editTime},image=#{image},content=#{content},main_type=#{mainType},sub_type=#{subType},views=#{views}
+        where id=#{id}
+    </update>
+    <!--public Integer getCount();-->
+    <select id="getCount" resultType="Integer">
+        select count(*) from health_tb
+    </select>
 </mapper>

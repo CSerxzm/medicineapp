@@ -1,41 +1,41 @@
 
-J
-java:S3740R"/Provide the parametrized type for this generic.(™Ş­Ôşÿÿÿÿ
-J
-java:S3740F"/Provide the parametrized type for this generic.(ÏºÒúÿÿÿÿ
-E
-java:S3740L"/Provide the parametrized type for this generic.(Ÿ«±
-D
-java:S3740T"/Provide the parametrized type for this generic.(°ƒÃ1
-d
-java:S1192H"IDefine a constant instead of duplicating this literal "navigate" 4 times.(•ÌÀ©üÿÿÿÿ
-e	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ƒÃ1
-y
-java:S1128"dRemove this unused import 'org.codehaus.groovy.transform.sc.transformers.ListExpressionTransformer'.(Ñ¼Ëu
-M
-java:S1128"0Remove this unused import 'java.net.URLEncoder'.(ê¢ºÆ8úÛéÕñ.
-\
-java:S18544":Remove this useless assignment to local variable "videos".(ºö­şùÿÿÿÿ8×’ìñ.
 [
-java:S3752_">Add a "method" parameter to this "@RequestMapping" annotation.(ı¦æÁ8¼Ôñ.
-D
-java:S3740T"/Provide the parametrized type for this generic.(°ƒÃ1
-E
-java:S3740E"/Provide the parametrized type for this generic.(ºïëÃ
-M
-java:S14814"+Remove this unused "videos" local variable.(ºö­şùÿÿÿÿ8×’ìñ.
-J
-java:S3740F"/Provide the parametrized type for this generic.(ÏºÒúÿÿÿÿ
-E
-java:S3740E"/Provide the parametrized type for this generic.(ºïëÃ
+java:S3752d">Add a "method" parameter to this "@RequestMapping" annotation.(ı¦æÁ8¼Ôñ.
+e	java:S117Y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ƒÃ1
 L
-java:S3740 "/Provide the parametrized type for this generic.(‚Ê«8ç¢Ôñ.
-S
-java:S3752C">Add a "method" parameter to this "@RequestMapping" annotation.(”Ç
-U	java:S106;"9Replace this use of System.out or System.err by a logger.(şÎ½Œ8¥íÏóñ.
+java:S3740$"/Provide the parametrized type for this generic.(‚Ê«8ç¢Ôñ.
 J
-java:S3740R"/Provide the parametrized type for this generic.(™Ş­Ôşÿÿÿÿ
+java:S3740K"/Provide the parametrized type for this generic.(ÏºÒúÿÿÿÿ
+S
+java:S3752G">Add a "method" parameter to this "@RequestMapping" annotation.(”Ç
+y
+java:S1128"dRemove this unused import 'org.codehaus.groovy.transform.sc.transformers.ListExpressionTransformer'.(Ñ¼Ëu
+D
+java:S3740Y"/Provide the parametrized type for this generic.(°ƒÃ1
+M
+java:S1128"0Remove this unused import 'java.net.URLEncoder'.(ê¢ºÆ8úÛéÕñ.
+D
+java:S3740Y"/Provide the parametrized type for this generic.(°ƒÃ1
+J
+java:S3740W"/Provide the parametrized type for this generic.(™Ş­Ôşÿÿÿÿ
+\
+java:S18548":Remove this useless assignment to local variable "videos".(ºö­şùÿÿÿÿ8×’ìñ.
+J
+java:S3740W"/Provide the parametrized type for this generic.(™Ş­Ôşÿÿÿÿ
+U	java:S106?"9Replace this use of System.out or System.err by a logger.(şÎ½Œ8¥íÏóñ.
+d
+java:S1192M"IDefine a constant instead of duplicating this literal "navigate" 4 times.(•ÌÀ©üÿÿÿÿ
+J
+java:S3740K"/Provide the parametrized type for this generic.(ÏºÒúÿÿÿÿ
 E
-java:S3740L"/Provide the parametrized type for this generic.(Ÿ«±
+java:S3740J"/Provide the parametrized type for this generic.(ºïëÃ
 Ÿ
-java:S1130`"}Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException', as it cannot be thrown from method's body.(•ÏÏøÿÿÿÿ8÷‘àÕñ.
+java:S1130f"}Remove the declaration of thrown exception 'java.io.UnsupportedEncodingException', as it cannot be thrown from method's body.(•ÏÏøÿÿÿÿ8÷‘àÕñ.
+E
+java:S3740J"/Provide the parametrized type for this generic.(ºïëÃ
+L
+java:S3740Q"/Provide the parametrized type for this generic.(Ÿ«±8ˆ‰›Ğ÷.
+M
+java:S14818"+Remove this unused "videos" local variable.(ºö­şùÿÿÿÿ8×’ìñ.
+L
+java:S3740Q"/Provide the parametrized type for this generic.(Ÿ«±8ˆ‰›Ğ÷.

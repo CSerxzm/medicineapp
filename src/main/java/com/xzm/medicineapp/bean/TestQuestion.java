@@ -20,7 +20,7 @@ public class TestQuestion {
 
     private List<Answer> answerList;
 
-    public TestQuestion(){
+    public TestQuestion() {
 
     }
 

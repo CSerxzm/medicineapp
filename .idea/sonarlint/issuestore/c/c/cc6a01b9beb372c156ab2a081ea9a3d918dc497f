@@ -1,21 +1,22 @@
 
-Y
-java:S3752)">Add a "method" parameter to this "@RequestMapping" annotation.(Æ«ñ«ûÿÿÿÿ
 E
-java:S3740#"/Provide the parametrized type for this generic.(‰ÌÑŒ
+java:S3740("/Provide the parametrized type for this generic.(‰ÌÑŒ
+Y
+java:S3752=">Add a "method" parameter to this "@RequestMapping" annotation.(å™¯“ýÿÿÿÿ
+Y
+java:S3752.">Add a "method" parameter to this "@RequestMapping" annotation.(Æ«ñ«ûÿÿÿÿ
+U
+java:S18549":Remove this useless assignment to local variable "result".(‚´š‚ÿÿÿÿÿ
+F
+java:S14819"+Remove this unused "result" local variable.(‚´š‚ÿÿÿÿÿ
+U
+java:S1128":Remove this unused import 'com.xzm.medicineapp.bean.Food'.(šßÅìùÿÿÿÿ
+Z
+java:S1128
+"DRemove this unused import 'com.xzm.medicineapp.service.FoodService'.(ÑÚ‰ø
+Y
+java:S37524">Add a "method" parameter to this "@RequestMapping" annotation.(êüÅëøÿÿÿÿ
 g
 java:S1128"LRemove this unused import 'com.alibaba.fastjson.serializer.SerializeConfig'.(ìÛº©ýÿÿÿÿ
-F
-java:S14814"+Remove this unused "result" local variable.(‚´š‚ÿÿÿÿÿ
-Z
-java:S1128"DRemove this unused import 'com.xzm.medicineapp.service.FoodService'.(ÑÚ‰ø
 T
-java:S3752 ">Add a "method" parameter to this "@RequestMapping" annotation.(é¦Ô 
-U
-java:S18544":Remove this useless assignment to local variable "result".(‚´š‚ÿÿÿÿÿ
-Y
-java:S37528">Add a "method" parameter to this "@RequestMapping" annotation.(å™¯“ýÿÿÿÿ
-U
-java:S1128":Remove this unused import 'com.xzm.medicineapp.bean.Food'.(šßÅìùÿÿÿÿ
-Y
-java:S3752/">Add a "method" parameter to this "@RequestMapping" annotation.(êüÅëøÿÿÿÿ
+java:S3752%">Add a "method" parameter to this "@RequestMapping" annotation.(é¦Ô 

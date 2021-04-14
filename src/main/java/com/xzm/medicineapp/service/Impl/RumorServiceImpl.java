@@ -16,32 +16,33 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class RumorServiceImpl  implements RumorService {
+public class RumorServiceImpl implements RumorService {
 
     @Autowired
     private RumorDao rumorDao;
 
-    public Rumor getRumorById(Integer id){
+    public Rumor getRumorById(Integer id) {
         return rumorDao.getRumorById(id);
     }
-    public List<Rumor> getRumors(PageModel pageModel){
+
+    public List<Rumor> getRumors(PageModel pageModel) {
         Integer count = rumorDao.getCount();
         pageModel.setRecordCount(count);
         return rumorDao.getRumors(pageModel);
     }
 
     @Transactional
-    public Integer addRumor(Rumor rumor){
+    public Integer addRumor(Rumor rumor) {
         return rumorDao.addRumor(rumor);
     }
 
     @Transactional
-    public Integer delRumor(Integer id){
+    public Integer delRumor(Integer id) {
         return rumorDao.delRumor(id);
     }
 
     @Transactional
-    public Integer updateRumor(Rumor rumor){
+    public Integer updateRumor(Rumor rumor) {
         return rumorDao.updateRumor(rumor);
     }
 }

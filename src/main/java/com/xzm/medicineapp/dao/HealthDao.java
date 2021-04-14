@@ -21,27 +21,31 @@ public class HealthDao {
     @Resource
     public HealthMapper healthMapper;
 
-    public Health getOneById(Integer id){
+    public Health getOneById(Integer id) {
         return healthMapper.getHealthById(id);
     }
 
-    public List<Health> getHealthsByType(Integer mainType,Integer subType){
-        return healthMapper.getHealthsByType(mainType,subType);
+    public List<Health> getHealthsByType(Integer mainType, Integer subType) {
+        return healthMapper.getHealthsByType(mainType, subType);
     }
 
-    public List<Health> getHealths(PageModel pageModel){
+    public List<Health> getHealths(PageModel pageModel) {
         return healthMapper.getHealths(pageModel);
     }
-    public Integer addHealth(Health health){
+
+    public Integer addHealth(Health health) {
         return healthMapper.addHealth(health);
     }
-    public Integer delHealth(Integer id){
+
+    public Integer delHealth(Integer id) {
         return healthMapper.delHealth(id);
     }
-    public Integer updateHealth(Health health){
+
+    public Integer updateHealth(Health health) {
         return healthMapper.updateHealth(health);
     }
-    public Integer getCount(){
+
+    public Integer getCount() {
         return healthMapper.getCount();
     }
 }

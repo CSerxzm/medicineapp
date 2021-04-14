@@ -6,7 +6,7 @@
 
     <!--List<TestQuestion> selectQuestionByType(String type);-->
     <select id="selectQuestionByType" resultType="testQuestion">
-        select * from  test_question where type=#{type}
+        select * from test_question where type=#{type}
     </select>
 
 </mapper>

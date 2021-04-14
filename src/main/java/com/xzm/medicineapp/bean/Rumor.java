@@ -13,14 +13,14 @@ public class Rumor {
     private String source;
     private Integer reality;
 
-    public Rumor(){
+    public Rumor() {
 
     }
 
-    public Rumor(Integer id, String title,String image, String content, String source, Integer reality) {
+    public Rumor(Integer id, String title, String image, String content, String source, Integer reality) {
         this.id = id;
         this.title = title;
-        this.image=image;
+        this.image = image;
         this.content = content;
         this.source = source;
         this.reality = reality;

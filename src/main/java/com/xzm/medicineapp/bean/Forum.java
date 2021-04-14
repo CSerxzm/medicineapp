@@ -13,18 +13,18 @@ public class Forum {
 
     private Integer id;
     private User user;//发布者名字
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date editTime;
     private String content;
     private String keyword;
     private Integer comments;
 
-    public Forum(){
+    public Forum() {
 
     }
 
-    public Forum(Integer id, User user,String content, String keyword, Integer views, Integer comments) {
+    public Forum(Integer id, User user, String content, String keyword, Integer views, Integer comments) {
         this.id = id;
         this.user = user;
         this.editTime = new Date();

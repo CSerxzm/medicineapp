@@ -15,11 +15,17 @@ import java.util.List;
 public interface HealthMapper {
 
     Health getHealthById(Integer id);
-    List<Health> getHealthsByType(@Param("main_type") Integer main_type,@Param("sub_type") Integer sub_type);
+
+    List<Health> getHealthsByType(@Param("main_type") Integer main_type, @Param("sub_type") Integer sub_type);
+
     List<Health> getHealths(PageModel pageModel);
+
     Integer addHealth(Health health);
+
     Integer delHealth(Integer id);
+
     Integer updateHealth(Health health);
+
     Integer getCount();
 
 }

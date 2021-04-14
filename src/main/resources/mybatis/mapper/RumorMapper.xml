@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.RumorMapper">
-        <!-- public Rumor getRumorById(Integer id);-->
-        <select id="getRumorById" resultType="rumor">
-                select * from rumor_tb where id=#{id}
-        </select>
-        <!--public List<Rumor> getRumors(PageModel pageModel);-->
-        <select id="getRumors" resultType="rumor">
-                select * from rumor_tb  order by title desc
-                <if test="firstLimitParam!=null and pageSize!=null" >
-                        limit #{firstLimitParam} , #{pageSize}
-                </if>
-        </select>
-        <!--public Integer addRumor(Rumor rumor);-->
-        <insert id="addRumor">
-                insert into rumor_tb(title,image,content,source,reality) values
-                      (#{title},image=#{image},#{content},#{source},#{reality})
-        </insert>
-        <!--public Integer delRumor(Integer id);-->
-        <delete id="delRumor">
-                delete from rumor_tb where id=#{id}
-        </delete>
-        <!--public Integer updateRumor(Rumor rumor);-->
-        <update id="updateRumor">
-              update rumor_tb set title=#{title},image=#{image},content=#{content},source=#{source},reality=#{reality}
-              where id=#{id}
-        </update>
-        <!--public Integer getCount();-->
-        <select id="getCount" resultType="Integer">
-                select count(*) from  rumor_tb
-        </select>
+    <!-- public Rumor getRumorById(Integer id);-->
+    <select id="getRumorById" resultType="rumor">
+        select * from rumor_tb where id=#{id}
+    </select>
+    <!--public List<Rumor> getRumors(PageModel pageModel);-->
+    <select id="getRumors" resultType="rumor">
+        select * from rumor_tb order by title desc
+        <if test="firstLimitParam!=null and pageSize!=null">
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+    <!--public Integer addRumor(Rumor rumor);-->
+    <insert id="addRumor">
+        insert into rumor_tb(title,image,content,source,reality) values
+        (#{title},image=#{image},#{content},#{source},#{reality})
+    </insert>
+    <!--public Integer delRumor(Integer id);-->
+    <delete id="delRumor">
+        delete from rumor_tb where id=#{id}
+    </delete>
+    <!--public Integer updateRumor(Rumor rumor);-->
+    <update id="updateRumor">
+        update rumor_tb set title=#{title},image=#{image},content=#{content},source=#{source},reality=#{reality}
+        where id=#{id}
+    </update>
+    <!--public Integer getCount();-->
+    <select id="getCount" resultType="Integer">
+        select count(*) from rumor_tb
+    </select>
 </mapper>

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzm.medicineapp.mapper.PrescrMapper">
-        <!-- public Prescr getPrescrById(Integer id);-->
-        <select id="getPrescrById" resultType="prescr">
-                select * from prescr_tb where id=#{id}
-        </select>
-        <!--public List<Prescr> getPrescrs(PageModel pageModel);-->
-        <select id="getPrescrs" resultType="prescr">
-                select * from prescr_tb  order by name desc
-                <if test="firstLimitParam!=null and pageSize!=null" >
-                        limit #{firstLimitParam} , #{pageSize}
-                </if>
-        </select>
-        <!--public Integer addPrescr(Prescr prescr);-->
-        <insert id="addPrescr">
-                insert into prescr_tb(name,compose,funs,source) values
-                     (#{name},#{compose},#{funs},#{source})
-        </insert>
-        <!--public Integer delPrescr(Integer id);-->
-        <delete id="delPrescr">
-                delete from prescr_tb where id=#{id}
-        </delete>
-        <!--public Integer updatePrescr(Prescr prescr);-->
-        <update id="updatePrescr">
-                update prescr_tb set name=#{name},compose=#{compose},funs=#{funs},source=#{source}
-                where id=#{id}
-        </update>
-        <!--public Integer getCount();-->
-        <select id="getCount" resultType="Integer">
-                select count(*) from  prescr_tb
-        </select>
+    <!-- public Prescr getPrescrById(Integer id);-->
+    <select id="getPrescrById" resultType="prescr">
+        select * from prescr_tb where id=#{id}
+    </select>
+    <!--public List<Prescr> getPrescrs(PageModel pageModel);-->
+    <select id="getPrescrs" resultType="prescr">
+        select * from prescr_tb order by name desc
+        <if test="firstLimitParam!=null and pageSize!=null">
+            limit #{firstLimitParam} , #{pageSize}
+        </if>
+    </select>
+    <!--public Integer addPrescr(Prescr prescr);-->
+    <insert id="addPrescr">
+        insert into prescr_tb(name,compose,funs,source) values
+        (#{name},#{compose},#{funs},#{source})
+    </insert>
+    <!--public Integer delPrescr(Integer id);-->
+    <delete id="delPrescr">
+        delete from prescr_tb where id=#{id}
+    </delete>
+    <!--public Integer updatePrescr(Prescr prescr);-->
+    <update id="updatePrescr">
+        update prescr_tb set name=#{name},compose=#{compose},funs=#{funs},source=#{source}
+        where id=#{id}
+    </update>
+    <!--public Integer getCount();-->
+    <select id="getCount" resultType="Integer">
+        select count(*) from prescr_tb
+    </select>
 </mapper>

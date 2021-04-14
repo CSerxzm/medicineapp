@@ -15,13 +15,13 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         Object user = httpServletRequest.getSession().getAttribute("loginUser");
-        if (user==null){
+        if (user == null) {
             //未登录
-            httpServletRequest.setAttribute("msg","没有权限登录");
-            httpServletRequest.getRequestDispatcher("/").forward(httpServletRequest,httpServletResponse);
+            httpServletRequest.setAttribute("msg", "没有权限登录");
+            httpServletRequest.getRequestDispatcher("/").forward(httpServletRequest, httpServletResponse);
             return false;
 
-        }else{
+        } else {
             //登录,放行
             return true;
         }

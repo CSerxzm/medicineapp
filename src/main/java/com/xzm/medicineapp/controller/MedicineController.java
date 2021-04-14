@@ -26,30 +26,31 @@ public class MedicineController {
 
     @Autowired
     private MedicineService medicineService;
+
     @ResponseBody
     @RequestMapping("/getmedicinebyid")
-    public String getMedicineById(Integer id){
+    public String getMedicineById(Integer id) {
         Medicine medicine = medicineService.getMedicineById(id);
         return JSON.toJSONString(medicine);
     }
 
     @ResponseBody
     @RequestMapping("/getmedicines")
-    public String getMedicines(PageModel pageModel){
+    public String getMedicines(PageModel pageModel) {
         List<Medicine> medicineList = medicineService.getMedicines(pageModel);
-        Map<String,Object> map = new HashMap();
-        map.put("page",pageModel);
-        map.put("data",medicineList);
+        Map<String, Object> map = new HashMap();
+        map.put("page", pageModel);
+        map.put("data", medicineList);
         return JSON.toJSONString(map);
     }
 
     @ResponseBody
     @RequestMapping("/searchmedicines")
-    public String searchMedicines(PageModel pageModel,String name){
-        List<Medicine> medicineList = medicineService.searchMedicines(pageModel,name);
-        Map<String,Object> map = new HashMap();
-        map.put("page",pageModel);
-        map.put("data",medicineList);
+    public String searchMedicines(PageModel pageModel, String name) {
+        List<Medicine> medicineList = medicineService.searchMedicines(pageModel, name);
+        Map<String, Object> map = new HashMap();
+        map.put("page", pageModel);
+        map.put("data", medicineList);
         return JSON.toJSONString(map);
     }
 
@@ -57,47 +58,47 @@ public class MedicineController {
     /*************************后台管理*************************/
 
     @GetMapping("/back/medicines")
-    public String backMedicines(ModelMap modelMap,PageModel pageModel){
+    public String backMedicines(ModelMap modelMap, PageModel pageModel) {
         Collection<Medicine> medicines = medicineService.getMedicines(pageModel);
-        modelMap.addAttribute("medicines",medicines);
-        modelMap.addAttribute("pagemodel",pageModel);
+        modelMap.addAttribute("medicines", medicines);
+        modelMap.addAttribute("pagemodel", pageModel);
         return "medicine/list";
     }
 
     @GetMapping("/back/medicine")
-    public String toAddPage(){
+    public String toAddPage() {
         return "medicine/add";
     }
 
     @PostMapping("/back/medicine")
-    public String addMedicine(Medicine medicine){
+    public String addMedicine(Medicine medicine) {
         medicineService.addMedicine(medicine);
         return "redirect:/back/medicines";
     }
 
     @GetMapping("/back/medicineinfo/{id}")
-    public String toInfoPage(@PathVariable("id") Integer id,ModelMap modelMap){
+    public String toInfoPage(@PathVariable("id") Integer id, ModelMap modelMap) {
         Medicine medicine = medicineService.getMedicineById(id);
-        modelMap.addAttribute("medicine",medicine);
+        modelMap.addAttribute("medicine", medicine);
         return "medicine/info";
     }
 
     @GetMapping("/back/medicine/{id}")
-    public String toEditPage(@PathVariable("id") Integer id, ModelMap modelMap){
+    public String toEditPage(@PathVariable("id") Integer id, ModelMap modelMap) {
         Medicine medicine = medicineService.getMedicineById(id);
-        modelMap.addAttribute("medicine",medicine);
+        modelMap.addAttribute("medicine", medicine);
         //回到修改页面(add是一个修改添加二合一的页面);
         return "medicine/add";
     }
 
     @PutMapping("/back/medicine")
-    public String updateMedicine(Medicine medicine){
+    public String updateMedicine(Medicine medicine) {
         medicineService.updateMedicine(medicine);
         return "redirect:/back/medicines";
     }
 
     @DeleteMapping("/back/medicine/{id}")
-    public String deleteMedicine(@PathVariable("id") Integer id){
+    public String deleteMedicine(@PathVariable("id") Integer id) {
         medicineService.delMedicine(id);
         return "redirect:/back/medicines";
     }

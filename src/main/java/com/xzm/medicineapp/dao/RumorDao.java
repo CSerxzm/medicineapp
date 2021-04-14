@@ -18,23 +18,27 @@ public class RumorDao {
     @Resource
     public RumorMapper rumorMapper;
 
-    public Rumor getRumorById(Integer id){
+    public Rumor getRumorById(Integer id) {
         return rumorMapper.getRumorById(id);
     }
-    public List<Rumor> getRumors(PageModel pageModel){
+
+    public List<Rumor> getRumors(PageModel pageModel) {
         return rumorMapper.getRumors(pageModel);
     }
-    public Integer addRumor(Rumor rumor){
+
+    public Integer addRumor(Rumor rumor) {
         return rumorMapper.addRumor(rumor);
     }
-    public Integer delRumor(Integer id){
+
+    public Integer delRumor(Integer id) {
         return rumorMapper.delRumor(id);
     }
-    public Integer updateRumor(Rumor rumor){
+
+    public Integer updateRumor(Rumor rumor) {
         return rumorMapper.updateRumor(rumor);
     }
 
-    public Integer getCount(){
+    public Integer getCount() {
         return rumorMapper.getCount();
     }
 }

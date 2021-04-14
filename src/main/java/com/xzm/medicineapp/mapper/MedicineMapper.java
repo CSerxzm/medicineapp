@@ -15,12 +15,18 @@ import java.util.List;
 public interface MedicineMapper {
 
     Medicine getMedicineById(Integer id);
+
     List<Medicine> getMedicines(PageModel pageModel);
+
     List<Medicine> searchMedicines(@Param("firstLimitParam") Integer firstLimitParam,
                                    @Param("pageSize") Integer pageSize,
                                    @Param("name") String name);
+
     Integer addMedicine(Medicine medicine);
+
     Integer delMedicine(Integer id);
+
     Integer updateMedicine(Medicine medicine);
+
     Integer getCount(String name);
 }

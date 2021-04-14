@@ -18,10 +18,15 @@ import java.util.List;
 public interface HealthService {
 
     Health getHealthById(Integer id);
-    List<Health> getHealthsByType(Integer mainType,Integer subType);
+
+    List<Health> getHealthsByType(Integer mainType, Integer subType);
+
     List<Health> getHealths(PageModel pageModel);
+
     Integer addHealth(Health health);
+
     Integer delHealth(Integer id);
+
     Integer updateHealth(Health health);
 
 }

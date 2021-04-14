@@ -31,52 +31,52 @@ public class TestDao {
     @Autowired
     TestPaperMapper testPaperMapper;
 
-    public TestResult selectResultById(Integer id){
+    public TestResult selectResultById(Integer id) {
         return testResultMapper.selectResultById(id);
     }
 
-    public List<TestQuestion> selectQuestionByType(String type){
+    public List<TestQuestion> selectQuestionByType(String type) {
         return testQuestionMapper.selectQuestionByType(type);
     }
 
-    public TestResult selectResultByType(String type){
+    public TestResult selectResultByType(String type) {
         return testResultMapper.selectResultByType(type);
     }
 
-    public List<TestResult> selectAllType(){
+    public List<TestResult> selectAllType() {
         return testResultMapper.selectAllType();
     }
 
-    public Integer updateTestResult(TestResult testResult){
+    public Integer updateTestResult(TestResult testResult) {
         return testResultMapper.updateTestResult(testResult);
     }
 
-    public Integer addTestPaper(TestPaper testPaper){
+    public Integer addTestPaper(TestPaper testPaper) {
         return testPaperMapper.addTestPaper(testPaper);
     }
 
-    public List<TestPaper> selectPaperByUser(PageModel pageModel, String name){
+    public List<TestPaper> selectPaperByUser(PageModel pageModel, String name) {
         return testPaperMapper.selectPaperByUser(pageModel.getFirstLimitParam(),
-                pageModel.getPageSize(),name);
+                pageModel.getPageSize(), name);
     }
 
-    public Integer getCount(String name){
+    public Integer getCount(String name) {
         return testPaperMapper.getCount(name);
     }
 
-    public List<TestPaper> getTestPapers(PageModel pageModel){
+    public List<TestPaper> getTestPapers(PageModel pageModel) {
         return testPaperMapper.getTestPapers(pageModel);
     }
 
-    public Integer delTestPaper(Integer id){
+    public Integer delTestPaper(Integer id) {
         return testPaperMapper.delTestPaper(id);
     }
 
-    public Integer delPaperByUser(String name){
+    public Integer delPaperByUser(String name) {
         return testPaperMapper.delTestPaperByName(name);
     }
 
-    public List<TestResult> selectTestResults(){
+    public List<TestResult> selectTestResults() {
         return testResultMapper.selectTestResults();
     }
 }

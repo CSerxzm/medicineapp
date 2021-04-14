@@ -26,39 +26,43 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
+
     @ResponseBody
     @RequestMapping("/getcommentsbyforumid")
-    public String getCommentsByForumId(Integer forum_id){
+    public String getCommentsByForumId(Integer forum_id) {
         List<Comment> commentList = commentService.getCommentsByForumId(forum_id);
         return JSON.toJSONString(commentList);
     }
+
     @ResponseBody
     @RequestMapping("/addcomment")
-    public String addComment(Comment comment,String name){
+    public String addComment(Comment comment, String name) {
         User user = new User();
         user.setName(name);
         comment.setUser(user);
         Integer result = commentService.addComment(comment);
         return JSON.toJSONString(comment);
     }
+
     @ResponseBody
     @RequestMapping("/delcommentbyid")
-    public String delCommentById(Integer id){
+    public String delCommentById(Integer id) {
         Integer result = commentService.delCommentById(id);
         return JSON.toJSONString(result);
     }
+
     /*************************后台管理*************************/
 
     @GetMapping("/back/comments")
-    public String backComments(ModelMap modelMap,PageModel pageModel){
+    public String backComments(ModelMap modelMap, PageModel pageModel) {
         Collection<Comment> comments = commentService.getComments(pageModel);
-        modelMap.addAttribute("comments",comments);
-        modelMap.addAttribute("pagemodel",pageModel);
+        modelMap.addAttribute("comments", comments);
+        modelMap.addAttribute("pagemodel", pageModel);
         return "comment/list";
     }
 
     @DeleteMapping("/back/comment/{id}")
-    public String deleteComment(@PathVariable("id") Integer id){
+    public String deleteComment(@PathVariable("id") Integer id) {
         commentService.delCommentById(id);
         return "redirect:/back/comments";
     }

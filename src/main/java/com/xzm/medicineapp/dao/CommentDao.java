@@ -20,39 +20,42 @@ public class CommentDao {
     @Resource
     public CommentMapper commentMapper;
 
-    public List<Comment> getComments(PageModel pageModel){
+    public List<Comment> getComments(PageModel pageModel) {
         return commentMapper.getComments(pageModel);
     }
+
     //得到评论列表
-    public List<Comment> getCommentsByForumId(Integer forum_id){
+    public List<Comment> getCommentsByForumId(Integer forum_id) {
         return commentMapper.getCommentsByForumId(forum_id);
     }
+
     //添加评论
-    public Integer addComment(Comment comment){
+    public Integer addComment(Comment comment) {
         return commentMapper.addComment(comment);
     }
+
     //删除评论
-    public Integer delCommentById(Integer id){
+    public Integer delCommentById(Integer id) {
         return commentMapper.delCommentById(id);
     }
 
-    public Integer getCount(){
+    public Integer getCount() {
         return commentMapper.getCount();
     }
 
-    public Integer getForumIdbyId(Integer id){
+    public Integer getForumIdbyId(Integer id) {
         return commentMapper.getForumIdbyId(id);
     }
 
-    public List<Comment> getCommentsByUserName(String name){
+    public List<Comment> getCommentsByUserName(String name) {
         return commentMapper.getCommentsByUserName(name);
     }
 
-    public Integer delCommentsByUserName(String name){
+    public Integer delCommentsByUserName(String name) {
         return commentMapper.delCommentsByUserName(name);
     }
 
-    public Integer delCommentsByForumId(Integer id){
+    public Integer delCommentsByForumId(Integer id) {
         return commentMapper.delCommentsByForumId(id);
     }
 }

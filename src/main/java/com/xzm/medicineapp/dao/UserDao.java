@@ -19,43 +19,43 @@ public class UserDao {
     @Resource
     public UserMapper userMapper;
 
-    public User getUser(User user){
+    public User getUser(User user) {
         return userMapper.getUser(user);
     }
 
-    public List<User> getUsers(PageModel pageModel){
+    public List<User> getUsers(PageModel pageModel) {
         return userMapper.getUsers(pageModel);
     }
 
-    public Integer addUser(User user){
+    public Integer addUser(User user) {
         return userMapper.addUser(user);
     }
 
-    public Integer delUser(String name){
+    public Integer delUser(String name) {
         return userMapper.delUser(name);
     }
 
-    public Integer updateUser(User user){
+    public Integer updateUser(User user) {
         return userMapper.updateUser(user);
     }
 
-    public User getUserByName(String name){
+    public User getUserByName(String name) {
         return userMapper.getUserByName(name);
     }
 
-    public Integer getCount(){
+    public Integer getCount() {
         return userMapper.getCount();
     }
 
-    public Integer registUser(User user){
+    public Integer registUser(User user) {
         return userMapper.registUser(user);
     }
 
-    public Integer updateUserWithoutPassAndAuthority(User user){
+    public Integer updateUserWithoutPassAndAuthority(User user) {
         return userMapper.updateUserWithoutPassAndAuthority(user);
     }
 
-    public Integer updateUserPass(User user){
+    public Integer updateUserPass(User user) {
         return userMapper.updateUserPass(user);
     }
 }

@@ -37,10 +37,11 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 登录用户
+     *
      * @param user
      * @return
      */
-    public User login(User user){
+    public User login(User user) {
         String pass = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
         user.setPassword(pass);
         User result = userDao.getUser(user);
@@ -49,36 +50,38 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 分页得到所有的用户
+     *
      * @param pageModel
      * @return
      */
-    public List<User> getUsers(PageModel pageModel){
+    public List<User> getUsers(PageModel pageModel) {
         Integer count = userDao.getCount();
         pageModel.setRecordCount(count);
         return userDao.getUsers(pageModel);
     }
 
-    public Integer addUser(User user){
+    public Integer addUser(User user) {
         return userDao.addUser(user);
     }
 
     /**
      * 删除用户
+     *
      * @param name
      * @return
      */
     @Transactional
-    public Integer delUser(String name){
+    public Integer delUser(String name) {
         //删除用户发表的评论
         List<Comment> comments = commentDao.getCommentsByUserName(name);
-        for(Comment comment:comments){
+        for (Comment comment : comments) {
             //降低评论数
             forumDao.delComments(comment.getForumId());
         }
         commentDao.delCommentsByUserName(name);
         //删除用户发表的论坛
         List<Forum> forums = forumDao.getForumByUserName(name);
-        for(Forum forum :forums){
+        for (Forum forum : forums) {
             commentDao.delCommentsByForumId(forum.getId());
         }
         forumDao.delForumByUserName(name);
@@ -88,28 +91,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    public Integer updateUser(User user){
+    public Integer updateUser(User user) {
         return userDao.updateUser(user);
     }
 
     /**
      * 得到用户名
+     *
      * @param name
      * @return
      */
-    public User getUserByName(String name){
+    public User getUserByName(String name) {
         return userDao.getUserByName(name);
     }
 
     /**
      * 注册用户
+     *
      * @param user
      * @return
      */
     @Transactional
-    public Integer registUser(User user){
+    public Integer registUser(User user) {
         User userByName = userDao.getUserByName(user.getName());
-        if(userByName!=null){
+        if (userByName != null) {
             return 0;
         }
         String pass = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
@@ -119,27 +124,29 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 保存用户的相关信息，除了用户密码和权限
+     *
      * @param user
      * @return
      */
     @Transactional
-    public User updateUserWithoutPassAndAuthority(User user){
+    public User updateUserWithoutPassAndAuthority(User user) {
         userDao.updateUserWithoutPassAndAuthority(user);
         User userByName = userDao.getUserByName(user.getName());
-        return  userByName;
+        return userByName;
     }
 
     /**
      * 更新用户密码
+     *
      * @param user
      * @param oldPass
      * @return
      */
     @Transactional
-    public User updateUserPass(User user,String oldPass){
+    public User updateUserPass(User user, String oldPass) {
         User userByName = userDao.getUserByName(user.getName());
         String pass = DigestUtils.md5DigestAsHex(oldPass.getBytes());
-        if(!userByName.getPassword().equals(pass)){
+        if (!userByName.getPassword().equals(pass)) {
             //密码错误，原有的
             return null;
         }

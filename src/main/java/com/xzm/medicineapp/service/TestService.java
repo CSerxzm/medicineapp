@@ -19,18 +19,20 @@ public interface TestService {
 
     /**
      * 获得测试建议
+     *
      * @param id
      * @return
      */
     TestResult selectResultById(Integer id);
 
-    TestResult selectResultByType(List<Answer> answerList,String name);
+    TestResult selectResultByType(List<Answer> answerList, String name);
 
     List<TestResult> selectAllType();
 
 
     /**
      * 获得用户的测试记录
+     *
      * @param pageModel
      * @param name
      * @return
@@ -39,6 +41,7 @@ public interface TestService {
 
     /**
      * 通过类型获得相关的建议
+     *
      * @param name
      * @return
      */
@@ -46,6 +49,7 @@ public interface TestService {
 
     /**
      * 分页获得所有的测试记录
+     *
      * @param pageModel
      * @return
      */
@@ -53,6 +57,7 @@ public interface TestService {
 
     /**
      * 删除测试记录
+     *
      * @param id
      * @return
      */
@@ -60,12 +65,14 @@ public interface TestService {
 
     /**
      * 获得所有的测试记录
+     *
      * @return
      */
     List<TestResult> selectTestResults();
 
     /**
      * 更新测试建议
+     *
      * @param testResult
      * @return
      */
