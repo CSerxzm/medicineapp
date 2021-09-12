@@ -48,7 +48,7 @@ public class UserController {
     @RequestMapping("/registuser")
     public String registUser(User user) {
         user.setAuthority("user");
-        user.setImage("http://47.102.155.48:8080/pic_medicineapp/head1.png");
+        user.setImage("http://localhost:8080/pic_medicineapp/head1.png");
         user.setSex(1);//男性
         user.setConstellation("天蝎座");
         Integer flag = userService.registUser(user);

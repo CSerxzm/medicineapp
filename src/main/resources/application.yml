@@ -1,12 +1,12 @@
 spring:
   datasource:
-#   数据源基本配置
+    #   数据源基本配置
     username: root
-    password: egova
+    password: password
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/medicineapp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=CTT
     type: com.alibaba.druid.pool.DruidDataSource
-#   数据源其他配置
+    #   数据源其他配置
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -18,7 +18,7 @@ spring:
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
     filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
@@ -46,7 +46,7 @@ spring:
       maxIdle: 10
       maxWait: 3
       maxActive: 8
-    password: egovaredis
+    password: password
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
@@ -54,6 +54,6 @@ spring:
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations:
-    - classpath:mybatis/mapper/*.xml
+  - classpath:mybatis/mapper/*.xml
 server:
   context-path: /medicineapp
