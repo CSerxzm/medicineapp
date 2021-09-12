@@ -8,9 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1141030-4e8b-42f2-939f-0043c047ba7b" name="Default" comment="验收修改为本地">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -94,7 +92,7 @@
           <entry key="js" value="2" />
           <entry key="md" value="16" />
           <entry key="sql" value="10" />
-          <entry key="txt" value="182" />
+          <entry key="txt" value="183" />
           <entry key="xml" value="698" />
           <entry key="yml" value="369" />
         </counts>
@@ -106,7 +104,7 @@
           <entry key="JAVA" value="7278" />
           <entry key="JavaScript" value="2" />
           <entry key="Markdown" value="16" />
-          <entry key="PLAIN_TEXT" value="182" />
+          <entry key="PLAIN_TEXT" value="183" />
           <entry key="SQL" value="26" />
           <entry key="XML" value="682" />
           <entry key="YAML" value="369" />
@@ -146,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/RumorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-605">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="146">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -165,16 +163,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1207">
-              <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+              <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -200,8 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="51" column="27" lean-forward="true" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+            <state relative-caret-position="209">
+              <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -227,12 +216,15 @@
       <find>btn-sm</find>
       <find>food</find>
       <find>47.102.155.48</find>
+      <find>local</find>
+      <find>192.168.43.83</find>
     </findStrings>
     <replaceStrings>
       <replace>rumor</replace>
       <replace>food</replace>
       <replace>forum</replace>
       <replace>comment</replace>
+      <replace>localhost</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -296,9 +288,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/health/list.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/com/xzm/medicineapp/MedicineappApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java" />
       </list>
     </option>
   </component>
@@ -538,7 +530,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1631425369034" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1631430836312" />
     <property name="last_opened_file_path" value="E:/Company/temp/wizdom-urban-v14" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -953,7 +945,7 @@
       <workItem from="1616490357357" duration="207000" />
       <workItem from="1618397752298" duration="2075000" />
       <workItem from="1618401442613" duration="1446000" />
-      <workItem from="1631413168552" duration="2889000" />
+      <workItem from="1631413168552" duration="5255000" />
     </task>
     <task id="LOCAL-00001" summary="更新relatity字段为int">
       <created>1610886378507</created>
@@ -1011,7 +1003,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618399704885</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="验收修改为本地">
+      <created>1631425393974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631425393975</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1047,7 +1046,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283866000" />
+    <option name="totallyTimeSpent" value="286232000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1073,7 +1072,7 @@
       <window_info id="JRebel" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.14655173" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.47733712" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" visible="true" weight="0.47733712" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.497979" weight="0.5594901" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1082,7 +1081,7 @@
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502021" side_tool="true" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.32577905" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32577905" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.57015985" />
       <window_info anchor="bottom" id="Run with VisualVM" order="14" />
@@ -1529,10 +1528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/RumorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-605">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="209">
+          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1543,24 +1542,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/RumorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1207">
-          <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+        <state relative-caret-position="146">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xzm/medicineapp/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="51" column="27" lean-forward="true" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        <state relative-caret-position="191">
+          <caret line="83" column="51" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
         </state>
       </provider>
     </entry>
